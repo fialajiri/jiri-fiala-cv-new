@@ -1,0 +1,259 @@
+/* Global styles for Matrix background */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Terminal Chatbot CSS */
+.terminal-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: transparent;
+  color: #00ff00;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+/* Terminal Header */
+.terminal-header {
+  background-color: #2d3748;
+  padding: 8px 16px;
+  border-bottom: 1px solid #4a5568;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button-red {
+  background-color: #ef4444;
+}
+
+.terminal-button-yellow {
+  background-color: #eab308;
+}
+
+.terminal-button-green {
+  background-color: #22c55e;
+}
+
+.terminal-title {
+  color: #d1d5db;
+  font-size: 12px;
+}
+
+/* Terminal Content */
+.terminal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  margin: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+/* Messages */
+.message {
+  margin-bottom: 8px;
+}
+
+.system-message {
+  margin-bottom: 16px;
+}
+
+.system-label {
+  color: #00ff00;
+}
+
+.system-text {
+  color: #d1d5db;
+}
+
+.user-message {
+  margin-bottom: 4px;
+}
+
+.bot-message {
+  margin-bottom: 4px;
+}
+
+.typing-message {
+  margin-bottom: 4px;
+}
+
+/* Prompt styling */
+.prompt-line {
+  display: flex;
+  align-items: center;
+}
+
+.user-prompt {
+  color: #60a5fa;
+}
+
+.bot-prompt {
+  color: #fbbf24;
+}
+
+.prompt-separator {
+  color: #ffffff;
+}
+
+.prompt-path {
+  color: #a855f7;
+}
+
+.prompt-dollar {
+  color: #ffffff;
+}
+
+.user-text {
+  color: #f3f4f6;
+}
+
+.bot-text {
+  color: #86efac;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.thinking-text {
+  color: #86efac;
+}
+
+.thinking-dots {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.timestamp {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Input Line */
+.input-line {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  color: #f3f4f6;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  min-width: 0;
+  caret-color: #00ff00;
+}
+
+.terminal-input::placeholder {
+  color: #6b7280;
+}
+
+.cursor {
+  color: #00ff00;
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Scrollbar styling for webkit browsers */
+.terminal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-container {
+    font-size: 12px;
+  }
+
+  .terminal-content {
+    padding: 12px;
+  }
+
+  .terminal-header {
+    padding: 6px 12px;
+  }
+}
+
+/* Focus states */
+.terminal-input:focus {
+  outline: none;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #4a5568;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #4a5568;
+  color: #ffffff;
+}
