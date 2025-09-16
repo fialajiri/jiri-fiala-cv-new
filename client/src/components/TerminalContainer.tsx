@@ -12,9 +12,8 @@ interface TerminalContainerProps {
   onKeyPress: (e: React.KeyboardEvent) => void;
   isTyping: boolean;
   displayedContent: Record<string, string>;
-  accumulatedContent: Record<string, string>;
   streamingMessageId: string | null;
-  isTypingRef: React.MutableRefObject<Record<string, boolean>>;
+  isTypingAnimationComplete: boolean;
 }
 
 const TerminalContainer: React.FC<TerminalContainerProps> = ({
@@ -24,9 +23,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   onKeyPress,
   isTyping,
   displayedContent,
-  accumulatedContent,
-  streamingMessageId,
-  isTypingRef,
+  isTypingAnimationComplete,
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
 
@@ -44,14 +41,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
 
       {/* Terminal Content */}
       <div ref={terminalRef} className="terminal-content">
-        <MessageList
-          messages={messages}
-          displayedContent={displayedContent}
-          accumulatedContent={accumulatedContent}
-          streamingMessageId={streamingMessageId}
-          isTyping={isTyping}
-          isTypingRef={isTypingRef}
-        />
+        <MessageList messages={messages} displayedContent={displayedContent} />
 
         {/* Current Input Line */}
         <InputLine
@@ -59,6 +49,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
           setCurrentInput={setCurrentInput}
           onKeyPress={onKeyPress}
           isTyping={isTyping}
+          isTypingAnimationComplete={isTypingAnimationComplete}
         />
       </div>
     </div>

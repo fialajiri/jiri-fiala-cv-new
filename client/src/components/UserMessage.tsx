@@ -13,7 +13,7 @@ const UserMessage: React.FC<UserMessageProps> = ({ message }) => {
         <span className="user-prompt">user@terminal</span>
         <span className="prompt-separator">:</span>
         <span className="prompt-path">~</span>
-        <span className="prompt-dollar">$&nbsp;</span>
+        <span className="prompt-dollar">$ </span>
         <span className="user-text">{message.content}</span>
       </div>
     </div>

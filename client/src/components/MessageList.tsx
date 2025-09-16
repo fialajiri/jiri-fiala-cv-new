@@ -3,25 +3,16 @@ import type { Message } from '../lib/utils';
 import SystemMessage from './SystemMessage';
 import UserMessage from './UserMessage';
 import BotMessage from './BotMessage';
-import TypingIndicator from './TypingIndicator';
 import './MessageList.css';
 
 interface MessageListProps {
   messages: Message[];
   displayedContent: Record<string, string>;
-  accumulatedContent: Record<string, string>;
-  streamingMessageId: string | null;
-  isTyping: boolean;
-  isTypingRef: React.MutableRefObject<Record<string, boolean>>;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   messages,
   displayedContent,
-  accumulatedContent,
-  streamingMessageId,
-  isTyping,
-  isTypingRef,
 }) => {
   const renderMessage = (message: Message) => {
     switch (message.type) {
@@ -35,9 +26,6 @@ const MessageList: React.FC<MessageListProps> = ({
             key={message.id}
             message={message}
             displayedContent={displayedContent}
-            accumulatedContent={accumulatedContent}
-            streamingMessageId={streamingMessageId}
-            isTypingRef={isTypingRef}
           />
         );
       default:
@@ -45,12 +33,7 @@ const MessageList: React.FC<MessageListProps> = ({
     }
   };
 
-  return (
-    <>
-      {messages.map(renderMessage)}
-      {isTyping && !streamingMessageId && <TypingIndicator />}
-    </>
-  );
+  return <>{messages.map(renderMessage)}</>;
 };
 
 export default MessageList;

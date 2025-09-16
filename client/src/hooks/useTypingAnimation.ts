@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState } from 'react';
 
 interface TypingState {
   displayedContent: Record<string, string>;
@@ -16,18 +16,8 @@ export const useTypingAnimation = (state: TypingState) => {
   const accumulatedContentRef = useRef<Record<string, string>>({});
   const typingQueueRef = useRef<Record<string, string[]>>({});
   const isTypingRef = useRef<Record<string, boolean>>({});
-
-  const addChunkToQueue = useCallback((messageId: string, chunk: string) => {
-    if (!typingQueueRef.current[messageId]) {
-      typingQueueRef.current[messageId] = [];
-    }
-    typingQueueRef.current[messageId].push(chunk);
-
-    // Start typing if not already typing
-    if (!isTypingRef.current[messageId]) {
-      processTypingQueue(messageId);
-    }
-  }, []);
+  const [isTypingAnimationComplete, setIsTypingAnimationComplete] =
+    useState(true);
 
   const processTypingQueue = useCallback(
     (messageId: string, speed: number = 25) => {
@@ -36,10 +26,12 @@ export const useTypingAnimation = (state: TypingState) => {
         typingQueueRef.current[messageId].length === 0
       ) {
         isTypingRef.current[messageId] = false;
+        setIsTypingAnimationComplete(true);
         return;
       }
 
       isTypingRef.current[messageId] = true;
+      setIsTypingAnimationComplete(false);
       const chunk = typingQueueRef.current[messageId].shift()!;
       let currentIndex = 0;
 
@@ -74,6 +66,21 @@ export const useTypingAnimation = (state: TypingState) => {
     [state]
   );
 
+  const addChunkToQueue = useCallback(
+    (messageId: string, chunk: string) => {
+      if (!typingQueueRef.current[messageId]) {
+        typingQueueRef.current[messageId] = [];
+      }
+      typingQueueRef.current[messageId].push(chunk);
+
+      // Start typing if not already typing
+      if (!isTypingRef.current[messageId]) {
+        processTypingQueue(messageId);
+      }
+    },
+    [processTypingQueue]
+  );
+
   const initializeMessage = useCallback(
     (messageId: string) => {
       state.setDisplayedContent(prev => ({ ...prev, [messageId]: '' }));
@@ -81,6 +88,7 @@ export const useTypingAnimation = (state: TypingState) => {
       accumulatedContentRef.current[messageId] = '';
       typingQueueRef.current[messageId] = [];
       isTypingRef.current[messageId] = false;
+      setIsTypingAnimationComplete(false);
     },
     [state]
   );
@@ -112,5 +120,6 @@ export const useTypingAnimation = (state: TypingState) => {
     cleanup,
     isTypingRef,
     accumulatedContentRef,
+    isTypingAnimationComplete,
   };
 };

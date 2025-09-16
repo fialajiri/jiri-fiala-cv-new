@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { api, type ChatRequest, type ChatMessage } from '../lib/api-client';
 
 // Types for streaming
@@ -8,40 +8,9 @@ export interface StreamChunk {
   history?: ChatMessage[];
 }
 
-// Query keys
-export const queryKeys = {
-  health: ['health'] as const,
-  chat: ['chat'] as const,
-} as const;
-
-// Health check hook
-export const useHealthCheck = () => {
-  return useQuery({
-    queryKey: queryKeys.health,
-    queryFn: api.healthCheck,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-  });
-};
-
-// Chat mutation hook
 export const useSendMessage = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
     mutationFn: (data: ChatRequest) => api.sendMessage(data),
-    onSuccess: () => {
-      // Invalidate chat queries to refetch if needed
-      queryClient.invalidateQueries({ queryKey: queryKeys.chat });
-    },
-  });
-};
-
-// Chat history hook (if you want to store chat history in React Query)
-export const useChatHistory = () => {
-  return useQuery({
-    queryKey: queryKeys.chat,
-    queryFn: () => Promise.resolve([]), // This would be replaced with actual history fetching
-    enabled: false, // Disabled by default since we're managing state locally
   });
 };
 

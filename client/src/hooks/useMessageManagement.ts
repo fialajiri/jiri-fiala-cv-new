@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import type { Message } from '../lib/utils';
 import type { ChatMessage } from '../lib/api-client';
-import { createUserMessage, createBotMessage } from '../lib/utils';
 
 export const useMessageManagement = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -17,13 +17,21 @@ export const useMessageManagement = () => {
   >({});
 
   const addUserMessage = useCallback((content: string) => {
-    const userMessage = createUserMessage(content);
+    const userMessage: Message = {
+      id: uuidv4(),
+      type: 'user',
+      content: content.trim(),
+    };
     setMessages(prev => [...prev, userMessage]);
     return userMessage;
   }, []);
 
   const addBotMessage = useCallback(() => {
-    const botMessage = createBotMessage();
+    const botMessage: Message = {
+      id: uuidv4(),
+      type: 'bot',
+      content: '',
+    };
     setMessages(prev => [...prev, botMessage]);
     setStreamingMessageId(botMessage.id);
     return botMessage;
@@ -70,7 +78,6 @@ export const useMessageManagement = () => {
     setAccumulatedContent,
     addUserMessage,
     addBotMessage,
-    updateBotMessage,
     finishStreaming,
     handleStreamingError,
     handleApiError,

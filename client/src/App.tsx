@@ -46,6 +46,8 @@ const AppContent: React.FC = () => {
     setAccumulatedContent,
   });
 
+  const isTypingAnimationComplete = typingAnimation.isTypingAnimationComplete;
+
   // Initialize messages on mount
   useEffect(() => {
     setMessages(getInitialMessages());
@@ -102,13 +104,8 @@ const AppContent: React.FC = () => {
     if (e.key === 'Enter' && !isTyping) {
       if (!currentInput.trim()) return;
 
-      // Add user message
       addUserMessage(currentInput.trim());
-
-      // Send message to API
       sendMessageToAPI(currentInput.trim());
-
-      // Clear input
       setCurrentInput('');
     }
   };
@@ -121,9 +118,8 @@ const AppContent: React.FC = () => {
       onKeyPress={handleKeyPress}
       isTyping={isTyping}
       displayedContent={displayedContent}
-      accumulatedContent={accumulatedContent}
       streamingMessageId={streamingMessageId}
-      isTypingRef={typingAnimation.isTypingRef}
+      isTypingAnimationComplete={isTypingAnimationComplete}
     />
   );
 };

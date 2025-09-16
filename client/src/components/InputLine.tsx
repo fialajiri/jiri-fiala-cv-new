@@ -6,6 +6,7 @@ interface InputLineProps {
   setCurrentInput: (value: string) => void;
   onKeyPress: (e: React.KeyboardEvent) => void;
   isTyping: boolean;
+  isTypingAnimationComplete: boolean;
 }
 
 const InputLine: React.FC<InputLineProps> = ({
@@ -13,6 +14,7 @@ const InputLine: React.FC<InputLineProps> = ({
   setCurrentInput,
   onKeyPress,
   isTyping,
+  isTypingAnimationComplete,
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -24,15 +26,15 @@ const InputLine: React.FC<InputLineProps> = ({
   // Focus input when clicking anywhere on terminal
   useEffect(() => {
     const handleClick = () => {
-      if (!isTyping) {
+      if (!isTyping && isTypingAnimationComplete) {
         inputRef.current?.focus();
       }
     };
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [isTyping]);
+  }, [isTyping, isTypingAnimationComplete]);
 
-  if (isTyping) {
+  if (isTyping || !isTypingAnimationComplete) {
     return null;
   }
 
