@@ -18,12 +18,6 @@ export type ChatMessage = ChatRequest['history'][0];
 
 // API functions
 export const api = {
-  // Health check
-  healthCheck: async (): Promise<string> => {
-    const response = await apiClient.get('/');
-    return response.data;
-  },
-
   // Chat
   sendMessage: async (data: ChatRequest): Promise<ChatResponse> => {
     const response = await apiClient.post('/chat', data);

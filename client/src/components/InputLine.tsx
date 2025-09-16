@@ -40,7 +40,7 @@ const InputLine: React.FC<InputLineProps> = ({
 
   return (
     <div className="input-line">
-      <span className="user-prompt">user@terminal</span>
+      <span className="user-prompt">user</span>
       <span className="prompt-separator">:</span>
       <span className="prompt-path">~</span>
       <span className="prompt-dollar">$ </span>

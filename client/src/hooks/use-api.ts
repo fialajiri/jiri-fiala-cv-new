@@ -22,66 +22,55 @@ export const useStreamingChat = () => {
     onComplete: (history: ChatMessage[]) => void,
     onError: (error: string) => void
   ) => {
+    const response = await fetch('http://localhost:3000/chat/stream', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      onError(`HTTP error! status: ${response.status}`);
+      return;
+    }
+
+    const reader = response.body?.getReader();
+    if (!reader) {
+      onError('No response body reader available');
+      return;
+    }
+
+    const decoder = new TextDecoder();
+    let buffer = '';
+
     try {
-      const response = await fetch('http://localhost:3000/chat/stream', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const reader = response.body?.getReader();
-      if (!reader) {
-        throw new Error('No response body reader available');
-      }
-
-      const decoder = new TextDecoder();
-      let buffer = '';
-
       while (true) {
         const { done, value } = await reader.read();
-
         if (done) break;
 
         buffer += decoder.decode(value, { stream: true });
         const lines = buffer.split('\n');
-        buffer = lines.pop() || ''; // Keep the last incomplete line in buffer
+        buffer = lines.pop() || '';
 
         for (const line of lines) {
           if (line.startsWith('data: ')) {
-            try {
-              const data = JSON.parse(line.slice(6)) as StreamChunk;
+            const chunkData = JSON.parse(line.slice(6)) as StreamChunk;
 
-              switch (data.type) {
-                case 'connected':
-                  // Connection established
-                  break;
-                case 'chunk':
-                  if (data.content) {
-                    onChunk(data.content);
-                  }
-                  break;
-                case 'done':
-                  onComplete(data.history || []);
-                  return;
-                case 'error':
-                  onError(data.content || 'Unknown streaming error');
-                  return;
-              }
-            } catch (parseError) {
-              console.error('Error parsing SSE data:', parseError);
+            switch (chunkData.type) {
+              case 'chunk':
+                if (chunkData.content) onChunk(chunkData.content);
+                break;
+              case 'done':
+                onComplete(chunkData.history || []);
+                return;
+              case 'error':
+                onError(chunkData.content || 'Unknown streaming error');
+                return;
             }
           }
         }
       }
     } catch (error) {
-      console.error('Streaming error:', error);
-      onError(error instanceof Error ? error.message : 'Unknown error');
+      onError(error instanceof Error ? error.message : 'Streaming error');
     }
   };
 

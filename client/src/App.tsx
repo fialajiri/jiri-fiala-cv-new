@@ -35,8 +35,7 @@ const AppContent: React.FC = () => {
     addUserMessage,
     addBotMessage,
     finishStreaming,
-    handleStreamingError,
-    handleApiError,
+    handleError,
   } = useMessageManagement();
 
   const typingAnimation = useTypingAnimation({
@@ -63,41 +62,23 @@ const AppContent: React.FC = () => {
 
   const sendMessageToAPI = async (userMessage: string) => {
     setIsTyping(true);
-
-    // Create a streaming bot message
     const botMessage = addBotMessage();
     const botMessageId = botMessage.id;
 
-    // Initialize typing animation for this message
     typingAnimation.initializeMessage(botMessageId);
 
-    try {
-      await sendStreamingMessage(
-        {
-          message: userMessage,
-          history,
-        },
-        // onChunk - add chunk to typing queue for live typing
-        (chunk: string) => {
-          typingAnimation.addChunk(botMessageId, chunk);
-        },
-        // onComplete - streaming finished
-        (history: ChatMessage[]) => {
-          finishStreaming(history);
-          setIsTyping(false);
-        },
-        // onError - handle streaming errors
-        (error: string) => {
-          console.error('Streaming error:', error);
-          handleStreamingError(botMessageId, error);
-          setIsTyping(false);
-        }
-      );
-    } catch (error) {
-      console.error('Error sending message:', error);
-      handleApiError(botMessageId);
-      setIsTyping(false);
-    }
+    await sendStreamingMessage(
+      { message: userMessage, history },
+      (chunk: string) => typingAnimation.addChunk(botMessageId, chunk),
+      (history: ChatMessage[]) => {
+        finishStreaming(history);
+        setIsTyping(false);
+      },
+      (error: string) => {
+        handleError(botMessageId, error);
+        setIsTyping(false);
+      }
+    );
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

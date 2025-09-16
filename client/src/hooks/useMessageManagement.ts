@@ -48,20 +48,12 @@ export const useMessageManagement = () => {
     setHistory(newHistory);
   }, []);
 
-  const handleStreamingError = useCallback(
-    (messageId: string, error: string) => {
-      updateBotMessage(messageId, `Error: ${error}`);
-      setStreamingMessageId(null);
-    },
-    [updateBotMessage]
-  );
-
-  const handleApiError = useCallback(
-    (messageId: string) => {
-      updateBotMessage(
-        messageId,
-        'Sorry, there was an error processing your message. Please try again.'
-      );
+  const handleError = useCallback(
+    (messageId: string, error?: string) => {
+      const errorMessage = error
+        ? `Error: ${error}`
+        : 'Sorry, there was an error processing your message. Please try again.';
+      updateBotMessage(messageId, errorMessage);
       setStreamingMessageId(null);
     },
     [updateBotMessage]
@@ -79,7 +71,6 @@ export const useMessageManagement = () => {
     addUserMessage,
     addBotMessage,
     finishStreaming,
-    handleStreamingError,
-    handleApiError,
+    handleError,
   };
 };
