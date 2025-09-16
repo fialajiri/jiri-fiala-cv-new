@@ -10,9 +10,14 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-api-types": "openapi-typescript openapi.json -o src/types/api.ts"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.89.0",
+    "@tanstack/react-query-devtools": "^5.89.0",
+    "axios": "^1.12.2",
+    "openapi-typescript": "^7.9.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

@@ -1,0 +1,140 @@
+JIRI FIALA - PROFESSIONAL SUMMARY
+=====================================
+
+CONTACT INFORMATION
+-------------------
+Name: Jiří Fiala
+Occupation: Full Stack Web Developer
+Email: jirik.fiala@post.cz
+Phone: +420 602 107 243
+Location: Teplice, Czech Republic
+GitHub: github.com/fialajiri
+LinkedIn: linkedin.com/in/fialajirka
+CV: jiri_fiala_en.pdf
+
+PROFESSIONAL PROFILE
+--------------------
+I am a full stack developer with more than 3 years of experience. I specialize in development using React.js and Next.js on the frontend and Node.js and Express on the backend. During the COVID pandemic, I decided to change my career and devote myself fully to programming, which until then was only my hobby. It's a job that fulfills me and I can't imagine doing anything else. I also have more than 8 years of experience in analytical positions. I can analyze and propose solutions to complex problems, deal with clients and then process their requirements, and last but not least, manage diverse projects. I am able to work efficiently, and independently and I like to learn new things.
+
+TECHNICAL SKILLS
+----------------
+• Javascript/TypeScript (90% proficiency)
+• React, Next.js (90% proficiency)
+• Node.js, Express, Nest.js (90% proficiency)
+• MongoDB, SQL, MSSQL, Oracle, PostgreSQL (80% proficiency)
+• HTML, CSS, SCSS (80% proficiency)
+• Vue, Nuxt.js (60% proficiency)
+• Python (60% proficiency)
+• C++ (50% proficiency)
+
+LANGUAGES
+---------
+• Czech (100% proficiency) - Native
+• English (90% proficiency) - Fluent
+• French (50% proficiency) - Basic
+
+PROFESSIONAL EXPERIENCE
+-----------------------
+
+Fullstack Developer | Be a Future s.r.o. | Aug 2024 - Present
+Location: Prague, Czech Republic
+• Development of a Mobile Security Platform for the Czech Police and the Ministry of the Interior
+• The Czech Police Mobile Security Platform (MBP) is a comprehensive software and hardware solution for the Czech Police's mobile services. It provides secure communication and management for cross-platform use of both existing and newly acquired end devices (e.g., smartphones), including a central solution for integrated location services (ILS)
+• Services include providing technical support and proactive monitoring of the Czech Police MBP infrastructure, covering MBP applications and software, the integration platform, and planned MBP development — all with a focus on ensuring cybersecurity
+• Technologies: PostgreSQL, Express, TypeScript, Node.js, Docker, Kubernetes, React, Next.js
+
+Back-end Developer | ApiTree s.r.o. | Feb 2024 - Aug 2024
+Location: Prague, Czech Republic
+• Development of a distributor portal for EON Distribuce. This is a robust and complex technical solution that enables the management of customer accounts in both B2B (corporate clients) and B2C (end consumers) segments
+• The portal covers various types of energy services — electricity, gas, and solar energy. Customers can easily manage their points of delivery, make payments, submit bulk consumption readings, sell surplus solar energy back to the grid, and use additional tools and services that simplify energy management
+• Backend development in Nest.js. The portal's backend is built on a modern microservices architecture, providing flexibility, scalability, and reliability
+• The portal's frontend is programmed with React.js, allowing for a dynamic and user-friendly interface
+• Technologies: PostgreSQL, Nest.js, TypeScript, Node.js, JavaScript, Docker, Kubernetes, React, Next.js
+
+Back-end Developer | Neit Consulting s.r.o. | Feb 2023 - Feb 2024
+Location: Prague, Czech Republic
+• Development of a system for enterprise process management and control – TAS (Team Assistant)
+• TAS is an advanced system for managing enterprise processes, streamlining and automating key company tasks. It enables document management and archiving, automated invoice processing, inventory control, comprehensive HR agenda administration, and efficient order management
+• The TAS system is used by major companies such as Dr.Max, Fortuna, Prague Airport, Kooperativa, and others, who value its flexibility, scalability, and reliability
+• Technologies: JavaScript, TypeScript, Node.js, Express, Rest API, Oracle, Microsoft SQL, Redis, Docker
+
+Software Engineer | FoxCom s.r.o. | Feb 2022 - Feb 2023
+Location: Teplice, Czech Republic
+• Development of the Prague 6 Municipal District web portal
+• The portal is designed as a modern online platform that not only provides citizens and visitors with essential information but also allows users to fully manage its content. Administrators can easily add news, organize and publish events, announce traffic restrictions, manage the official notice board, and post information on local government and other important topics
+• Technologies: JavaScript, TypeScript, Node.js, Express, MySQL, Strapi, Vue2, Vue3, Nuxt.js
+
+Chief Analyst | EDHANCE s.r.o. | Aug 2019 - Jan 2021
+Location: Ústí nad Labem, Czech Republic
+• Preparing business recommendations based on customer data analytics
+• Risk assessment
+• Cash flow management and cost structure optimization
+• Analysis of competition and setting of pricing policy
+
+Managing Director | STOSTAV s.r.o. | Aug 2015 - Apr 2019
+Location: Teplice, Czech Republic
+• Cost structure optimization, negotiating with suppliers
+• Preparation of projects, budgets, and offers, preparation of tenders
+• Managing complex construction projects
+
+Business Analyst | O2 Czech Republic | Mar 2013 - Jul 2015
+Location: Prague, Czech Republic
+• Analyzes of the market environment, preparation of the company's long-term strategy
+• Quantitative analyzes and business case design
+• Strategy preparation for the LTE frequency auction
+• Preparation and implementation of pilot projects for the construction of optical infrastructure
+• Cost structure optimization
+
+EDUCATION
+---------
+
+Master's Degree | University of Jan Evangelista Purkyne in Ústí nad Labem | 2016-2017
+Faculty of Science
+Major: Computer Modelling in Science and Technology
+Location: Ústí nad Labem, Czech Republic
+
+Bachelor's Degree | Czech Technical University in Prague | 2009-2013
+Faculty of Nuclear Sciences and Physical Engineering
+Major: Mathematical Modelling
+Thesis: Aperiodic Random Number Generators
+Location: Prague, Czech Republic
+
+Master's Degree | Prague University of Economics | 2007-2009
+Faculty of Economics
+Major: Economic Analysis
+Minor: Quantitative Management
+Thesis: Asymmetric Information and Contract Theory
+Location: Prague, Czech Republic
+
+Bachelor's Degree | West-Bohemian University in Pilsen | 2004-2007
+Faculty of Economics
+Major: Finance
+Thesis: The Dynamics of Keynesian Theory
+Location: Pilsen, Czech Republic
+
+PERSONAL PROJECTS
+-----------------
+
+Sayfyho Memorial
+URL: https://sayfy-frontend-ts.vercel.app/
+GitHub: https://github.com/fialajiri/sayfy-frontend-ts
+Description: A web application enabling the organizers of the Sayfy memorial cycling race to promote the race, and upload news and photos. The frontend is created using Next.js, the backend is created by Express framework.
+
+Volba Pro! Teplice
+URL: https://www.volbaproteplice.cz/
+GitHub: https://github.com/fialajiri/vpt-frontend-ts
+Description: Political party websites Volba pro! Teplice. The frontend is created using Next.js, the backend is created by Express framework.
+
+Živé Teplice
+URL: https://www.ziveteplice.cz/
+GitHub: https://github.com/fialajiri/zive-teplice-frontend
+Description: This web application serves as a space for the presentation of the cultural event Živé Teplice. The application allows participants to register and log in to the event, as well as present their products or art. It allows the organizers to create a new event, add and edit news, insert photos and administer registered participants. The frontend is created using Next.js, the backend is created by the Express framework.
+
+Moje CV
+URL: https://www.ziveteplice.cz/
+GitHub: https://github.com/fialajiri/my-cv
+Description: My personal presentation page. The frontend is built using Next.js 13.0.2.
+
+SUMMARY
+-------
+Jiří Fiala is a dedicated full-stack developer with over 3 years of programming experience and 8+ years in analytical roles. He specializes in modern web technologies including React.js, Next.js, Node.js, and TypeScript, with strong experience in database management and cloud technologies. His career transition from analytics to development during the COVID pandemic demonstrates his adaptability and passion for technology. He has worked on diverse projects ranging from government portals to enterprise management systems, and has experience with both B2B and B2C applications. His strong analytical background combined with technical expertise makes him a valuable asset for complex software development projects.

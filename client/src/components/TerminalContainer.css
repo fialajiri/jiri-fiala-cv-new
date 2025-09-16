@@ -1,0 +1,58 @@
+/* Terminal Container Component Styles */
+.terminal-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: transparent;
+  color: #00ff00;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.terminal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  margin: 16px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Scrollbar styling for webkit browsers */
+.terminal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-container {
+    font-size: 12px;
+  }
+
+  .terminal-content {
+    padding: 12px;
+  }
+}

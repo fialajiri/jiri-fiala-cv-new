@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './MatrixBackground.css';
 
 const MatrixBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -78,20 +79,7 @@ const MatrixBackground: React.FC = () => {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -1,
-        pointerEvents: 'none',
-      }}
-    />
-  );
+  return <canvas ref={canvasRef} className="matrix-canvas" />;
 };
 
 export default MatrixBackground;

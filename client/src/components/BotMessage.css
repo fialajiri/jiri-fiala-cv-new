@@ -1,0 +1,50 @@
+/* Bot Message Component Styles */
+.bot-prompt {
+  color: #fbbf24;
+}
+
+.bot-text {
+  color: #86efac;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  min-width: 0;
+  text-indent: 0;
+  padding-left: 0;
+}
+
+/* Handle text wrapping with proper indentation */
+.prompt-line .bot-text {
+  display: inline;
+}
+
+.prompt-line .bot-text::before {
+  content: '';
+  display: block;
+  height: 0;
+}
+
+.prompt-line .bot-text br + * {
+  text-indent: 0;
+  margin-left: 0;
+}
+
+.streaming-cursor {
+  animation: blink 1s infinite;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

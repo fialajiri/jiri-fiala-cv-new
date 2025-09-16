@@ -1,82 +1,101 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './App.css';
-import MatrixBackground from './components/MatrixBackground';
+import TerminalContainer from './components/TerminalContainer';
+import { useStreamingChat } from './hooks/use-api';
+import { useMessageManagement } from './hooks/useMessageManagement';
+import { useTypingAnimation } from './hooks/useTypingAnimation';
+import { getInitialMessages } from './lib/utils';
+import type { ChatMessage } from './lib/api-client';
 
-interface Message {
-  id: string;
-  type: 'user' | 'bot' | 'system';
-  content: string;
-  timestamp: Date;
-}
-
-const App: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      type: 'system',
-      content: 'AI Terminal v1.0.0 - Type your questions below',
-      timestamp: new Date(),
+// Create a client
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      retry: 1,
     },
-  ]);
+  },
+});
+
+const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const terminalRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
+  const {
+    messages,
+    setMessages,
+    history,
+    streamingMessageId,
+    displayedContent,
+    setDisplayedContent,
+    accumulatedContent,
+    setAccumulatedContent,
+    addUserMessage,
+    addBotMessage,
+    finishStreaming,
+    handleStreamingError,
+    handleApiError,
+  } = useMessageManagement();
+
+  const typingAnimation = useTypingAnimation({
+    displayedContent,
+    accumulatedContent,
+    setDisplayedContent,
+    setAccumulatedContent,
+  });
+
+  // Initialize messages on mount
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
-  }, [messages, currentInput, isTyping]);
+    setMessages(getInitialMessages());
+  }, [setMessages]);
 
-  // Focus input when clicking anywhere on terminal
+  // Clean up typing timeout on unmount
   useEffect(() => {
-    const handleClick = () => {
-      if (!isTyping) {
-        inputRef.current?.focus();
-      }
-    };
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
-  }, [isTyping]);
+    return typingAnimation.cleanup;
+  }, [typingAnimation.cleanup]);
 
-  // Auto-focus input on mount
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  // Send message to API
+  const { sendStreamingMessage } = useStreamingChat();
 
-  // Simulate AI response with typing effect
-  const simulateAIResponse = async (userMessage: string) => {
+  const sendMessageToAPI = async (userMessage: string) => {
     setIsTyping(true);
 
-    // Simulate API delay
-    await new Promise(resolve =>
-      setTimeout(resolve, 1000 + Math.random() * 2000)
-    );
+    // Create a streaming bot message
+    const botMessage = addBotMessage();
+    const botMessageId = botMessage.id;
 
-    // Generate a mock AI response
-    const responses = [
-      `Analyzing your query: "${userMessage}"...`,
-      'I understand your question. Let me provide you with some insights.',
-      "That's an interesting question. Based on my knowledge, here's what I can tell you:",
-      "Processing your request... Here's my response:",
-      'Thank you for your question. Let me break this down for you:',
-    ];
+    // Initialize typing animation for this message
+    typingAnimation.initializeMessage(botMessageId);
 
-    const mockResponse =
-      responses[Math.floor(Math.random() * responses.length)] +
-      ` This is a simulated AI response to demonstrate the terminal interface. In a real implementation, this would connect to your AI service.`;
-
-    const botMessage: Message = {
-      id: Date.now().toString(),
-      type: 'bot',
-      content: mockResponse,
-      timestamp: new Date(),
-    };
-
-    setMessages(prev => [...prev, botMessage]);
-    setIsTyping(false);
+    try {
+      await sendStreamingMessage(
+        {
+          message: userMessage,
+          history,
+        },
+        // onChunk - add chunk to typing queue for live typing
+        (chunk: string) => {
+          typingAnimation.addChunk(botMessageId, chunk);
+        },
+        // onComplete - streaming finished
+        (history: ChatMessage[]) => {
+          finishStreaming(history);
+          setIsTyping(false);
+        },
+        // onError - handle streaming errors
+        (error: string) => {
+          console.error('Streaming error:', error);
+          handleStreamingError(botMessageId, error);
+          setIsTyping(false);
+        }
+      );
+    } catch (error) {
+      console.error('Error sending message:', error);
+      handleApiError(botMessageId);
+      setIsTyping(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -84,128 +103,37 @@ const App: React.FC = () => {
       if (!currentInput.trim()) return;
 
       // Add user message
-      const userMessage: Message = {
-        id: Date.now().toString(),
-        type: 'user',
-        content: currentInput.trim(),
-        timestamp: new Date(),
-      };
+      addUserMessage(currentInput.trim());
 
-      setMessages(prev => [...prev, userMessage]);
-
-      // Simulate AI response
-      simulateAIResponse(currentInput.trim());
+      // Send message to API
+      sendMessageToAPI(currentInput.trim());
 
       // Clear input
       setCurrentInput('');
     }
   };
 
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour12: false,
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    });
-  };
-
-  const renderMessage = (message: Message) => {
-    const time = formatTime(message.timestamp);
-
-    switch (message.type) {
-      case 'system':
-        return (
-          <div key={message.id} className="message system-message">
-            <span className="system-label">[SYSTEM]</span>{' '}
-            <span className="system-text">{message.content}</span>
-          </div>
-        );
-      case 'user':
-        return (
-          <div key={message.id} className="message user-message">
-            <div className="prompt-line">
-              <span className="user-prompt">user@terminal</span>
-              <span className="prompt-separator">:</span>
-              <span className="prompt-path">~</span>
-              <span className="prompt-dollar">$ </span>
-              <span className="user-text">{message.content}</span>
-            </div>
-            <div className="timestamp">[{time}]</div>
-          </div>
-        );
-      case 'bot':
-        return (
-          <div key={message.id} className="message bot-message">
-            <div className="prompt-line">
-              <span className="bot-prompt">ai-bot@terminal</span>
-              <span className="prompt-separator">:</span>
-              <span className="prompt-path">~</span>
-              <span className="prompt-dollar">$ </span>
-            </div>
-            <div className="bot-text">{message.content}</div>
-            <div className="timestamp">[{time}]</div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div className="terminal-container">
-      {/* Matrix Background */}
-      <MatrixBackground />
+    <TerminalContainer
+      messages={messages}
+      currentInput={currentInput}
+      setCurrentInput={setCurrentInput}
+      onKeyPress={handleKeyPress}
+      isTyping={isTyping}
+      displayedContent={displayedContent}
+      accumulatedContent={accumulatedContent}
+      streamingMessageId={streamingMessageId}
+      isTypingRef={typingAnimation.isTypingRef}
+    />
+  );
+};
 
-      {/* Terminal Header */}
-      {/* <div className="terminal-header">
-        <div className="terminal-buttons">
-          <div className="terminal-button terminal-button-red"></div>
-          <div className="terminal-button terminal-button-yellow"></div>
-          <div className="terminal-button terminal-button-green"></div>
-        </div>
-        <span className="terminal-title">AI Terminal Chat</span>
-      </div> */}
-
-      {/* Terminal Content */}
-      <div ref={terminalRef} className="terminal-content">
-        {messages.map(renderMessage)}
-
-        {isTyping && (
-          <div className="message typing-message">
-            <div className="prompt-line">
-              <span className="bot-prompt">ai-bot@terminal</span>
-              <span className="prompt-separator">:</span>
-              <span className="prompt-path">~</span>
-              <span className="prompt-dollar">$ </span>
-            </div>
-            <span className="thinking-text">
-              Thinking<span className="thinking-dots">...</span>
-            </span>
-          </div>
-        )}
-
-        {/* Current Input Line */}
-        {!isTyping && (
-          <div className="input-line">
-            <span className="user-prompt">user@terminal</span>
-            <span className="prompt-separator">:</span>
-            <span className="prompt-path">~</span>
-            <span className="prompt-dollar">$ </span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={currentInput}
-              onChange={e => setCurrentInput(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="terminal-input"
-              autoFocus
-            />
-            {/* <span className="cursor">█</span> */}
-          </div>
-        )}
-      </div>
-    </div>
+const App: React.FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppContent />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };
 
