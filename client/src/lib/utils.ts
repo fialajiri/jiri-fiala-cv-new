@@ -21,6 +21,6 @@ export const getInitialMessages = (): Message[] => [
     id: uuidv4(),
     type: 'system',
     content:
-      'AI Terminal v1.0.0 - Type your questions below or ls to list available commands',
+      'AI Terminal v1.0.0 - Type your questions below or type "ls" to list available commands',
   },
 ];

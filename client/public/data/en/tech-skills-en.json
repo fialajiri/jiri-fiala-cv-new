@@ -1,37 +1,29 @@
 {
-  "title": "Tech Stack",
+  "title": "My Tech Stack",
   "skills": [
     {
-      "name": "Javascript/Typescript",
-      "proficiency": 90
+      "name": "Javascript/Typescript, Python"
     },
     {
-      "name": "React, Next.js",
-      "proficiency": 90
+      "name": "React, Next.js, Vue, Nuxt.js"
     },
     {
-      "name": "Vue, Nuxt.js",
-      "proficiency": 60
+      "name": "Prisma, TypeORM"
     },
     {
-      "name": "MongoDb, SQL, MSSQL, ORACLE, Postgres",
-      "proficiency": 80
+      "name": "MongoDB, SQL, MSSQL, Oracle, PostgreSQL"
     },
     {
-      "name": "HTML, CSS, SCSS",
-      "proficiency": 80
+      "name": "HTML, CSS, SCSS"
     },
     {
-      "name": "Node.js, Express, Nest.js",
-      "proficiency": 90
+      "name": "Node.js, Express, Nest.js"
     },
     {
-      "name": "C++",
-      "proficiency": 50
-    },   
+      "name": "GraphQL, REST API"
+    },
     {
-      "name":"Python",
-      "proficiency":60
+      "name": "Docker, Kubernetes"
     }
   ]
 }

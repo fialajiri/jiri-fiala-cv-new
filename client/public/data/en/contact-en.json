@@ -27,11 +27,6 @@
       "icon": "/icons/linkedin-logo.svg",
       "text": "linkedin.com/in/fialajirka",
       "link": { "type": "link", "url": "https://www.linkedin.com/in/fialajirka" }
-    },
-    {
-      "icon": "/icons/file-pdf.svg",
-      "text": "jiri_fiala_en.pdf",
-      "link": { "type": "link", "url": "/cv/Jiri_Fiala_En.pdf" }
-    }
+    }  
   ]
 }
