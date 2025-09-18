@@ -54,8 +54,6 @@ const AppContent: React.FC = () => {
     setAccumulatedContent,
   });
 
-  const isTypingAnimationComplete = typingAnimation.isTypingAnimationComplete;
-
   // Initialize messages on mount
   useEffect(() => {
     setMessages(getInitialMessages());
@@ -108,7 +106,7 @@ const AppContent: React.FC = () => {
 
     // Handle different commands
     switch (command.toLowerCase()) {
-      case 'help': {
+      case 'ls': {
         const systemMessage: Message = {
           id: uuidv4(),
           type: 'system',
@@ -203,11 +201,13 @@ const AppContent: React.FC = () => {
         break;
       }
       case 'download': {
-        const botMessage = addBotMessage();
-        updateBotMessage(
-          botMessage.id,
-          '== Download CV ==\nCV download functionality will be implemented here...'
-        );
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'cv-download',
+        };
+        setMessages(prev => [...prev, componentMessage]);
         break;
       }
       case 'education': {
@@ -246,6 +246,15 @@ const AppContent: React.FC = () => {
     setCurrentInput('');
   };
 
+  const handleDownload = (filename: string) => {
+    const link = document.createElement('a');
+    link.href = `/cv/${filename}`;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <TerminalContainer
       messages={messages}
@@ -256,7 +265,7 @@ const AppContent: React.FC = () => {
       isTyping={isTyping}
       displayedContent={displayedContent}
       streamingMessageId={streamingMessageId}
-      isTypingAnimationComplete={isTypingAnimationComplete}
+      onDownload={handleDownload}
     />
   );
 };

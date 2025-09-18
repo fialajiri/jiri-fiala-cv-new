@@ -14,7 +14,7 @@ interface TerminalContainerProps {
   isTyping: boolean;
   displayedContent: Record<string, string>;
   streamingMessageId: string | null;
-  isTypingAnimationComplete: boolean;
+  onDownload?: (filename: string) => void;
 }
 
 const TerminalContainer: React.FC<TerminalContainerProps> = ({
@@ -25,7 +25,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   onCommand,
   isTyping,
   displayedContent,
-  isTypingAnimationComplete,
+  onDownload,
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +43,11 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
 
       {/* Terminal Content */}
       <div ref={terminalRef} className="terminal-content">
-        <MessageList messages={messages} displayedContent={displayedContent} />
+        <MessageList
+          messages={messages}
+          displayedContent={displayedContent}
+          onDownload={onDownload}
+        />
 
         {/* Current Input Line */}
         <InputLine
@@ -52,7 +56,6 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
           onKeyPress={onKeyPress}
           onCommand={onCommand}
           isTyping={isTyping}
-          isTypingAnimationComplete={isTypingAnimationComplete}
         />
       </div>
     </div>

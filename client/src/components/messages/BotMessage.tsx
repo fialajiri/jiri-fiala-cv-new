@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Message } from '../lib/utils';
+import type { Message } from '../../lib/utils';
 import './BotMessage.css';
 
 interface BotMessageProps {

@@ -7,11 +7,13 @@ import './MessageList.css';
 interface MessageListProps {
   messages: Message[];
   displayedContent: Record<string, string>;
+  onDownload?: (filename: string) => void;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   messages,
   displayedContent,
+  onDownload,
 }) => {
   const renderMessage = (message: Message) => {
     switch (message.type) {
@@ -30,10 +32,11 @@ const MessageList: React.FC<MessageListProps> = ({
       case 'component':
         return (
           <div key={message.id} className="component-message">
-            {message.componentType && message.componentData && (
+            {message.componentType && (
               <DataDisplay
                 type={message.componentType}
                 data={message.componentData}
+                onDownload={onDownload}
               />
             )}
           </div>

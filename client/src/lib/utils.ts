@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export interface Message {
   id: string;
@@ -11,14 +11,16 @@ export interface Message {
     | 'education'
     | 'skills'
     | 'projects'
-    | 'experience';
-  componentData?: any;
+    | 'experience'
+    | 'cv-download';
+  componentData?: unknown;
 }
 
 export const getInitialMessages = (): Message[] => [
   {
     id: uuidv4(),
     type: 'system',
-    content: 'AI Terminal v1.0.0 - Type your questions below',
+    content:
+      'AI Terminal v1.0.0 - Type your questions below or ls to list available commands',
   },
 ];

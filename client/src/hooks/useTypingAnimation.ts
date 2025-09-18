@@ -1,4 +1,4 @@
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useCallback } from 'react';
 
 interface TypingState {
   displayedContent: Record<string, string>;
@@ -12,83 +12,13 @@ interface TypingState {
 }
 
 export const useTypingAnimation = (state: TypingState) => {
-  const typingTimeoutRef = useRef<number | null>(null);
   const accumulatedContentRef = useRef<Record<string, string>>({});
-  const typingQueueRef = useRef<Record<string, string[]>>({});
-  const isTypingRef = useRef<Record<string, boolean>>({});
-  const [isTypingAnimationComplete, setIsTypingAnimationComplete] =
-    useState(true);
-
-  const processTypingQueue = useCallback(
-    (messageId: string, speed: number = 25) => {
-      if (
-        !typingQueueRef.current[messageId] ||
-        typingQueueRef.current[messageId].length === 0
-      ) {
-        isTypingRef.current[messageId] = false;
-        setIsTypingAnimationComplete(true);
-        return;
-      }
-
-      isTypingRef.current[messageId] = true;
-      setIsTypingAnimationComplete(false);
-      const chunk = typingQueueRef.current[messageId].shift()!;
-      let currentIndex = 0;
-
-      const typeNextChar = () => {
-        if (currentIndex < chunk.length) {
-          const nextChar = chunk[currentIndex];
-          state.setDisplayedContent(prev => ({
-            ...prev,
-            [messageId]: (prev[messageId] || '') + nextChar,
-          }));
-          currentIndex++;
-
-          // Variable speed for more natural typing
-          const delay =
-            nextChar === ' '
-              ? speed * 0.5
-              : nextChar === '.' || nextChar === '!' || nextChar === '?'
-                ? speed * 2
-                : nextChar === '\n'
-                  ? speed * 3
-                  : speed;
-
-          typingTimeoutRef.current = setTimeout(typeNextChar, delay);
-        } else {
-          // Chunk finished, process next chunk in queue
-          setTimeout(() => processTypingQueue(messageId, speed), 50);
-        }
-      };
-
-      typeNextChar();
-    },
-    [state]
-  );
-
-  const addChunkToQueue = useCallback(
-    (messageId: string, chunk: string) => {
-      if (!typingQueueRef.current[messageId]) {
-        typingQueueRef.current[messageId] = [];
-      }
-      typingQueueRef.current[messageId].push(chunk);
-
-      // Start typing if not already typing
-      if (!isTypingRef.current[messageId]) {
-        processTypingQueue(messageId);
-      }
-    },
-    [processTypingQueue]
-  );
 
   const initializeMessage = useCallback(
     (messageId: string) => {
       state.setDisplayedContent(prev => ({ ...prev, [messageId]: '' }));
       state.setAccumulatedContent(prev => ({ ...prev, [messageId]: '' }));
       accumulatedContentRef.current[messageId] = '';
-      typingQueueRef.current[messageId] = [];
-      isTypingRef.current[messageId] = false;
-      setIsTypingAnimationComplete(false);
     },
     [state]
   );
@@ -97,29 +27,28 @@ export const useTypingAnimation = (state: TypingState) => {
     (messageId: string, chunk: string) => {
       accumulatedContentRef.current[messageId] =
         (accumulatedContentRef.current[messageId] || '') + chunk;
+
+      // Update both displayed and accumulated content immediately
       state.setAccumulatedContent(prev => ({
         ...prev,
         [messageId]: accumulatedContentRef.current[messageId],
       }));
 
-      // Add chunk to typing queue for live display
-      addChunkToQueue(messageId, chunk);
+      state.setDisplayedContent(prev => ({
+        ...prev,
+        [messageId]: accumulatedContentRef.current[messageId],
+      }));
     },
-    [state, addChunkToQueue]
+    [state]
   );
 
   const cleanup = useCallback(() => {
-    if (typingTimeoutRef.current) {
-      clearTimeout(typingTimeoutRef.current);
-    }
+    // No cleanup needed since we removed timeouts
   }, []);
 
   return {
     addChunk,
     initializeMessage,
     cleanup,
-    isTypingRef,
-    accumulatedContentRef,
-    isTypingAnimationComplete,
   };
 };
