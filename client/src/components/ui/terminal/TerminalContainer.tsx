@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Rnd } from 'react-rnd';
-import MatrixBackground from './MatrixBackground';
-import { MessageList } from '../messages';
-import InputLine from './InputLine';
-import type { Message } from '../../lib/utils';
+import MatrixBackground from '../MatrixBackground';
+import { MessageList } from '../../messages';
+import InputLine from '../InputLine';
+import TerminalHeader from './TerminalHeader';
+import type { Message } from '../../../lib/utils';
 import './TerminalContainer.css';
+import { useTerminalResize } from '../../../hooks/useTerminalResize';
+import { useTerminalMaximize } from '../../../hooks/useTerminalMaximize';
 
 interface TerminalContainerProps {
   messages: Message[];
@@ -34,20 +37,22 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  // State for terminal size and position
-  const [terminalSize, setTerminalSize] = useState({
-    width: '70vw',
-    height: '75vh',
-  });
-  const [terminalPosition, setTerminalPosition] = useState<{
-    x: number;
-    y: number;
-  }>({
-    x: window.innerWidth * 0.15, // 15% of viewport width
-    y: window.innerHeight * 0.125, // 12.5% of viewport height
-  });
+  const {
+    handleDragStop,
+    handleResizeStop,
+    terminalSize,
+    terminalPosition,
+    setTerminalSize,
+    setTerminalPosition,
+  } = useTerminalResize();
 
-  // Auto-scroll to bottom when new messages arrive
+  const { isMaximized, handleMaximize } = useTerminalMaximize(
+    terminalSize,
+    terminalPosition,
+    setTerminalSize,
+    setTerminalPosition
+  );
+
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -56,37 +61,22 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
 
   return (
     <div className="terminal-container">
-      {/* Matrix Background */}
       <MatrixBackground />
 
-      {/* Resizable and Draggable Terminal Content */}
       <Rnd
         size={terminalSize}
         position={terminalPosition}
-        onDragStop={(_, d) => {
-          setTerminalPosition({ x: d.x, y: d.y });
-        }}
-        onResizeStop={(_, __, ref, ___, position) => {
-          setTerminalSize({
-            width: ref.style.width,
-            height: ref.style.height,
-          });
-          setTerminalPosition({
-            x: position.x,
-            y: position.y,
-          });
-        }}
+        onDragStop={handleDragStop}
+        onResizeStop={handleResizeStop}
         minWidth={300}
         minHeight={200}
-        maxWidth="90vw"
-        maxHeight="90vh"
+        maxWidth={isMaximized ? '100vw' : '90vw'}
+        maxHeight={isMaximized ? '100vh' : '90vh'}
         dragHandleClassName="terminal-header"
         bounds="window"
         className="terminal-rnd"
       >
-        <div className="terminal-header">
-          <span className="terminal-prompt">jirifiala@personalpage:~$</span>
-        </div>
+        <TerminalHeader isMaximized={isMaximized} onMaximize={handleMaximize} />
         <div ref={terminalRef} className="terminal-content">
           <MessageList
             messages={messages}
@@ -94,7 +84,6 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
             onDownload={onDownload}
           />
 
-          {/* Current Input Line */}
           <InputLine
             currentInput={currentInput}
             setCurrentInput={setCurrentInput}

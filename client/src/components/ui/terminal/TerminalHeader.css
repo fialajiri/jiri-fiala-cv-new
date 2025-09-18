@@ -1,0 +1,66 @@
+/* Terminal Header Component Styles */
+.terminal-header {
+  background-color: #2d2d2d;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  position: relative;
+}
+
+.terminal-prompt {
+  color: #b8b8b8;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.maximize-btn {
+  background: #28ca42;
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.maximize-btn.maximized {
+  background: #ffbd2e;
+}
+
+.maximize-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminal-header {
+    padding: 6px 8px;
+  }
+
+  .terminal-prompt {
+    font-size: 11px;
+  }
+
+  .maximize-btn {
+    width: 10px;
+    height: 10px;
+  }
+}

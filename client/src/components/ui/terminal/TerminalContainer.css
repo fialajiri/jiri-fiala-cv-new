@@ -21,28 +21,6 @@
   overflow: hidden;
 }
 
-/* Terminal header for dragging */
-.terminal-header {
-  background-color: #2d2d2d;
-  padding: 8px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: move;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
-}
-
-.terminal-prompt {
-  color: #b8b8b8;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
 .terminal-content {
   flex: 1;
   overflow-y: auto;
@@ -84,13 +62,5 @@
 
   .terminal-content {
     padding: 12px;
-  }
-
-  .terminal-header {
-    padding: 6px 8px;
-  }
-
-  .terminal-prompt {
-    font-size: 11px;
   }
 }
