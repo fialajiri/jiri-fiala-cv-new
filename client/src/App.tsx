@@ -113,7 +113,7 @@ const AppContent: React.FC = () => {
           id: uuidv4(),
           type: 'system',
           content:
-            'Available commands: skills experience project contact education download clear',
+            'Available commands: skills · projects · experience · contact · education · download · clear',
         };
         setMessages(prev => [...prev, systemMessage]);
         break;
@@ -160,7 +160,7 @@ const AppContent: React.FC = () => {
         }
         break;
       }
-      case 'project': {
+      case 'projects': {
         try {
           const data = await loadProjectsData();
           const componentMessage: Message = {
