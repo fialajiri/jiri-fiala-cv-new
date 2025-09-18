@@ -1,9 +1,7 @@
 import React from 'react';
-import type { Message } from '../lib/utils';
-import SystemMessage from './SystemMessage';
-import UserMessage from './UserMessage';
-import BotMessage from './BotMessage';
-import DataDisplay from './DataDisplay';
+import type { Message } from '../../lib/utils';
+import { SystemMessage, UserMessage, BotMessage } from './';
+import { DataDisplay } from '../displays';
 import './MessageList.css';
 
 interface MessageListProps {

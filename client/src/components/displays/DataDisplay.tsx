@@ -1,9 +1,11 @@
 import React from 'react';
-import ContactDisplay from './ContactDisplay';
-import EducationDisplay from './EducationDisplay';
-import SkillsDisplay from './SkillsDisplay';
-import ProjectsDisplay from './ProjectsDisplay';
-import ExperienceDisplay from './ExperienceDisplay';
+import {
+  ContactDisplay,
+  EducationDisplay,
+  SkillsDisplay,
+  ProjectsDisplay,
+  ExperienceDisplay,
+} from './';
 
 interface DataDisplayProps {
   type: 'contact' | 'education' | 'skills' | 'projects' | 'experience';

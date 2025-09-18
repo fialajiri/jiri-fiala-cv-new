@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import MatrixBackground from './MatrixBackground';
-import MessageList from './MessageList';
+import { MessageList } from '../messages';
 import InputLine from './InputLine';
-import type { Message } from '../lib/utils';
+import type { Message } from '../../lib/utils';
 import './TerminalContainer.css';
 
 interface TerminalContainerProps {
