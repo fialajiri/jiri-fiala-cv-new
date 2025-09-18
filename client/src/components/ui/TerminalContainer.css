@@ -1,9 +1,9 @@
 /* Terminal Container Component Styles */
 .terminal-container {
   width: 100%;
-  max-width: 1024px;
+  max-width: 60vw;
   margin: 0 auto;
-  height: 100vh;
+  height: 80vh;
   background-color: transparent;
   color: #00ff00;
   font-family: 'Courier New', 'Monaco', 'Menlo', monospace;

@@ -1,15 +1,16 @@
 import React from 'react';
 import './ExperienceDisplay.css';
+import { formatDate } from '../../lib/utils';
 
-interface Company {
+interface ICompany {
   name: string;
   url: string;
   location: string;
 }
 
-interface Job {
+interface IJob {
   id: string;
-  company: Company;
+  company: ICompany;
   jobTitle: string;
   startDate: string;
   endDate: string;
@@ -18,7 +19,7 @@ interface Job {
 
 interface ExperienceData {
   title: string;
-  jobs: Job[];
+  jobs: IJob[];
 }
 
 interface ExperienceDisplayProps {
@@ -26,15 +27,6 @@ interface ExperienceDisplayProps {
 }
 
 const ExperienceDisplay: React.FC<ExperienceDisplayProps> = ({ data }) => {
-  const formatDate = (dateString: string) => {
-    if (!dateString) return 'Present';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-    });
-  };
-
   return (
     <div className="experience-display">
       <h3>== {data.title} ==</h3>
@@ -42,19 +34,15 @@ const ExperienceDisplay: React.FC<ExperienceDisplayProps> = ({ data }) => {
       {data.jobs.map(job => (
         <div key={job.id} className="job-item">
           <div className="job-header">
-            <div className="job-title">{job.jobTitle}</div>
+            <div className="job-title-company">
+              {job.jobTitle} at {job.company.name}
+            </div>
             <div className="job-dates">
               {formatDate(job.startDate)} - {formatDate(job.endDate)}
             </div>
           </div>
 
-          <div className="company-info">
-            <div className="company-name">{job.company.name}</div>
-            <div className="company-location">{job.company.location}</div>
-          </div>
-
           <div className="job-responsibilities">
-            <div className="responsibilities-title">Responsibilities:</div>
             {job.responsibilities.map((responsibility, index) => (
               <div key={index} className="responsibility-item">
                 <span className="bullet">•</span>

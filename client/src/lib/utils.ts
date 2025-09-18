@@ -16,6 +16,15 @@ export interface Message {
   componentData?: unknown;
 }
 
+export const formatDate = (dateString: string): string => {
+  if (!dateString) return 'Present';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+  });
+};
+
 export const getInitialMessages = (): Message[] => [
   {
     id: uuidv4(),

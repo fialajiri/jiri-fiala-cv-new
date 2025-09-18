@@ -20,7 +20,7 @@
       "description": "A comprehensive platform for the Živé Teplice cultural event, enabling seamless participant registration, artist showcase capabilities, and event management. Features include user authentication, product/art presentation, news management, photo galleries, and administrative tools for organizers. Built with Next.js frontend and Express.js backend for scalability and performance."
     },
     {
-      "title": "Moje CV",
+      "title": "My Personal Website",
       "url": "https://www.jirifialacv.cz/",
       "git": "https://github.com/fialajiri/jiri-fiala-cv-new",
       "description": "A modern, interactive personal portfolio showcasing professional experience, skills, and projects. Features a sleek terminal-style interface with dynamic content loading and responsive design. Built with React 19, Express.js and TypeScript for optimal performance and developer experience."

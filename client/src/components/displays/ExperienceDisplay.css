@@ -13,10 +13,10 @@
 }
 
 .job-item {
-  margin-bottom: 25px;
-  padding: 15px;
-  border-left: 3px solid #00aa00;
-  padding-left: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-left: 2px solid #00aa00;
+  padding-left: 15px;
   background-color: rgba(0, 51, 0, 0.05);
 }
 
@@ -24,60 +24,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.job-title {
+.job-title-company {
   font-weight: bold;
   color: #00ff00;
   font-size: 1.1em;
+  flex: 1;
 }
 
 .job-dates {
   color: #00aa00;
   font-size: 0.9em;
   font-weight: bold;
-}
-
-.company-info {
-  margin-bottom: 12px;
-}
-
-.company-name {
-  font-weight: bold;
-  color: #00ff00;
-  margin-bottom: 3px;
-  font-size: 1.05em;
-}
-
-.company-location {
-  color: #00aa00;
-  font-size: 0.9em;
-  font-style: italic;
+  flex: 0 0 auto;
 }
 
 .job-responsibilities {
-  margin-left: 10px;
-}
-
-.responsibilities-title {
-  color: #00ff00;
-  font-weight: bold;
-  margin-bottom: 8px;
-  font-size: 0.95em;
+  margin-left: 8px;
+  margin-top: 4px;
 }
 
 .responsibility-item {
   display: flex;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   align-items: flex-start;
 }
 
 .bullet {
   color: #00aa00;
-  margin-right: 8px;
+  margin-right: 6px;
   font-weight: bold;
   margin-top: 1px;
+  font-size: 0.8em;
 }
 
 .responsibility-text {

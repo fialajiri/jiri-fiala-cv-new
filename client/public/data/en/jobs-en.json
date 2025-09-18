@@ -8,7 +8,7 @@
         "url": "https://www.beafuture.com/",
         "location": "Prague, Czech republic"
       },
-      "jobTitle": "Fullstack developer",
+      "jobTitle": "Full-stack developer",
       "startDate": "2024-08-01T00:00:00.000Z",
       "endDate": "",
       "responsibilities": [
@@ -49,7 +49,7 @@
         "Development of a system for enterprise process management and control – TAS (Team Assistant).",
         "TAS is an advanced system for managing enterprise processes, streamlining and automating key company tasks. It enables document management and archiving, automated invoice processing, inventory control, comprehensive HR agenda administration, and efficient order management. With its wide range of features and tools, TAS supports critical business processes across various departments, helping to increase efficiency and provide better oversight of day-to-day operations.",
         "The TAS system is used by major companies such as Dr.Max, Fortuna, Prague Airport, Kooperativa, and others, who value its flexibility, scalability, and reliability.",
-        "Technologies: JavaScript, TypeScript, Node.js, Express, Rest API, Oracle, Microsoft SQL, Redis, Docker"
+        "Technologies: JavaScript, TypeScript, Node.js, Express, REST API, Oracle, Microsoft SQL, Redis, Docker"
       ]
     },
     {
@@ -79,10 +79,10 @@
       "startDate": "2019-08-01T00:00:00.000Z",
       "endDate": "2021-01-01T00:00:00.000Z",
       "responsibilities": [
-        "Preparing business recommendations based on customer data analytics",
-        "Risk assessment",
-        "Cash flow management and cost structure optimization",
-        "Analysis of competition and setting of pricing policy"
+        "Preparing business recommendations based on customer data analytics and market research",
+        "Conducting comprehensive risk assessment and developing mitigation strategies",
+        "Managing cash flow and optimizing cost structure to improve operational efficiency",
+        "Analyzing competitive landscape and developing strategic pricing policies"
       ]
     },
     {
@@ -96,27 +96,27 @@
       "startDate": "2015-08-01T00:00:00.000Z",
       "endDate": "2019-04-01T00:00:00.000Z",
       "responsibilities": [
-        "Cost structure optimization, negotiating with suppliers",
-        "Preparation of projects, budgets, and offers, preparation of tenders",
-        "Managing complex construction projects"
+        "Optimizing cost structure and negotiating contracts with suppliers to reduce operational expenses",
+        "Preparing detailed project proposals, budgets, and competitive offers for construction tenders",
+        "Managing complex construction projects from planning to completion, ensuring quality and timeline adherence"
       ]
     },
     {
       "id": "4",
       "company": {
         "name": "O2 Czech republic",
-        "url": "https://www.stostav.cz/",
+        "url": "https://www.o2.cz/",
         "location": "Prague, Czech republic"
       },
       "jobTitle": "Business Analyst",
       "startDate": "2013-03-01T00:00:00.000Z",
       "endDate": "2015-07-01T00:00:00.000Z",
       "responsibilities": [
-        "Analyzes of the market environment, preparation of the company's long-term strategy",
-        "Quantitative analyzes and business case design",
-        "Strategy preparation for the LTE frequency auction",
-        "Preparation and implementation of pilot projects for the construction of optical infrastructure",
-        "Cost structure optimization"
+        "Conducting comprehensive market environment analysis and developing the company's long-term strategic roadmap",
+        "Performing quantitative analysis and designing business cases for strategic initiatives and investments",
+        "Leading strategy development for the LTE frequency auction, including competitive positioning and bid preparation",
+        "Planning and implementing pilot projects for optical infrastructure construction, testing new technologies and processes",
+        "Optimizing cost structure and identifying efficiency improvements across business operations"
       ]
     }
   ]
