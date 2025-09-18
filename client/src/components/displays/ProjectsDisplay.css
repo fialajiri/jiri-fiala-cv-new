@@ -33,22 +33,6 @@
   font-size: 1.1em;
 }
 
-.project-links {
-  display: flex;
-  gap: 15px;
-}
-
-.project-link {
-  color: #00aa00;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.project-link:hover {
-  color: #00ff00;
-}
-
 .project-description {
   color: #00aa00;
   margin-bottom: 10px;
@@ -73,4 +57,17 @@
 .project-url {
   color: #00aa00;
   word-break: break-all;
+}
+
+.clickable-url {
+  color: #00aa00;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-left: 5px;
+}
+
+.clickable-url:hover {
+  color: #00ff00;
+  text-decoration: underline;
 }

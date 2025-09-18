@@ -26,6 +26,10 @@
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
   word-wrap: break-word;
   overflow-wrap: break-word;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
 }
 
 /* Scrollbar styling for webkit browsers */

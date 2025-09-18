@@ -3,27 +3,27 @@
   "projects": [
     {
       "title": "Sayfyho memorial",
-      "url": "https://sayfy-frontend-ts.vercel.app/",
+      "url": "https://sayfy.cz/",
       "git": "https://github.com/fialajiri/sayfy-frontend-ts",
-      "description": "A web application enabling the organizers of the Sayfy memorial cycling race to promote the race, and upload news and photos. The frontend is created using Next.js, the backend is created by Express framework."
+      "description": "A comprehensive web application for the Sayfy memorial cycling race organizers, featuring race promotion, news updates, and photo galleries. Built with Next.js frontend and Express.js backend for optimal performance and user experience."
     },
     {
       "title": "Volba Pro! Teplice",
       "url": "https://www.volbaproteplice.cz/",
       "git": "https://github.com/fialajiri/vpt-frontend-ts",
-      "description": "Political party websites Volba pro! Teplice. The frontend is created using Next.js, the backend is created by by Express framework."
+      "description": "Official website for the Volba pro! Teplice political party, providing comprehensive information about their platform and activities. Developed with Next.js frontend and Express.js backend for modern, responsive user experience."
     },
     {
       "title": "Živé Teplice",
       "url": "https://www.ziveteplice.cz/",
       "git": "https://github.com/fialajiri/zive-teplice-frontend",
-      "description": "This web application serves as a space for the presentation of the cultural event Živé Teplice. The application allows participants to register and log in to the event, as well as present their products or art. It allows the organizers to create a new event, add and edit news, insert photos and administer registered participants. The frontend is created using Next.js, the backend is created by the Express framework."
+      "description": "A comprehensive platform for the Živé Teplice cultural event, enabling seamless participant registration, artist showcase capabilities, and event management. Features include user authentication, product/art presentation, news management, photo galleries, and administrative tools for organizers. Built with Next.js frontend and Express.js backend for scalability and performance."
     },
     {
-        "title":"Moje CV",
-        "url": "https://www.ziveteplice.cz/",
-        "git":"https://github.com/fialajiri/my-cv",
-        "description":"My personal presentation page. The frontend is built using Next.js 13.0.2."
+      "title": "Moje CV",
+      "url": "https://www.jirifialacv.cz/",
+      "git": "https://github.com/fialajiri/jiri-fiala-cv-new",
+      "description": "A modern, interactive personal portfolio showcasing professional experience, skills, and projects. Features a sleek terminal-style interface with dynamic content loading and responsive design. Built with React 19, Express.js and TypeScript for optimal performance and developer experience."
     }
   ]
 }
