@@ -7,6 +7,8 @@ interface InputLineProps {
   onKeyPress: (e: React.KeyboardEvent) => void;
   onCommand: (command: string) => void;
   isTyping: boolean;
+  commandHistory: string[];
+  setCommandHistory: (history: string[]) => void;
 }
 
 const InputLine: React.FC<InputLineProps> = ({
@@ -15,8 +17,12 @@ const InputLine: React.FC<InputLineProps> = ({
   onKeyPress,
   onCommand,
   isTyping,
+  commandHistory,
+  setCommandHistory,
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const historyIndexRef = useRef<number>(-1);
+  const tempInputRef = useRef<string>('');
 
   // Valid commands
   const validCommands = [
@@ -56,6 +62,53 @@ const InputLine: React.FC<InputLineProps> = ({
   const getActualCommand = (input: string): string => {
     const trimmedInput = input.trim().toLowerCase();
     return commandMap[trimmedInput] || trimmedInput;
+  };
+
+  // Navigate command history
+  const navigateHistory = (direction: 'up' | 'down') => {
+    if (commandHistory.length === 0) return;
+
+    if (direction === 'up') {
+      // Going up in history
+      if (historyIndexRef.current === -1) {
+        // First time going up, save current input
+        tempInputRef.current = currentInput;
+        historyIndexRef.current = commandHistory.length - 1;
+      } else if (historyIndexRef.current > 0) {
+        historyIndexRef.current--;
+      }
+    } else {
+      // Going down in history
+      if (historyIndexRef.current === -1) return;
+
+      if (historyIndexRef.current === commandHistory.length - 1) {
+        // At the end, restore original input
+        setCurrentInput(tempInputRef.current);
+        historyIndexRef.current = -1;
+        return;
+      } else {
+        historyIndexRef.current++;
+      }
+    }
+
+    // Set the input to the history item
+    if (
+      historyIndexRef.current >= 0 &&
+      historyIndexRef.current < commandHistory.length
+    ) {
+      setCurrentInput(commandHistory[historyIndexRef.current]);
+    }
+  };
+
+  // Add command to history
+  const addToHistory = (command: string) => {
+    const trimmedCommand = command.trim();
+    if (trimmedCommand && !commandHistory.includes(trimmedCommand)) {
+      setCommandHistory([...commandHistory, trimmedCommand]);
+    }
+    // Reset history navigation
+    historyIndexRef.current = -1;
+    tempInputRef.current = '';
   };
 
   // Auto-focus input on mount
@@ -130,12 +183,20 @@ const InputLine: React.FC<InputLineProps> = ({
         value={currentInput}
         onChange={e => setCurrentInput(e.target.value)}
         onKeyDown={e => {
-          if (e.key === 'Enter' && !e.shiftKey) {
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            navigateHistory('up');
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            navigateHistory('down');
+          } else if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             const trimmedInput = currentInput.trim();
 
             if (trimmedInput && isCommand(trimmedInput)) {
-              onCommand(getActualCommand(trimmedInput));
+              const actualCommand = getActualCommand(trimmedInput);
+              addToHistory(actualCommand);
+              onCommand(actualCommand);
             } else {
               onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
             }

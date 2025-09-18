@@ -15,6 +15,8 @@ interface TerminalContainerProps {
   displayedContent: Record<string, string>;
   streamingMessageId: string | null;
   onDownload?: (filename: string) => void;
+  commandHistory: string[];
+  setCommandHistory: (history: string[]) => void;
 }
 
 const TerminalContainer: React.FC<TerminalContainerProps> = ({
@@ -26,6 +28,8 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   isTyping,
   displayedContent,
   onDownload,
+  commandHistory,
+  setCommandHistory,
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
 
@@ -56,6 +60,8 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
           onKeyPress={onKeyPress}
           onCommand={onCommand}
           isTyping={isTyping}
+          commandHistory={commandHistory}
+          setCommandHistory={setCommandHistory}
         />
       </div>
     </div>

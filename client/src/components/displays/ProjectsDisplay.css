@@ -34,7 +34,7 @@
 }
 
 .project-description {
-  color: #00aa00;
+  color: #00ff00;
   margin-bottom: 10px;
   line-height: 1.4;
   font-size: 0.9em;
@@ -55,12 +55,12 @@
 }
 
 .project-url {
-  color: #00aa00;
+  color: #00ff00;  
   word-break: break-all;
 }
 
 .clickable-url {
-  color: #00aa00;
+  color: #00ff00;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.2s;

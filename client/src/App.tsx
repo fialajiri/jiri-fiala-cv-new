@@ -30,6 +30,7 @@ const queryClient = new QueryClient({
 const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
 
   const {
     messages,
@@ -266,6 +267,8 @@ const AppContent: React.FC = () => {
       displayedContent={displayedContent}
       streamingMessageId={streamingMessageId}
       onDownload={handleDownload}
+      commandHistory={commandHistory}
+      setCommandHistory={setCommandHistory}
     />
   );
 };

@@ -55,7 +55,7 @@
 }
 
 .bullet {
-  color: #00aa00;
+  color: #00ff00;
   margin-right: 6px;
   font-weight: bold;
   margin-top: 1px;
@@ -63,7 +63,7 @@
 }
 
 .responsibility-text {
-  color: #00aa00;
+  color: #00ff00;
   font-size: 0.9em;
   line-height: 1.4;
   flex: 1;
