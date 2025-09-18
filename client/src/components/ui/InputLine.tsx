@@ -22,18 +22,40 @@ const InputLine: React.FC<InputLineProps> = ({
   const validCommands = [
     'ls',
     'skills',
+    'k', // shortcut for skills
     'experience',
+    'x', // shortcut for experience
     'projects',
+    'p', // shortcut for projects
     'contact',
+    'c', // shortcut for contact
     'education',
+    'e', // shortcut for education
     'download',
+    'd', // shortcut for download
     'clear',
   ];
+
+  // Command mapping for shortcuts
+  const commandMap: { [key: string]: string } = {
+    k: 'skills',
+    x: 'experience',
+    p: 'projects',
+    c: 'contact',
+    e: 'education',
+    d: 'download',
+  };
 
   // Check if input is a valid command
   const isCommand = (input: string): boolean => {
     const trimmedInput = input.trim().toLowerCase();
     return validCommands.includes(trimmedInput);
+  };
+
+  // Get the actual command (resolve shortcuts)
+  const getActualCommand = (input: string): string => {
+    const trimmedInput = input.trim().toLowerCase();
+    return commandMap[trimmedInput] || trimmedInput;
   };
 
   // Auto-focus input on mount
@@ -113,7 +135,7 @@ const InputLine: React.FC<InputLineProps> = ({
             const trimmedInput = currentInput.trim();
 
             if (trimmedInput && isCommand(trimmedInput)) {
-              onCommand(trimmedInput.toLowerCase());
+              onCommand(getActualCommand(trimmedInput));
             } else {
               onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
             }

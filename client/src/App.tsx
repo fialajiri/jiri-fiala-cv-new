@@ -111,7 +111,7 @@ const AppContent: React.FC = () => {
           id: uuidv4(),
           type: 'system',
           content:
-            'Available commands: skills · projects · experience · contact · education · download · clear',
+            'Available commands: s[k]ills · [p]rojects · e[x]perience · [c]ontact · [e]ducation · [d]ownload · clear',
         };
         setMessages(prev => [...prev, systemMessage]);
         break;
