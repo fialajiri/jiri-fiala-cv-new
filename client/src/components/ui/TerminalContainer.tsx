@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { Rnd } from 'react-rnd';
 import MatrixBackground from './MatrixBackground';
 import { MessageList } from '../messages';
 import InputLine from './InputLine';
@@ -33,6 +34,19 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
 
+  // State for terminal size and position
+  const [terminalSize, setTerminalSize] = useState({
+    width: '70vw',
+    height: '75vh',
+  });
+  const [terminalPosition, setTerminalPosition] = useState<{
+    x: number;
+    y: number;
+  }>({
+    x: window.innerWidth * 0.15, // 15% of viewport width
+    y: window.innerHeight * 0.125, // 12.5% of viewport height
+  });
+
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     if (terminalRef.current) {
@@ -45,25 +59,53 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
       {/* Matrix Background */}
       <MatrixBackground />
 
-      {/* Terminal Content */}
-      <div ref={terminalRef} className="terminal-content">
-        <MessageList
-          messages={messages}
-          displayedContent={displayedContent}
-          onDownload={onDownload}
-        />
+      {/* Resizable and Draggable Terminal Content */}
+      <Rnd
+        size={terminalSize}
+        position={terminalPosition}
+        onDragStop={(_, d) => {
+          setTerminalPosition({ x: d.x, y: d.y });
+        }}
+        onResizeStop={(_, __, ref, ___, position) => {
+          setTerminalSize({
+            width: ref.style.width,
+            height: ref.style.height,
+          });
+          setTerminalPosition({
+            x: position.x,
+            y: position.y,
+          });
+        }}
+        minWidth={300}
+        minHeight={200}
+        maxWidth="90vw"
+        maxHeight="90vh"
+        dragHandleClassName="terminal-header"
+        bounds="window"
+        className="terminal-rnd"
+      >
+        <div className="terminal-header">
+          <span className="terminal-prompt">jirifiala@personalpage:~$</span>
+        </div>
+        <div ref={terminalRef} className="terminal-content">
+          <MessageList
+            messages={messages}
+            displayedContent={displayedContent}
+            onDownload={onDownload}
+          />
 
-        {/* Current Input Line */}
-        <InputLine
-          currentInput={currentInput}
-          setCurrentInput={setCurrentInput}
-          onKeyPress={onKeyPress}
-          onCommand={onCommand}
-          isTyping={isTyping}
-          commandHistory={commandHistory}
-          setCommandHistory={setCommandHistory}
-        />
-      </div>
+          {/* Current Input Line */}
+          <InputLine
+            currentInput={currentInput}
+            setCurrentInput={setCurrentInput}
+            onKeyPress={onKeyPress}
+            onCommand={onCommand}
+            isTyping={isTyping}
+            commandHistory={commandHistory}
+            setCommandHistory={setCommandHistory}
+          />
+        </div>
+      </Rnd>
     </div>
   );
 };

@@ -1,17 +1,46 @@
 /* Terminal Container Component Styles */
 .terminal-container {
   width: 100%;
-  max-width: 60vw;
-  margin: 0 auto;
-  height: 80vh;
+  height: 100vh;
   background-color: transparent;
   color: #00ff00;
   font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
   font-size: 14px;
-  display: flex;
-  flex-direction: column;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+}
+
+/* Rnd wrapper styles */
+.terminal-rnd {
+  background-color: #000000;
+  border-radius: 8px;
+  border: 1px solid #666666;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Terminal header for dragging */
+.terminal-header {
+  background-color: #2d2d2d;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+}
+
+.terminal-prompt {
+  color: #b8b8b8;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .terminal-content {
@@ -19,17 +48,14 @@
   overflow-y: auto;
   padding: 16px;
   line-height: 1.5;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(2px);
-  border-radius: 8px;
-  margin: 16px;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
   word-wrap: break-word;
   overflow-wrap: break-word;
   user-select: text;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
+  min-height: 0;
+  max-height: 100%;
 }
 
 /* Scrollbar styling for webkit browsers */
@@ -58,5 +84,13 @@
 
   .terminal-content {
     padding: 12px;
+  }
+
+  .terminal-header {
+    padding: 6px 8px;
+  }
+
+  .terminal-prompt {
+    font-size: 11px;
   }
 }
