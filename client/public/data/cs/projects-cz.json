@@ -1,0 +1,29 @@
+{
+  "title": "Ukázky projektů",
+  "projects": [
+    {
+      "title": "Sayfyho memorial",
+      "url": "https://sayfy-frontend-ts.vercel.app/",
+      "git": "https://github.com/fialajiri/sayfy-frontend-ts",
+      "description": "Webová aplikace umožnující pořadatelům cyklistického závodu Sayfyho memorial propagaci závodu, vkládání novinek a fotografií. Frontend je vytvořený pomocí Next.js, backend je tvoří express server."
+    },
+    {
+      "title": "Volba Pro! Teplice",
+      "url": "https://www.volbaproteplice.cz/",
+      "git": "https://github.com/fialajiri/vpt-frontend-ts",
+      "description": "Webové stránky politické strany Volba pro! Teplice. Frontend je vytvořený pomocí Next.js, backend je tvoří express server."
+    },
+    {
+      "title": "Živé Teplice",
+      "url": "https://www.ziveteplice.cz/",
+      "git": "https://github.com/fialajiri/zive-teplice-frontend",
+      "description": "Tato webová aplikace slouží jako prostor pro prezentaci kulturní akce Živé Teplice. Účastníkům aplikace umožňuje registrovat a přihlásit se na akci a také prezentovat své výrobky či umění. Organizátorům umožnuje vytvoření nového ročníku akce, přidávání a editace aktualit, vkládání fotografií a administraci přihlášených účastníků. Frontend je vytvořený pomocí Next.js, backend je tvoří express server."
+    },
+    {
+        "title":"Moje CV",
+        "url": "https://www.ziveteplice.cz/",
+        "git":"https://github.com/fialajiri/my-cv",
+        "description":"Stránka pro prezentaci mé osoby. Frontend je vytvořený pomocí Next.js 13.0.2."
+    }
+  ]
+}

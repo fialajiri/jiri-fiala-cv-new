@@ -1,0 +1,124 @@
+{
+  "title": "Pracovní zkušenosti",
+  "jobs": [
+    {
+      "id": "6",
+      "company": {
+        "name": "Be a Future s.r.o.",
+        "url": "https://www.beafuture.com/",
+        "location": "Praha, Česká republika"
+      },
+      "jobTitle": "Fullstack developer",
+      "startDate": "2024-08-01T00:00:00.000Z",
+      "endDate": "",
+      "responsibilities": [
+        "Vývoj Mobilní bezpečnostní platformy pro Policii ČR a Ministerstvo vnitra",
+        "Mobilní bezpečná platforma Policie ČR (MBP) je komplexní softwarové a hardwarové řešení pro mobilní služby Policie ČR se zabezpečenou komunikací a správou pro multiplatformní využívání stávajících a pořizovaných koncových mobilních zařízení (např. chytrých telefonů), včetně centrálního řešení pro integrované lokalizační služby (ILS). ",
+        "Služby zahrnují zajištění technické podpory a proaktivní dohled nad infrastrukturou MBP Policie ČR, včetně aplikačního a programového vybavení MBP, integrační platformy a s tím spojený plánovaný rozvoj MBP s důrazem na zajištění kybernetické bezpečnosti. ",        
+        "Technologie: PostgreSQL, Express, Typescript, Node.js, Docker, Kubernetes, React, Next.js"
+      ]
+    },
+    {
+      "id": "5",
+      "company": {
+        "name": "ApiTree s.r.o.",
+        "url": "http://www.apitree.cz/",
+        "location": "Praha, Česká republika"
+      },
+      "jobTitle": "Back-end developer",
+      "startDate": "2024-02-01T00:00:00.000Z",
+      "endDate": "2024-08-31T00:00:00.000Z",
+      "responsibilities": [
+        "Vývoj portálu distributora pro EON Distribuce. Jde o robustní a komplexní technické řešení, které umožňuje správu zákaznických účtů jak v segmentu B2B (firemní zákazníci), tak B2C (koncoví spotřebitelé). Portál zahrnuje různé typy energetických služeb, tedy elektřinu, plyn i solární energii. Zákazníci zde mohou pohodlně spravovat svá odběrná místa, provádět platby, zadávat hromadné odečty spotřeby, prodávat přebytky solární energie zpět do sítě a využívat další nástroje a služby, které jim usnadňují správu spotřeby energií.",
+        "Vývoj backendu v Nest.js. Backend portálu je vystavěn na moderní mikroservisní architektuře, která zajišťuje flexibilitu, škálovatelnost a spolehlivost systému. Tento backend je postaven na frameworku Nest.js pro Node.js, napsán v TypeScriptu a jako databázový systém používá PostgreSQL",        
+        "Frontend portálu je naprogramován pomocí React.js, což umožňuje vytvářet dynamické a uživatelsky přívětivé rozhraní, které poskytuje zákazníkům přístup ke všem funkcím portálu s jednoduchostí a rychlostí.",
+        "Technologie: PostgreSQL, Nest.js, Typescript, Node.js, JavaScript, Docker, Kubernetes, React, Next.js"
+      ]
+    },
+    {
+      "id": "0",
+      "company": {
+        "name": "Neit Consulting s.r.o.",
+        "url": "http://www.neit.cz/",
+        "location": "Praha, Česká republika"
+      },
+      "jobTitle": "Back-end developer",
+      "startDate": "2023-02-01T00:00:00.000Z",
+      "endDate": "2024-02-01T00:00:00.000",
+      "responsibilities": [
+        "Vývoj systému pro správu a řízení podnikových procesů - TAS (Team Assistant)",
+        "TAS je pokročilý systém pro řízení podnikových procesů, který usnadňuje a automatizuje klíčové firemní agendy. Umožňuje například správu a archivaci dokumentů, automatizované zpracování faktur, řízení skladových zásob, kompletní správu HR agendy a efektivní řízení objednávek. Díky široké paletě funkcí a nástrojů poskytuje TAS podporu pro klíčové firemní procesy napříč různými odděleními, což přispívá k vyšší efektivitě a lepšímu přehledu nad každodenními činnostmi.",
+        "Systém TAS využívají významné firmy, jako jsou Dr.Max, Fortuna, Letiště Praha, Kooperativa a další, které oceňují jeho flexibilitu, škálovatelnost a spolehlivost.",        
+        "Technologie: Javascript, Typescript, Node.js, Express, Rest API, Oracle, Microsoft SQL, Redis, Docker"
+      ]
+    },
+
+    {
+      "id": "1",
+      "company": {
+        "name": "FoxCom s.r.o.",
+        "url": "http://www.foxcom.eu/",
+        "location": "Teplice, Česká republika"
+      },
+      "jobTitle": "Programátor",
+      "startDate": "2022-02-01T00:00:00.000Z",
+      "endDate": "2023-02-14T00:00:00.000Z",
+      "responsibilities": [
+        "Vývoj webového portálu Městské části Prahy 6",
+        "Portál je koncipován jako moderní online platforma, která nejen poskytuje občanům a návštěvníkům důležité informace, ale umožňuje také kompletní správu obsahu samotným uživatelům. Správci portálu mohou jednoduše přidávat novinky, pořádat a zveřejňovat akce, informovat o dopravních omezeních, spravovat úřední desku a publikovat informace o samosprávě a dalších důležitých tématech. ",
+        "Technologie: Javascript, Typescript, Node.js, Express, MySQKm Strapi, Vue2, Vue3, Nuxt.js"
+      ]
+    },
+    {
+      "id": "2",
+      "company": {
+        "name": "EDHANCE s.r.o.",
+        "url": "https://www.edhance.cz",
+        "location": "Ústí nad Labem, Česká republika"
+      },
+      "jobTitle": "Hlavní analytik",
+      "startDate": "2019-08-01T00:00:00.000Z",
+      "endDate": "2021-01-01T00:00:00.000Z",
+      "responsibilities": [
+        "Tvorba obchodních doporučení na základě analýzy uživatelských dat",
+        "Plánování a analýza rizik",
+        "Řízení, kontrola a projekce cash flow",
+        "Analýza konkurence, nastavení cenové politiky"
+      ]
+    },
+    {
+      "id": "3",
+      "company": {
+        "name": "STOSTAV s.r.o.",
+        "url": "https://www.stostav.cz/",
+        "location": "Teplice, Česká republika"
+      },
+      "jobTitle": "Jednatel",
+      "startDate": "2015-08-01T00:00:00.000Z",
+      "endDate": "2019-04-01T00:00:00.000Z",
+      "responsibilities": [
+        "Optimalizace nákladlů společnosti, vyjednávání s dodavateli",
+        "Příprava projektů, rozpočtů a nabídek, příprava výběrových řízení",
+        "Realizace stavebních zakázek, koordinace subdodavatelů, stavební dozor"
+      ]
+    },
+    {
+      "id": "4",
+      "company": {
+        "name": "O2 Česká republika",
+        "url": "https://www.stostav.cz/",
+        "location": "Praha, Česká republika"
+      },
+      "jobTitle": "Analytik strategie",
+      "startDate": "2013-03-01T00:00:00.000Z",
+      "endDate": "2015-07-01T00:00:00.000Z",
+      "responsibilities": [
+        "Analýzy tržního prostředí, příprava dlouhodobé strategie společnosti",
+        "Kvantitativní analýzy a tvorba projektových záměrů",
+        "Příprava strategie k LTE aukci kmitočtů",
+        "Příprava a realizace pilotního projektů výstavby optické infrastruktury",
+        "Optimalizace nákladlů společnosti"
+      ]
+    }
+  ]
+}

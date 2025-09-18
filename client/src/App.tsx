@@ -6,8 +6,16 @@ import TerminalContainer from './components/TerminalContainer';
 import { useStreamingChat } from './hooks/use-api';
 import { useMessageManagement } from './hooks/useMessageManagement';
 import { useTypingAnimation } from './hooks/useTypingAnimation';
-import { getInitialMessages } from './lib/utils';
+import { getInitialMessages, type Message } from './lib/utils';
 import type { ChatMessage } from './lib/api-client';
+import { v4 as uuidv4 } from 'uuid';
+import {
+  loadContactData,
+  loadEducationData,
+  loadSkillsData,
+  loadProjectsData,
+  loadExperienceData,
+} from './lib/dataLoader';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -34,6 +42,7 @@ const AppContent: React.FC = () => {
     setAccumulatedContent,
     addUserMessage,
     addBotMessage,
+    updateBotMessage,
     finishStreaming,
     handleError,
   } = useMessageManagement();
@@ -91,12 +100,159 @@ const AppContent: React.FC = () => {
     }
   };
 
+  const handleCommand = async (command: string) => {
+    if (!command.trim()) return;
+
+    // Add user command to messages
+    addUserMessage(command);
+
+    // Handle different commands
+    switch (command.toLowerCase()) {
+      case 'help': {
+        const systemMessage: Message = {
+          id: uuidv4(),
+          type: 'system',
+          content:
+            'Available commands: skills experience project contact education download clear',
+        };
+        setMessages(prev => [...prev, systemMessage]);
+        break;
+      }
+      case 'skills': {
+        try {
+          const data = await loadSkillsData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'skills',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch (error) {
+          console.error('Error loading skills data:', error);
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading skills data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'experience': {
+        try {
+          const data = await loadExperienceData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'experience',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch (error) {
+          console.error('Error loading experience data:', error);
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading experience data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'project': {
+        try {
+          const data = await loadProjectsData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'projects',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch (error) {
+          console.error('Error loading projects data:', error);
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading projects data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'contact': {
+        try {
+          const data = await loadContactData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'contact',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch (error) {
+          console.error('Error loading contact data:', error);
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading contact data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'download': {
+        const botMessage = addBotMessage();
+        updateBotMessage(
+          botMessage.id,
+          '== Download CV ==\nCV download functionality will be implemented here...'
+        );
+        break;
+      }
+      case 'education': {
+        try {
+          const data = await loadEducationData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'education',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch (error) {
+          console.error('Error loading education data:', error);
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading education data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'clear':
+        setMessages(getInitialMessages());
+        break;
+      default: {
+        const botMessage = addBotMessage();
+        updateBotMessage(
+          botMessage.id,
+          `Unknown command: ${command}. Type 'help' for available commands.`
+        );
+      }
+    }
+
+    setCurrentInput('');
+  };
+
   return (
     <TerminalContainer
       messages={messages}
       currentInput={currentInput}
       setCurrentInput={setCurrentInput}
       onKeyPress={handleKeyPress}
+      onCommand={handleCommand}
       isTyping={isTyping}
       displayedContent={displayedContent}
       streamingMessageId={streamingMessageId}

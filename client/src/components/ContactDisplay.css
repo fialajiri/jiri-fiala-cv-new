@@ -1,0 +1,53 @@
+.contact-display {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.contact-header h3 {
+  color: #00ff00;
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.contact-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #00ff00;
+}
+
+.contact-occupation {
+  color: #00aa00;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.contact-items {
+  margin-left: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.contact-icon {
+  font-size: 1em;
+  min-width: 20px;
+}
+
+.contact-text {
+  color: #00ff00;
+  flex: 1;
+}
+
+.contact-link {
+  color: #00aa00;
+  font-size: 0.9em;
+  opacity: 0.8;
+}

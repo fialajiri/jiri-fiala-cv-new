@@ -70,6 +70,7 @@ export const useMessageManagement = () => {
     setAccumulatedContent,
     addUserMessage,
     addBotMessage,
+    updateBotMessage,
     finishStreaming,
     handleError,
   };

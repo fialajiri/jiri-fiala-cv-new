@@ -1,0 +1,85 @@
+.education-display {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.education-display h3 {
+  color: #00ff00;
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.education-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 2px solid #00aa00;
+  padding-left: 15px;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.study-type {
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 1.1em;
+}
+
+.study-dates {
+  color: #00aa00;
+  font-size: 0.9em;
+}
+
+.university-info {
+  margin-bottom: 8px;
+}
+
+.university-name {
+  font-weight: bold;
+  color: #00ff00;
+  margin-bottom: 3px;
+}
+
+.university-location {
+  color: #00aa00;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+.faculty-info {
+  margin-left: 10px;
+}
+
+.faculty,
+.primary-field,
+.secondary-field,
+.thesis {
+  margin-bottom: 3px;
+  font-size: 0.9em;
+}
+
+.faculty {
+  color: #00ff00;
+}
+
+.primary-field {
+  color: #00aa00;
+}
+
+.secondary-field {
+  color: #00aa00;
+  font-style: italic;
+}
+
+.thesis {
+  color: #00aa00;
+  font-style: italic;
+  margin-top: 5px;
+}

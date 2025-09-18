@@ -8,7 +8,7 @@ interface SystemMessageProps {
 
 const SystemMessage: React.FC<SystemMessageProps> = ({ message }) => {
   return (
-    <div className="message system-message">
+    <div className="system-message">
       <span className="system-label">[SYSTEM]</span>{' '}
       <span className="system-text">{message.content}</span>
     </div>

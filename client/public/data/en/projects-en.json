@@ -1,0 +1,29 @@
+{
+  "title": "My Projects",
+  "projects": [
+    {
+      "title": "Sayfyho memorial",
+      "url": "https://sayfy-frontend-ts.vercel.app/",
+      "git": "https://github.com/fialajiri/sayfy-frontend-ts",
+      "description": "A web application enabling the organizers of the Sayfy memorial cycling race to promote the race, and upload news and photos. The frontend is created using Next.js, the backend is created by Express framework."
+    },
+    {
+      "title": "Volba Pro! Teplice",
+      "url": "https://www.volbaproteplice.cz/",
+      "git": "https://github.com/fialajiri/vpt-frontend-ts",
+      "description": "Political party websites Volba pro! Teplice. The frontend is created using Next.js, the backend is created by by Express framework."
+    },
+    {
+      "title": "Živé Teplice",
+      "url": "https://www.ziveteplice.cz/",
+      "git": "https://github.com/fialajiri/zive-teplice-frontend",
+      "description": "This web application serves as a space for the presentation of the cultural event Živé Teplice. The application allows participants to register and log in to the event, as well as present their products or art. It allows the organizers to create a new event, add and edit news, insert photos and administer registered participants. The frontend is created using Next.js, the backend is created by the Express framework."
+    },
+    {
+        "title":"Moje CV",
+        "url": "https://www.ziveteplice.cz/",
+        "git":"https://github.com/fialajiri/my-cv",
+        "description":"My personal presentation page. The frontend is built using Next.js 13.0.2."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Jiří Fiala",
+  "occupation": "Full Stack Web Developer",
+  "contactItems": [
+    {
+      "icon": "/icons/envelope.svg",
+      "text": "jirik.fiala@post.cz",
+      "link": { "type": "email", "url": "jirik.fiala@post.cz" }
+    },
+    {
+      "icon": "/icons/phone.svg",
+      "text": "+420 602 107 243",
+      "type": "phone",
+      "link": { "type": "phone", "url": "+420602107243" }
+    },
+    {
+      "icon": "/icons/map-pin-line.svg",
+      "text": "Teplice, Česká republika",
+      "link": { "type": "link", "url": "https://goo.gl/maps/AWeNUGAwk6qgf6aq8" }
+    },
+    {
+      "icon": "/logos/git-logo-dark.png",
+      "text": "github.com/fialajiri",
+      "link": { "type": "link", "url": "https://github.com/fialajiri" }
+    },
+    {
+      "icon": "/icons/linkedin-logo.svg",
+      "text": "linkedin.com/in/fialajirka",
+      "link": { "type": "link", "url": "https://www.linkedin.com/in/fialajirka" }
+    },
+    {
+      "icon": "/icons/file-pdf.svg",
+      "text": "jiri_fiala_cz.pdf",
+      "link": { "type": "link", "url": "/cv/Jiri_Fiala_CZ.pdf" }
+    }
+  ]
+}

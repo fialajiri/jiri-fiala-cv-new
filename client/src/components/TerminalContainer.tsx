@@ -10,6 +10,7 @@ interface TerminalContainerProps {
   currentInput: string;
   setCurrentInput: (value: string) => void;
   onKeyPress: (e: React.KeyboardEvent) => void;
+  onCommand: (command: string) => void;
   isTyping: boolean;
   displayedContent: Record<string, string>;
   streamingMessageId: string | null;
@@ -21,6 +22,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   currentInput,
   setCurrentInput,
   onKeyPress,
+  onCommand,
   isTyping,
   displayedContent,
   isTypingAnimationComplete,
@@ -48,6 +50,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
           currentInput={currentInput}
           setCurrentInput={setCurrentInput}
           onKeyPress={onKeyPress}
+          onCommand={onCommand}
           isTyping={isTyping}
           isTypingAnimationComplete={isTypingAnimationComplete}
         />

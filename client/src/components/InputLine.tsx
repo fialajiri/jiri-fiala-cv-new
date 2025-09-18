@@ -5,6 +5,7 @@ interface InputLineProps {
   currentInput: string;
   setCurrentInput: (value: string) => void;
   onKeyPress: (e: React.KeyboardEvent) => void;
+  onCommand: (command: string) => void;
   isTyping: boolean;
   isTypingAnimationComplete: boolean;
 }
@@ -13,10 +14,29 @@ const InputLine: React.FC<InputLineProps> = ({
   currentInput,
   setCurrentInput,
   onKeyPress,
+  onCommand,
   isTyping,
   isTypingAnimationComplete,
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  // Valid commands
+  const validCommands = [
+    'help',
+    'skills',
+    'experience',
+    'project',
+    'contact',
+    'education',
+    'download',
+    'clear',
+  ];
+
+  // Check if input is a valid command
+  const isCommand = (input: string): boolean => {
+    const trimmedInput = input.trim().toLowerCase();
+    return validCommands.includes(trimmedInput);
+  };
 
   // Auto-focus input on mount
   useEffect(() => {
@@ -51,7 +71,15 @@ const InputLine: React.FC<InputLineProps> = ({
         onKeyDown={e => {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
+            const trimmedInput = currentInput.trim();
+
+            if (trimmedInput && isCommand(trimmedInput)) {
+              // Handle command
+              onCommand(trimmedInput.toLowerCase());
+            } else {
+              // Handle regular message
+              onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
+            }
           }
         }}
         className="terminal-input"

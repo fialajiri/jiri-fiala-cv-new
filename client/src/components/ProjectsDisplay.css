@@ -1,0 +1,76 @@
+.projects-display {
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.projects-display h3 {
+  color: #00ff00;
+  margin: 0 0 15px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.project-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #003300;
+  border-radius: 3px;
+  background-color: rgba(0, 51, 0, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 1.1em;
+}
+
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.project-link {
+  color: #00aa00;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: #00ff00;
+}
+
+.project-description {
+  color: #00aa00;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+.project-urls {
+  margin-left: 10px;
+}
+
+.project-url {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.url-label {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.project-url {
+  color: #00aa00;
+  word-break: break-all;
+}

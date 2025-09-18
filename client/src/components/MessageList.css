@@ -18,3 +18,8 @@
 .typing-message {
   margin-bottom: 4px;
 }
+
+.component-message {
+  margin-bottom: 16px;
+  padding: 10px 0;
+}

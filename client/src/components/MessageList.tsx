@@ -3,6 +3,7 @@ import type { Message } from '../lib/utils';
 import SystemMessage from './SystemMessage';
 import UserMessage from './UserMessage';
 import BotMessage from './BotMessage';
+import DataDisplay from './DataDisplay';
 import './MessageList.css';
 
 interface MessageListProps {
@@ -27,6 +28,17 @@ const MessageList: React.FC<MessageListProps> = ({
             message={message}
             displayedContent={displayedContent}
           />
+        );
+      case 'component':
+        return (
+          <div key={message.id} className="component-message">
+            {message.componentType && message.componentData && (
+              <DataDisplay
+                type={message.componentType}
+                data={message.componentData}
+              />
+            )}
+          </div>
         );
       default:
         return null;

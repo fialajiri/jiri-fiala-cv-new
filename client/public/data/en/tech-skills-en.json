@@ -1,0 +1,37 @@
+{
+  "title": "Tech Stack",
+  "skills": [
+    {
+      "name": "Javascript/Typescript",
+      "proficiency": 90
+    },
+    {
+      "name": "React, Next.js",
+      "proficiency": 90
+    },
+    {
+      "name": "Vue, Nuxt.js",
+      "proficiency": 60
+    },
+    {
+      "name": "MongoDb, SQL, MSSQL, ORACLE, Postgres",
+      "proficiency": 80
+    },
+    {
+      "name": "HTML, CSS, SCSS",
+      "proficiency": 80
+    },
+    {
+      "name": "Node.js, Express, Nest.js",
+      "proficiency": 90
+    },
+    {
+      "name": "C++",
+      "proficiency": 50
+    },   
+    {
+      "name":"Python",
+      "proficiency":60
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Languages",
+  "skills": [
+    {
+      "name": "English",
+      "proficiency": 90
+    },
+    {
+      "name": "French",
+      "proficiency": 50
+    },
+    {
+      "name": "Czech",
+      "proficiency": 100
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "title": "Professional Experience",
+  "jobs": [
+    {
+      "id": "6",
+      "company": {
+        "name": "Be a Future s.r.o.",
+        "url": "https://www.beafuture.com/",
+        "location": "Prague, Czech republic"
+      },
+      "jobTitle": "Fullstack developer",
+      "startDate": "2024-08-01T00:00:00.000Z",
+      "endDate": "",
+      "responsibilities": [
+        "Development of a Mobile Security Platform for the Czech Police and the Ministry of the Interior.",
+        "The Czech Police Mobile Security Platform (MBP) is a comprehensive software and hardware solution for the Czech Police’s mobile services. It provides secure communication and management for cross-platform use of both existing and newly acquired end devices (e.g., smartphones), including a central solution for integrated location services (ILS).",
+        "Services include providing technical support and proactive monitoring of the Czech Police MBP infrastructure, covering MBP applications and software, the integration platform, and planned MBP development — all with a focus on ensuring cybersecurity.",
+        "Technologies: PostgreSQL, Express, TypeScript, Node.js, Docker, Kubernetes, React, Next.js"
+      ]
+    },
+    {
+      "id": "5",
+      "company": {
+        "name": "ApiTree s.r.o.",
+        "url": "http://www.apitree.cz/",
+        "location": "Prague, Czech republic"
+      },
+      "jobTitle": "Back-end developer",
+      "startDate": "2024-02-01T00:00:00.000Z",
+      "endDate": "2024-08-31T00:00:00.000Z",
+      "responsibilities": [
+        "Development of a distributor portal for EON Distribuce. This is a robust and complex technical solution that enables the management of customer accounts in both B2B (corporate clients) and B2C (end consumers) segments. The portal covers various types of energy services — electricity, gas, and solar energy. Customers can easily manage their points of delivery, make payments, submit bulk consumption readings, sell surplus solar energy back to the grid, and use additional tools and services that simplify energy management.",
+        "Backend development in Nest.js. The portal's backend is built on a modern microservices architecture, providing flexibility, scalability, and reliability. It uses the Nest.js framework for Node.js, is written in TypeScript, and relies on PostgreSQL as its database system.",
+        "The portal’s frontend is programmed with React.js, allowing for a dynamic and user-friendly interface that provides customers with straightforward and fast access to all portal features.",
+        "Technologies: PostgreSQL, Nest.js, TypeScript, Node.js, JavaScript, Docker, Kubernetes, React, Next.js"
+      ]
+    },
+    {
+      "id": "0",
+      "company": {
+        "name": "Neit Consulting s.r.o.",
+        "url": "http://www.neit.cz/",
+        "location": "Prague, Czech republic"
+      },
+      "jobTitle": "Back-end developer",
+      "startDate": "2023-02-01T00:00:00.000Z",
+      "endDate": "2024-02-01T00:00:00.000Z",
+      "responsibilities": [
+        "Development of a system for enterprise process management and control – TAS (Team Assistant).",
+        "TAS is an advanced system for managing enterprise processes, streamlining and automating key company tasks. It enables document management and archiving, automated invoice processing, inventory control, comprehensive HR agenda administration, and efficient order management. With its wide range of features and tools, TAS supports critical business processes across various departments, helping to increase efficiency and provide better oversight of day-to-day operations.",
+        "The TAS system is used by major companies such as Dr.Max, Fortuna, Prague Airport, Kooperativa, and others, who value its flexibility, scalability, and reliability.",
+        "Technologies: JavaScript, TypeScript, Node.js, Express, Rest API, Oracle, Microsoft SQL, Redis, Docker"
+      ]
+    },
+    {
+      "id": "1",
+      "company": {
+        "name": "FoxCom s.r.o.",
+        "url": "http://www.foxcom.eu/",
+        "location": "Teplice, Czech republic"
+      },
+      "jobTitle": "Software Engineer",
+      "startDate": "2022-02-01T00:00:00.000Z",
+      "endDate": "2023-02-14T00:00:00.000Z",
+      "responsibilities": [
+        "Development of the Prague 6 Municipal District web portal.",
+        "The portal is designed as a modern online platform that not only provides citizens and visitors with essential information but also allows users to fully manage its content. Administrators can easily add news, organize and publish events, announce traffic restrictions, manage the official notice board, and post information on local government and other important topics.",
+        "Technologies: JavaScript, TypeScript, Node.js, Express, MySQL, Strapi, Vue2, Vue3, Nuxt.js"
+      ]
+    },
+    {
+      "id": "2",
+      "company": {
+        "name": "EDHANCE s.r.o.",
+        "url": "https://www.edhance.cz",
+        "location": "Ústí nad Labem, Czech republic"
+      },
+      "jobTitle": "Chief Analyst",
+      "startDate": "2019-08-01T00:00:00.000Z",
+      "endDate": "2021-01-01T00:00:00.000Z",
+      "responsibilities": [
+        "Preparing business recommendations based on customer data analytics",
+        "Risk assessment",
+        "Cash flow management and cost structure optimization",
+        "Analysis of competition and setting of pricing policy"
+      ]
+    },
+    {
+      "id": "3",
+      "company": {
+        "name": "STOSTAV s.r.o.",
+        "url": "https://www.stostav.cz/",
+        "location": "Teplice, Czech republic"
+      },
+      "jobTitle": "Managing Director",
+      "startDate": "2015-08-01T00:00:00.000Z",
+      "endDate": "2019-04-01T00:00:00.000Z",
+      "responsibilities": [
+        "Cost structure optimization, negotiating with suppliers",
+        "Preparation of projects, budgets, and offers, preparation of tenders",
+        "Managing complex construction projects"
+      ]
+    },
+    {
+      "id": "4",
+      "company": {
+        "name": "O2 Czech republic",
+        "url": "https://www.stostav.cz/",
+        "location": "Prague, Czech republic"
+      },
+      "jobTitle": "Business Analyst",
+      "startDate": "2013-03-01T00:00:00.000Z",
+      "endDate": "2015-07-01T00:00:00.000Z",
+      "responsibilities": [
+        "Analyzes of the market environment, preparation of the company's long-term strategy",
+        "Quantitative analyzes and business case design",
+        "Strategy preparation for the LTE frequency auction",
+        "Preparation and implementation of pilot projects for the construction of optical infrastructure",
+        "Cost structure optimization"
+      ]
+    }
+  ]
+}
