@@ -8,12 +8,14 @@ interface MessageListProps {
   messages: Message[];
   displayedContent: Record<string, string>;
   onDownload?: (filename: string) => void;
+  onSelectionComplete?: () => void;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
   messages,
   displayedContent,
   onDownload,
+  onSelectionComplete,
 }) => {
   const renderMessage = (message: Message) => {
     switch (message.type) {
@@ -37,6 +39,7 @@ const MessageList: React.FC<MessageListProps> = ({
                 type={message.componentType}
                 data={message.componentData}
                 onDownload={onDownload}
+                onSelectionComplete={onSelectionComplete}
               />
             )}
           </div>

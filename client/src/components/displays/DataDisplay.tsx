@@ -16,14 +16,17 @@ interface DataDisplayProps {
     | 'projects'
     | 'experience'
     | 'cv-download';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
   onDownload?: (filename: string) => void;
+  onSelectionComplete?: () => void;
 }
 
 const DataDisplay: React.FC<DataDisplayProps> = ({
   type,
   data,
   onDownload,
+  onSelectionComplete,
 }) => {
   switch (type) {
     case 'contact':
@@ -37,7 +40,12 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
     case 'experience':
       return <ExperienceDisplay data={data} />;
     case 'cv-download':
-      return <CVDownloadDisplay onDownload={onDownload || (() => {})} />;
+      return (
+        <CVDownloadDisplay
+          onDownload={onDownload || (() => {})}
+          onSelectionComplete={onSelectionComplete}
+        />
+      );
     default:
       return <div>Unknown data type</div>;
   }

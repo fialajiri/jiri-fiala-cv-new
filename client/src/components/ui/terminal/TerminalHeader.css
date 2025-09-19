@@ -12,6 +12,8 @@
   -ms-user-select: none;
   font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
   position: relative;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #666666;
 }
 
 .terminal-prompt {

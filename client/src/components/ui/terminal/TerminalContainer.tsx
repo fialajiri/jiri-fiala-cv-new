@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Rnd } from 'react-rnd';
 import MatrixBackground from '../MatrixBackground';
 import { MessageList } from '../../messages';
@@ -36,6 +36,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   setCommandHistory,
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
+  const [isCVDownloadActive, setIsCVDownloadActive] = useState(false);
 
   const {
     handleDragStop,
@@ -58,6 +59,19 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [messages, currentInput, isTyping]);
+
+  // Check if CVDownloadDisplay is active and incomplete
+  useEffect(() => {
+    const hasActiveCVDownload = messages.some(
+      message =>
+        message.type === 'component' && message.componentType === 'cv-download'
+    );
+    setIsCVDownloadActive(hasActiveCVDownload);
+  }, [messages]);
+
+  const handleSelectionComplete = () => {
+    setIsCVDownloadActive(false);
+  };
 
   return (
     <div className="terminal-container">
@@ -82,17 +96,20 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
             messages={messages}
             displayedContent={displayedContent}
             onDownload={onDownload}
+            onSelectionComplete={handleSelectionComplete}
           />
 
-          <InputLine
-            currentInput={currentInput}
-            setCurrentInput={setCurrentInput}
-            onKeyPress={onKeyPress}
-            onCommand={onCommand}
-            isTyping={isTyping}
-            commandHistory={commandHistory}
-            setCommandHistory={setCommandHistory}
-          />
+          {!isCVDownloadActive && (
+            <InputLine
+              currentInput={currentInput}
+              setCurrentInput={setCurrentInput}
+              onKeyPress={onKeyPress}
+              onCommand={onCommand}
+              isTyping={isTyping}
+              commandHistory={commandHistory}
+              setCommandHistory={setCommandHistory}
+            />
+          )}
         </div>
       </Rnd>
     </div>

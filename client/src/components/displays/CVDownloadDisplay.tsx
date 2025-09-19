@@ -4,10 +4,12 @@ import './CVDownloadDisplay.css';
 
 interface CVDownloadDisplayProps {
   onDownload: (language: string) => void;
+  onSelectionComplete?: () => void;
 }
 
 const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
   onDownload,
+  onSelectionComplete,
 }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const cvOptions = [
@@ -15,7 +17,7 @@ const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
     { id: 'cz', label: 'Czech', value: 'Jiri_Fiala_CZ.pdf' },
   ];
 
-  const handleSelectionChange = (_selectedIds: string[]) => {
+  const handleSelectionChange = () => {
     // For single selection, we don't need to do anything here
   };
 
@@ -27,6 +29,7 @@ const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
       if (selectedOption) {
         onDownload(selectedOption.value);
         setIsCompleted(true);
+        onSelectionComplete?.();
       }
     }
   };
