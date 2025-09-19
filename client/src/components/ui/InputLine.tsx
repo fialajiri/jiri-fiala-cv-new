@@ -26,8 +26,6 @@ const InputLine: React.FC<InputLineProps> = ({
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  console.log('commandHistory', commandHistory);
-
   const { navigateHistory } = useCommandHistory({
     commandHistory,
     setCommandHistory,
