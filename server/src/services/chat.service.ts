@@ -46,7 +46,6 @@ class ChatService {
       stream: true,
     });
 
-    // Stream the response text
     const textStream = response.toTextStream({
       compatibleWithNodeStreams: false,
     });
@@ -55,10 +54,8 @@ class ChatService {
       yield { type: 'chunk', content: chunk };
     }
 
-    // Wait for completion to get the final result with history
     await response.completed;
 
-    // Yield the final result with history
     yield {
       type: 'done',
       history: response.history as ChatMessage[],

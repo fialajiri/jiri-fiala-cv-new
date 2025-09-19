@@ -18,10 +18,8 @@ app.use(
 
 app.use(express.json());
 
-// Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// API routes
 app.use('/', routes);
 
 export default app;

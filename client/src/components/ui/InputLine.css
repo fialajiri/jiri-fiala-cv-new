@@ -17,7 +17,7 @@
   font-size: inherit;
   line-height: 1.5;
   min-width: 0;
-  caret-color: #00ff00;
+  caret-color: var(--terminal-green);
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: pre-wrap;

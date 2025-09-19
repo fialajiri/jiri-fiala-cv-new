@@ -48,6 +48,6 @@ body {
 
 /* Global cursor animation */
 .cursor {
-  color: #00ff00;
+  color: var(--terminal-green);
   animation: blink 1s ease-in-out infinite;
 }

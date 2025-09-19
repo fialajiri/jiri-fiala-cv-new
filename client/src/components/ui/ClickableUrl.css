@@ -6,7 +6,7 @@
 }
 
 .url-label {
-  color: #00ff00;
+  color: var(--terminal-green);
   font-weight: bold;
   margin-right: 5px;
 }
@@ -18,7 +18,7 @@
 }
 
 .clickable-url {
-  color: #00ff00;
+  color: var(--terminal-green);
   cursor: default;
   transition: text-decoration 0.2s;
   word-break: break-all;

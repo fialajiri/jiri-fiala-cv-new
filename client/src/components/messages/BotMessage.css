@@ -42,7 +42,7 @@
 
 .streaming-cursor {
   animation: blink 1s infinite;
-  color: #00ff00;
+  color: var(--terminal-green);
   font-weight: bold;
 }
 

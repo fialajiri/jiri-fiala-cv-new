@@ -1,5 +1,7 @@
+@import './fonts.css';
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--system-font);
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,15 +13,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  /* Custom color variables */
+  --terminal-green: #00e600;
+  --accent-color: #646cff;
+  --accent-color-hover: #535bf2;
+
+  /* Font family variables */
+  --terminal-font: 'JetBrainsMono', 'Courier New', 'Monaco', 'Menlo', monospace;
+  --system-font: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 body {

@@ -3,7 +3,6 @@
   padding: 15px;
   border: 1px solid #003300;
   border-radius: 3px;
-  background-color: rgba(0, 51, 0, 0.1);
 }
 
 .project-header {
@@ -15,15 +14,15 @@
 
 .project-title {
   font-weight: bold;
-  color: #00ff00;
-  font-size: 1.1em;
+  color: var(--terminal-green);
+  font-size: 1rem;
 }
 
 .project-description {
-  color: #00ff00;
+  color: var(--terminal-green);
   margin-bottom: 10px;
   line-height: 1.4;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 .project-urls {

@@ -26,7 +26,9 @@ const InputLine: React.FC<InputLineProps> = ({
 }) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  const { navigateHistory, addToHistory } = useCommandHistory({
+  console.log('commandHistory', commandHistory);
+
+  const { navigateHistory } = useCommandHistory({
     commandHistory,
     setCommandHistory,
     currentInput,
@@ -65,11 +67,13 @@ const InputLine: React.FC<InputLineProps> = ({
 
             if (trimmedInput && isValidCommand(trimmedInput)) {
               const actualCommand = getActualCommand(trimmedInput);
-              addToHistory(actualCommand);
               onCommand(actualCommand);
             } else {
               onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
             }
+          } else if (e.key === 'c' && e.ctrlKey) {
+            e.preventDefault();
+            setCurrentInput('');
           }
         }}
         className="terminal-input"

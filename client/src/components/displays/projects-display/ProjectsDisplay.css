@@ -1,12 +1,11 @@
 .projects-display {
-  color: #00ff00;
-  font-family: 'Courier New', monospace;
+  color: var(--terminal-green);
   line-height: 1.4;
   margin: 10px 0;
 }
 
 .projects-display h3 {
-  color: #00ff00;
+  color: var(--terminal-green);
   margin: 0 0 15px 0;
   font-size: 1.1em;
   font-weight: bold;

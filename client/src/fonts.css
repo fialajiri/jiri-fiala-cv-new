@@ -1,0 +1,56 @@
+/* JetBrainsMono Nerd Font - Optimized for terminal use */
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-Italic.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-BoldItalic.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light variant for subtle text */
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-Light.ttf')
+    format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium variant for emphasis */
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/JetBrainsMono/JetBrainsMonoNerdFontMono-Medium.ttf')
+    format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,8 +1,8 @@
 /* Terminal Container Component Styles */
 .terminal-container {
   background-color: transparent;
-  color: #00ff00;
-  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  color: var(--terminal-green);
+  font-family: var(--terminal-font);
   font-size: 14px;
   position: relative;
   z-index: 1;

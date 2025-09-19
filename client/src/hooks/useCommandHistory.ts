@@ -23,26 +23,27 @@ export const useCommandHistory = ({
       if (direction === 'up') {
         if (historyIndexRef.current === -1) {
           tempInputRef.current = currentInput;
-          historyIndexRef.current = commandHistory.length - 1;
-        } else if (historyIndexRef.current > 0) {
-          historyIndexRef.current--;
         }
+        historyIndexRef.current =
+          (historyIndexRef.current - 1 + commandHistory.length) %
+          commandHistory.length;
+        setCurrentInput(commandHistory[historyIndexRef.current]);
       } else {
-        if (historyIndexRef.current === -1) return;
+        if (historyIndexRef.current === -1) {
+          tempInputRef.current = currentInput;
+          historyIndexRef.current = 0;
+          setCurrentInput(commandHistory[0]);
+          return;
+        }
+        historyIndexRef.current =
+          (historyIndexRef.current + 1) % commandHistory.length;
 
-        if (historyIndexRef.current === commandHistory.length - 1) {
+        if (historyIndexRef.current === 0) {
           setCurrentInput(tempInputRef.current);
           historyIndexRef.current = -1;
           return;
-        } else {
-          historyIndexRef.current++;
         }
-      }
 
-      if (
-        historyIndexRef.current >= 0 &&
-        historyIndexRef.current < commandHistory.length
-      ) {
         setCurrentInput(commandHistory[historyIndexRef.current]);
       }
     },
