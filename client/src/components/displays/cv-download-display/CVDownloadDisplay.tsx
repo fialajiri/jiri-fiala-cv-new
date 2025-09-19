@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SelectionList from '../ui/SelectionList';
+import SelectionList from '../../ui/SelectionList';
 import './CVDownloadDisplay.css';
 
 interface CVDownloadDisplayProps {
@@ -16,10 +16,6 @@ const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
     { id: 'en', label: 'English', value: 'Jiri_Fiala_En.pdf' },
     { id: 'cz', label: 'Czech', value: 'Jiri_Fiala_CZ.pdf' },
   ];
-
-  const handleSelectionChange = () => {
-    // For single selection, we don't need to do anything here
-  };
 
   const handleConfirm = (selectedIds: string[]) => {
     if (selectedIds.length > 0) {
@@ -39,7 +35,7 @@ const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
       <h3>== Download CV ==</h3>
       <SelectionList
         options={cvOptions}
-        onSelectionChange={handleSelectionChange}
+        onSelectionChange={() => {}}
         onConfirm={handleConfirm}
         multiSelect={false}
         disabled={isCompleted}

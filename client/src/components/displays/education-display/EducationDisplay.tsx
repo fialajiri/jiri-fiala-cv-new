@@ -1,5 +1,6 @@
 import React from 'react';
 import './EducationDisplay.css';
+import { formatDate } from '../../../lib/utils';
 
 interface University {
   name: string;
@@ -29,15 +30,6 @@ interface EducationDisplayProps {
 }
 
 const EducationDisplay: React.FC<EducationDisplayProps> = ({ data }) => {
-  const formatDate = (dateString: string) => {
-    if (!dateString) return 'Present';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-    });
-  };
-
   return (
     <div className="education-display">
       <h3>== {data.title} ==</h3>

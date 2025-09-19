@@ -1,6 +1,6 @@
 import React from 'react';
 import './ExperienceDisplay.css';
-import { formatDate } from '../../lib/utils';
+import { formatDate } from '../../../lib/utils';
 
 interface ICompany {
   name: string;

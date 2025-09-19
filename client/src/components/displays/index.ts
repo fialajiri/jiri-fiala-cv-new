@@ -1,7 +1,7 @@
-export { default as ContactDisplay } from './ContactDisplay';
-export { default as EducationDisplay } from './EducationDisplay';
-export { default as SkillsDisplay } from './SkillsDisplay';
-export { default as ProjectsDisplay } from './ProjectsDisplay';
-export { default as ExperienceDisplay } from './ExperienceDisplay';
-export { default as CVDownloadDisplay } from './CVDownloadDisplay';
-export { default as DataDisplay } from './DataDisplay';
+export { default as ContactDisplay } from './contact-display';
+export { default as EducationDisplay } from './education-display';
+export { default as SkillsDisplay } from './skills-display';
+export { default as ProjectsDisplay } from './projects-display';
+export { default as ExperienceDisplay } from './experience-display';
+export { default as CVDownloadDisplay } from './cv-download-display';
+export { default as DataDisplay } from './data-display';

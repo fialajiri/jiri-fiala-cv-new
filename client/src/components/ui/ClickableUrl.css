@@ -1,0 +1,75 @@
+.project-url {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+}
+
+.url-label {
+  color: #00ff00;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.url-container {
+  position: relative;
+  display: inline-block;
+  flex: 1;
+}
+
+.clickable-url {
+  color: #00ff00;
+  cursor: default;
+  transition: text-decoration 0.2s;
+  word-break: break-all;
+  display: inline-block;
+}
+
+.clickable-url:hover {
+  text-decoration: underline;
+}
+
+.clickable-url:hover + .follow-link-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.follow-link-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s,
+    visibility 0.2s;
+  z-index: 10;
+  border: 1px solid #666666;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.follow-link-tooltip:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+.follow-link-text {
+  color: #007acc;
+  cursor: pointer;
+}
+
+.follow-link-hint {
+  color: #ffffff;
+}
+
+/* Show pointer cursor only when holding Cmd/Ctrl */
+.clickable-url.modifier-pressed {
+  cursor: pointer;
+}

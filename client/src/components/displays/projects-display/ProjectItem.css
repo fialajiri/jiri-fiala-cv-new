@@ -1,0 +1,31 @@
+.project-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #003300;
+  border-radius: 3px;
+  background-color: rgba(0, 51, 0, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-weight: bold;
+  color: #00ff00;
+  font-size: 1.1em;
+}
+
+.project-description {
+  color: #00ff00;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-size: 0.9em;
+}
+
+.project-urls {
+  margin-left: 10px;
+}

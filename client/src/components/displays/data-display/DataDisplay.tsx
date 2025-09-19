@@ -6,7 +6,7 @@ import {
   ProjectsDisplay,
   ExperienceDisplay,
   CVDownloadDisplay,
-} from './';
+} from '../';
 
 interface DataDisplayProps {
   type:
