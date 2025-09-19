@@ -35,6 +35,9 @@
 .study-dates {
   color: #00aa00;
   font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 .university-info {
@@ -45,12 +48,7 @@
   font-weight: bold;
   color: #00ff00;
   margin-bottom: 3px;
-}
-
-.university-location {
-  color: #00aa00;
-  font-size: 0.9em;
-  font-style: italic;
+  font-size: 1em;
 }
 
 .faculty-info {
@@ -63,23 +61,22 @@
 .thesis {
   margin-bottom: 3px;
   font-size: 0.9em;
+  line-height: 1.4;
 }
 
 .faculty {
   color: #00ff00;
+  font-weight: normal;
 }
 
 .primary-field {
-  color: #00aa00;
-}
-
-.secondary-field {
-  color: #00aa00;
-  font-style: italic;
+  color: #00ff00; 
 }
 
 .thesis {
-  color: #00aa00;
+  color: #00ff00;
   font-style: italic;
+  font-weight: normal;
   margin-top: 5px;
+  opacity: 0.9;
 }

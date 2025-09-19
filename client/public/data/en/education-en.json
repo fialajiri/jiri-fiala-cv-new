@@ -4,61 +4,53 @@
     {
       "id": "1",
       "university": {
-        "name": "University of Jan Evangelista Purkyne in Ústí nad Labem",
-        "url": "https://www.ujep.cz/cs/",
-        "location": "Ústí nad Labem, Czech republic"
+        "name": "University of Jan Evangelista Purkyne in Usti nad Labem",
+        "url": "https://www.ujep.cz/cs/"
       },
       "startDate": "2016-09-01T00:00:00.000",
       "endDate": "2017-02-01T00:00:00.000",
       "studyType": "Master's degree",
       "faculty": "Faculty of Science",
       "primaryField": "Computer Modelling in Science and Technology",
-      "secondaryField": "",
       "thesis": ""
     },
     {
       "id": "2",
       "university": {
         "name": "Czech Technical University in Prague",
-        "url": "https://www.cvut.cz/",
-        "location": "Prague, Czech republic"
+        "url": "https://www.cvut.cz/"
       },
       "startDate": "2009-09-01T00:00:00.000",
       "endDate": "2013-02-01T00:00:00.000",
       "studyType": "Bachelor's degree",
       "faculty": "Faculty of Nuclear Sciences and Physical Engineering",
       "primaryField": "Mathematical Modelling",
-      "secondaryField": "",
       "thesis": "Aperiodic Random Number Generators"
     },
     {
       "id": "3",
       "university": {
         "name": "Prague University of Economics",
-        "url": "https://www.vse.cz/",
-        "location": "Prague, Czech republic"
+        "url": "https://www.vse.cz/"
       },
       "startDate": "2007-09-01T00:00:00.000",
       "endDate": "2009-02-01T00:00:00.000",
       "studyType": "Master's degree",
       "faculty": "Faculty of Economics",
       "primaryField": "Economic Analysis",
-      "secondaryField": "Quantitative management",
       "thesis": "Asymmetric Information and Contract Theory"
     },
     {
       "id": "4",
       "university": {
         "name": "West-Bohemian University in Pilsen",
-        "url": "https://www.zcu.cz/cs/index.html",
-        "location": "Pilsen, Czech republic"
+        "url": "https://www.zcu.cz/cs/index.html"
       },
       "startDate": "2004-09-01T00:00:00.000",
       "endDate": "2007-02-01T00:00:00.000",
       "studyType": "Bachelor's degree",
       "faculty": "Faculty of Economics",
       "primaryField": "Finance",
-      "secondaryField": "",
       "thesis": "The Dynamics of Keynesian Theory"
     }
   ]

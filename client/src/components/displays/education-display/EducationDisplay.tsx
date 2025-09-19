@@ -5,7 +5,6 @@ import { formatDate } from '../../../lib/utils';
 interface University {
   name: string;
   url: string;
-  location: string;
 }
 
 interface Study {
@@ -16,7 +15,6 @@ interface Study {
   studyType: string;
   faculty: string;
   primaryField: string;
-  secondaryField: string;
   thesis: string;
 }
 
@@ -45,19 +43,11 @@ const EducationDisplay: React.FC<EducationDisplayProps> = ({ data }) => {
 
           <div className="university-info">
             <div className="university-name">{study.university.name}</div>
-            <div className="university-location">
-              {study.university.location}
-            </div>
           </div>
 
           <div className="faculty-info">
             <div className="faculty">Faculty: {study.faculty}</div>
             <div className="primary-field">Field: {study.primaryField}</div>
-            {study.secondaryField && (
-              <div className="secondary-field">
-                Secondary: {study.secondaryField}
-              </div>
-            )}
             {study.thesis && (
               <div className="thesis">Thesis: {study.thesis}</div>
             )}
