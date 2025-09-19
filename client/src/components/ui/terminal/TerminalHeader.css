@@ -1,7 +1,7 @@
 /* Terminal Header Component Styles */
 .terminal-header {
   background-color: #2d2d2d;
-  padding: 8px 12px;
+  padding: 4px 8px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
 
 .terminal-prompt {
   color: #b8b8b8;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }

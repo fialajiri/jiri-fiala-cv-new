@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './App.css';
 import { TerminalContainer } from './components';
 import { useStreamingChat } from './hooks/use-api';
 import { useMessageManagement } from './hooks/useMessageManagement';
 import { getInitialMessages } from './lib/utils';
-import type { ChatMessage } from './lib/api-client';
 import { useCommandHandler } from './hooks/useCommandHandler';
 import { useTypingAnimation } from './hooks/useTypingAnimation';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 5 * 60 * 1000, // 5 minutes
-      retry: 1,
-    },
-  },
-});
+import type { ChatMessage } from './lib/api-client';
+import { queryClient } from './lib/queryClient';
+import { downloadCV } from './lib/downloadUtils';
 
 const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
@@ -54,13 +47,11 @@ const AppContent: React.FC = () => {
     setAccumulatedContent,
   });
 
-  // Initialize messages on mount
+  const { sendStreamingMessage } = useStreamingChat();
+
   useEffect(() => {
     setMessages(getInitialMessages());
   }, [setMessages]);
-
-  // Send message to API
-  const { sendStreamingMessage } = useStreamingChat();
 
   const sendMessageToAPI = async (userMessage: string) => {
     setIsTyping(true);
@@ -94,17 +85,9 @@ const AppContent: React.FC = () => {
   };
 
   const onCommand = async (command: string) => {
+    addUserMessage(command);
     await handleCommand(command);
     setCurrentInput('');
-  };
-
-  const handleDownload = (filename: string) => {
-    const link = document.createElement('a');
-    link.href = `/cv/${filename}`;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (
@@ -117,7 +100,7 @@ const AppContent: React.FC = () => {
       isTyping={isTyping}
       displayedContent={displayedContent}
       streamingMessageId={streamingMessageId}
-      onDownload={handleDownload}
+      onDownload={downloadCV}
       commandHistory={commandHistory}
       setCommandHistory={setCommandHistory}
     />
