@@ -5,19 +5,11 @@ import './App.css';
 import { TerminalContainer } from './components';
 import { useStreamingChat } from './hooks/use-api';
 import { useMessageManagement } from './hooks/useMessageManagement';
-import { useTypingAnimation } from './hooks/useTypingAnimation';
-import { getInitialMessages, type Message } from './lib/utils';
+import { getInitialMessages } from './lib/utils';
 import type { ChatMessage } from './lib/api-client';
-import { v4 as uuidv4 } from 'uuid';
-import {
-  loadContactData,
-  loadEducationData,
-  loadSkillsData,
-  loadProjectsData,
-  loadExperienceData,
-} from './lib/dataLoader';
+import { useCommandHandler } from './hooks/useCommandHandler';
+import { useTypingAnimation } from './hooks/useTypingAnimation';
 
-// Create a client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -30,7 +22,6 @@ const queryClient = new QueryClient({
 const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [commandHistory, setCommandHistory] = useState<string[]>([]);
 
   const {
     messages,
@@ -48,6 +39,14 @@ const AppContent: React.FC = () => {
     handleError,
   } = useMessageManagement();
 
+  const { commandHistory, setCommandHistory, handleCommand } =
+    useCommandHandler({
+      setMessages,
+      addBotMessage,
+      updateBotMessage,
+      getInitialMessages,
+    });
+
   const typingAnimation = useTypingAnimation({
     displayedContent,
     accumulatedContent,
@@ -59,11 +58,6 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     setMessages(getInitialMessages());
   }, [setMessages]);
-
-  // Clean up typing timeout on unmount
-  useEffect(() => {
-    return typingAnimation.cleanup;
-  }, [typingAnimation.cleanup]);
 
   // Send message to API
   const { sendStreamingMessage } = useStreamingChat();
@@ -99,151 +93,8 @@ const AppContent: React.FC = () => {
     }
   };
 
-  const handleCommand = async (command: string) => {
-    if (!command.trim()) return;
-
-    // Add user command to messages
-    addUserMessage(command);
-
-    // Handle different commands
-    switch (command.toLowerCase()) {
-      case 'ls': {
-        const systemMessage: Message = {
-          id: uuidv4(),
-          type: 'system',
-          content:
-            'Available commands: s[k]ills · [p]rojects · e[x]perience · [c]ontact · [e]ducation · [d]ownload · clear',
-        };
-        setMessages(prev => [...prev, systemMessage]);
-        break;
-      }
-      case 'skills': {
-        try {
-          const data = await loadSkillsData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'skills',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch (error) {
-          console.error('Error loading skills data:', error);
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading skills data. Please try again.'
-          );
-        }
-        break;
-      }
-      case 'experience': {
-        try {
-          const data = await loadExperienceData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'experience',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch (error) {
-          console.error('Error loading experience data:', error);
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading experience data. Please try again.'
-          );
-        }
-        break;
-      }
-      case 'projects': {
-        try {
-          const data = await loadProjectsData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'projects',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch (error) {
-          console.error('Error loading projects data:', error);
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading projects data. Please try again.'
-          );
-        }
-        break;
-      }
-      case 'contact': {
-        try {
-          const data = await loadContactData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'contact',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch (error) {
-          console.error('Error loading contact data:', error);
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading contact data. Please try again.'
-          );
-        }
-        break;
-      }
-      case 'download': {
-        const componentMessage: Message = {
-          id: uuidv4(),
-          type: 'component',
-          content: '',
-          componentType: 'cv-download',
-        };
-        setMessages(prev => [...prev, componentMessage]);
-        break;
-      }
-      case 'education': {
-        try {
-          const data = await loadEducationData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'education',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch (error) {
-          console.error('Error loading education data:', error);
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading education data. Please try again.'
-          );
-        }
-        break;
-      }
-      case 'clear':
-        setMessages(getInitialMessages());
-        break;
-      default: {
-        const botMessage = addBotMessage();
-        updateBotMessage(
-          botMessage.id,
-          `Unknown command: ${command}. Type 'help' for available commands.`
-        );
-      }
-    }
-
+  const onCommand = async (command: string) => {
+    await handleCommand(command);
     setCurrentInput('');
   };
 
@@ -262,7 +113,7 @@ const AppContent: React.FC = () => {
       currentInput={currentInput}
       setCurrentInput={setCurrentInput}
       onKeyPress={handleKeyPress}
-      onCommand={handleCommand}
+      onCommand={onCommand}
       isTyping={isTyping}
       displayedContent={displayedContent}
       streamingMessageId={streamingMessageId}

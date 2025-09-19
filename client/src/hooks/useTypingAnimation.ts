@@ -42,13 +42,8 @@ export const useTypingAnimation = (state: TypingState) => {
     [state]
   );
 
-  const cleanup = useCallback(() => {
-    // No cleanup needed since we removed timeouts
-  }, []);
-
   return {
     addChunk,
     initializeMessage,
-    cleanup,
   };
 };
