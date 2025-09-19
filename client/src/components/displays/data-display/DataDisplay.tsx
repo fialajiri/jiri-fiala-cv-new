@@ -20,6 +20,7 @@ interface DataDisplayProps {
   data?: any;
   onDownload?: (filename: string) => void;
   onSelectionComplete?: () => void;
+  onInputStateChange?: (isActive: boolean) => void;
 }
 
 const DataDisplay: React.FC<DataDisplayProps> = ({
@@ -27,6 +28,7 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
   data,
   onDownload,
   onSelectionComplete,
+  onInputStateChange,
 }) => {
   switch (type) {
     case 'contact':
@@ -44,6 +46,7 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
         <CVDownloadDisplay
           onDownload={onDownload || (() => {})}
           onSelectionComplete={onSelectionComplete}
+          onInputStateChange={onInputStateChange}
         />
       );
     default:

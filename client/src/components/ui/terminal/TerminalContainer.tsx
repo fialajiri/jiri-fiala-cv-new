@@ -36,7 +36,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   setCommandHistory,
 }) => {
   const terminalRef = useRef<HTMLDivElement>(null);
-  const [isCVDownloadActive, setIsCVDownloadActive] = useState(false);
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
 
   const {
     handleDragStop,
@@ -60,17 +60,8 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
     }
   }, [messages, currentInput, isTyping]);
 
-  // Check if CVDownloadDisplay is active and incomplete
-  useEffect(() => {
-    const hasActiveCVDownload = messages.some(
-      message =>
-        message.type === 'component' && message.componentType === 'cv-download'
-    );
-    setIsCVDownloadActive(hasActiveCVDownload);
-  }, [messages]);
-
-  const handleSelectionComplete = () => {
-    setIsCVDownloadActive(false);
+  const handleInputStateChange = (isActive: boolean) => {
+    setIsInputDisabled(!isActive);
   };
 
   return (
@@ -96,10 +87,10 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
             messages={messages}
             displayedContent={displayedContent}
             onDownload={onDownload}
-            onSelectionComplete={handleSelectionComplete}
+            onInputStateChange={handleInputStateChange}
           />
 
-          {!isCVDownloadActive && (
+          {!isInputDisabled && (
             <InputLine
               currentInput={currentInput}
               setCurrentInput={setCurrentInput}

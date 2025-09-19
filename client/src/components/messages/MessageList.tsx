@@ -9,6 +9,7 @@ interface MessageListProps {
   displayedContent: Record<string, string>;
   onDownload?: (filename: string) => void;
   onSelectionComplete?: () => void;
+  onInputStateChange?: (isActive: boolean) => void;
 }
 
 const MessageList: React.FC<MessageListProps> = ({
@@ -16,6 +17,7 @@ const MessageList: React.FC<MessageListProps> = ({
   displayedContent,
   onDownload,
   onSelectionComplete,
+  onInputStateChange,
 }) => {
   const renderMessage = (message: Message) => {
     switch (message.type) {
@@ -40,6 +42,7 @@ const MessageList: React.FC<MessageListProps> = ({
                 data={message.componentData}
                 onDownload={onDownload}
                 onSelectionComplete={onSelectionComplete}
+                onInputStateChange={onInputStateChange}
               />
             )}
           </div>

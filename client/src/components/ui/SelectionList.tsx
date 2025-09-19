@@ -9,10 +9,10 @@ interface SelectionOption {
 
 interface SelectionListProps {
   options: SelectionOption[];
-  onSelectionChange: (selectedIds: string[]) => void;
-  onConfirm: (selectedIds: string[]) => void;
+  onSelectionChange: (selectedId: string | null) => void;
+  onConfirm: (selectedId: string | null) => void;
+  onCancel: () => void;
   title?: string;
-  multiSelect?: boolean;
   disabled?: boolean;
 }
 
@@ -20,12 +20,12 @@ const SelectionList: React.FC<SelectionListProps> = ({
   options,
   onSelectionChange,
   onConfirm,
+  onCancel,
   title,
-  multiSelect = false,
   disabled = false,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -40,40 +40,32 @@ const SelectionList: React.FC<SelectionListProps> = ({
           e.preventDefault();
           setSelectedIndex(prev => (prev < options.length - 1 ? prev + 1 : 0));
           break;
-        case ' ':
+        case ' ': {
           e.preventDefault();
-          if (multiSelect) {
-            const option = options[selectedIndex];
-            const newSelectedIds = selectedIds.includes(option.id)
-              ? selectedIds.filter(id => id !== option.id)
-              : [...selectedIds, option.id];
-            setSelectedIds(newSelectedIds);
-            onSelectionChange(newSelectedIds);
-          } else {
-            const option = options[selectedIndex];
-            const newSelectedIds = [option.id];
-            setSelectedIds(newSelectedIds);
-            onSelectionChange(newSelectedIds);
-          }
+          const option = options[selectedIndex];
+          const newSelectedId = selectedId === option.id ? null : option.id;
+          setSelectedId(newSelectedId);
+          onSelectionChange(newSelectedId);
           break;
+        }
         case 'Enter':
           e.preventDefault();
-          onConfirm(selectedIds);
+          onConfirm(selectedId);
           break;
         case 'Escape':
           e.preventDefault();
-          onConfirm([]);
+          onCancel();
           break;
       }
     },
     [
       disabled,
-      multiSelect,
       onConfirm,
-      selectedIds,
+      selectedId,
       options,
       selectedIndex,
       onSelectionChange,
+      onCancel,
     ]
   );
 
@@ -94,14 +86,7 @@ const SelectionList: React.FC<SelectionListProps> = ({
 
     document.addEventListener('keydown', handleGlobalKeyDown);
     return () => document.removeEventListener('keydown', handleGlobalKeyDown);
-  }, [
-    selectedIndex,
-    selectedIds,
-    options,
-    multiSelect,
-    handleKeyDown,
-    disabled,
-  ]);
+  }, [selectedIndex, selectedId, options, handleKeyDown, disabled]);
 
   return (
     <div
@@ -117,7 +102,7 @@ const SelectionList: React.FC<SelectionListProps> = ({
             className={`selection-option ${index === selectedIndex && !disabled ? 'selected' : ''} ${disabled ? 'disabled' : ''}`}
           >
             <span className="checkbox">
-              {selectedIds.includes(option.id) ? '[x]' : '[ ]'}
+              {selectedId === option.id ? '[x]' : '[ ]'}
             </span>
             <span className="option-label">{option.label}</span>
           </div>
@@ -125,7 +110,8 @@ const SelectionList: React.FC<SelectionListProps> = ({
       </div>
       {!disabled && (
         <div className="selection-instructions">
-          Use ↑↓ to navigate, Space to select, Enter to confirm, Esc to cancel
+          Use ↑↓ to navigate, Space to select/deselect, Enter to confirm, Esc to
+          cancel
         </div>
       )}
     </div>
