@@ -31,6 +31,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
   onCommand,
   isTyping,
   displayedContent,
+  streamingMessageId,
   onDownload,
   commandHistory,
   setCommandHistory,
@@ -58,7 +59,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
-  }, [messages, currentInput, isTyping]);
+  }, [messages, currentInput, isTyping, displayedContent, streamingMessageId]);
 
   const handleInputStateChange = (isActive: boolean) => {
     setIsInputDisabled(!isActive);
