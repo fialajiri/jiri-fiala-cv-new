@@ -27,10 +27,8 @@ export const useCommandHandler = ({
   const handleCommand = async (command: string) => {
     if (!command.trim()) return;
 
-    // Add command to history
     setCommandHistory(prev => [...prev, command]);
 
-    // Handle different commands
     switch (command.toLowerCase()) {
       case 'ls': {
         const systemMessage: Message = {

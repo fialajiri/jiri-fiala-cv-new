@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { api, type ChatRequest, type ChatMessage } from '../lib/api-client';
 
-// Types for streaming
 export interface StreamChunk {
   type: 'connected' | 'chunk' | 'done' | 'error';
   content?: string;
@@ -14,7 +13,6 @@ export const useSendMessage = () => {
   });
 };
 
-// Streaming chat hook
 export const useStreamingChat = () => {
   const sendStreamingMessage = async (
     data: ChatRequest,

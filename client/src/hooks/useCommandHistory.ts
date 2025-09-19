@@ -16,26 +16,21 @@ export const useCommandHistory = ({
   const historyIndexRef = useRef<number>(-1);
   const tempInputRef = useRef<string>('');
 
-  // Navigate command history
   const navigateHistory = useCallback(
     (direction: 'up' | 'down') => {
       if (commandHistory.length === 0) return;
 
       if (direction === 'up') {
-        // Going up in history
         if (historyIndexRef.current === -1) {
-          // First time going up, save current input
           tempInputRef.current = currentInput;
           historyIndexRef.current = commandHistory.length - 1;
         } else if (historyIndexRef.current > 0) {
           historyIndexRef.current--;
         }
       } else {
-        // Going down in history
         if (historyIndexRef.current === -1) return;
 
         if (historyIndexRef.current === commandHistory.length - 1) {
-          // At the end, restore original input
           setCurrentInput(tempInputRef.current);
           historyIndexRef.current = -1;
           return;
@@ -44,7 +39,6 @@ export const useCommandHistory = ({
         }
       }
 
-      // Set the input to the history item
       if (
         historyIndexRef.current >= 0 &&
         historyIndexRef.current < commandHistory.length
@@ -55,14 +49,13 @@ export const useCommandHistory = ({
     [commandHistory, currentInput, setCurrentInput]
   );
 
-  // Add command to history
   const addToHistory = useCallback(
     (command: string) => {
       const trimmedCommand = command.trim();
       if (trimmedCommand && !commandHistory.includes(trimmedCommand)) {
         setCommandHistory([...commandHistory, trimmedCommand]);
       }
-      // Reset history navigation
+
       historyIndexRef.current = -1;
       tempInputRef.current = '';
     },
