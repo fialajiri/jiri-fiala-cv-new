@@ -1,20 +1,12 @@
-import React from 'react';
+import React, { useCallback, memo } from 'react';
 import './ContactDisplay.css';
-
-interface ContactItem {
-  icon: string;
-  text: string;
-  type?: string;
-  link: {
-    type: string;
-    url: string;
-  };
-}
+import { useModifierKeys } from '../../../hooks/useModifierKeys';
+import ContactItem, { type ContactItemData } from './ContactItem';
 
 interface ContactData {
   name: string;
   occupation: string;
-  contactItems: ContactItem[];
+  contactItems: ContactItemData[];
 }
 
 interface ContactDisplayProps {
@@ -22,33 +14,37 @@ interface ContactDisplayProps {
 }
 
 const ContactDisplay: React.FC<ContactDisplayProps> = ({ data }) => {
+  const isModifierPressed = useModifierKeys();
+
+  const handleUrlClick = useCallback((url: string, event: React.MouseEvent) => {
+    if (event.metaKey || event.ctrlKey) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  }, []);
+
+  const handleFollowLinkClick = useCallback((url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }, []);
+
   return (
     <div className="contact-display">
       <div className="contact-header">
         <h3>== Contact Information ==</h3>
-        <div className="contact-name">{data.name}</div>
-        <div className="contact-occupation">{data.occupation}</div>
       </div>
 
       <div className="contact-items">
         {data.contactItems.map((item, index) => (
-          <div key={index} className="contact-item">
-            <span className="contact-icon">📧</span>
-            <span className="contact-text">{item.text}</span>
-            {item.link.type === 'email' && (
-              <span className="contact-link">→ {item.link.url}</span>
-            )}
-            {item.link.type === 'phone' && (
-              <span className="contact-link">→ {item.link.url}</span>
-            )}
-            {item.link.type === 'link' && (
-              <span className="contact-link">→ {item.link.url}</span>
-            )}
-          </div>
+          <ContactItem
+            key={`${item.text}-${index}`}
+            item={item}
+            isModifierPressed={isModifierPressed}
+            onUrlClick={handleUrlClick}
+            onFollowLinkClick={handleFollowLinkClick}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default ContactDisplay;
+export default memo(ContactDisplay);

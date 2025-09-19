@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import type { ReactNode } from 'react';
+import { URL_PREFIXES } from './constants/contact';
 
 export interface Message {
   id: string;
@@ -33,3 +34,11 @@ export const getInitialMessages = (): Message[] => [
       'Type your questions below or type "ls" to list available commands',
   },
 ];
+
+export const formatUrl = (
+  linkType: 'email' | 'phone' | 'link',
+  url: string
+): string => {
+  const prefix = URL_PREFIXES[linkType] || '';
+  return `${prefix}${url}`;
+};

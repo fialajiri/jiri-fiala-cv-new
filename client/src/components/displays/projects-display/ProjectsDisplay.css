@@ -11,8 +11,3 @@
   font-size: 1.1em;
   font-weight: bold;
 }
-
-/* Styles moved to separate component files:
-   - ProjectItem styles -> ProjectItem.css
-   - ClickableUrl styles -> ClickableUrl.css
-*/
