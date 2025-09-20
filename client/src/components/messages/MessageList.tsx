@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Message } from '../../lib/utils';
 import { SystemMessage, UserMessage, BotMessage } from './';
+import HistoryMessage from './HistoryMessage';
 import { DataDisplay } from '../displays';
 import './MessageList.css';
 
@@ -47,6 +48,8 @@ const MessageList: React.FC<MessageListProps> = ({
             )}
           </div>
         );
+      case 'history':
+        return <HistoryMessage key={message.id} message={message} />;
       default:
         return null;
     }

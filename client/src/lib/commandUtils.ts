@@ -12,6 +12,9 @@ export const VALID_COMMANDS = [
   'e', // shortcut for education
   'download',
   'd', // shortcut for download
+  'history',
+  'h', // shortcut for history
+  'date',
   'clear',
 ] as const;
 
@@ -22,6 +25,7 @@ export const COMMAND_MAP: Record<string, string> = {
   c: 'contact',
   e: 'education',
   d: 'download',
+  h: 'history',
 };
 
 export const isValidCommand = (input: string): boolean => {

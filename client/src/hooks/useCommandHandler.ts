@@ -35,7 +35,7 @@ export const useCommandHandler = ({
           id: uuidv4(),
           type: 'system',
           content:
-            'Available commands: s[k]ills · [p]rojects · e[x]perience · [c]ontact · [e]ducation · [d]ownload · clear',
+            'Available commands: s[k]ills · [p]rojects · e[x]perience · [c]ontact · [e]ducation · [d]ownload · [h]istory · date · clear',
         };
         setMessages(prev => [...prev, systemMessage]);
         break;
@@ -150,6 +150,30 @@ export const useCommandHandler = ({
         }
         break;
       }
+      case 'date': {
+        const now = new Date();
+        const dateMessage: Message = {
+          id: uuidv4(),
+          type: 'system',
+          content: now.toString(),
+        };
+        setMessages(prev => [...prev, dateMessage]);
+        break;
+      }
+      case 'history': {
+        const historyMessage: Message = {
+          id: uuidv4(),
+          type: 'history',
+          content:
+            commandHistory.length > 0
+              ? commandHistory
+                  .map((cmd, index) => `${index + 1}  ${cmd}`)
+                  .join('\n')
+              : '',
+        };
+        setMessages(prev => [...prev, historyMessage]);
+        break;
+      }
       case 'clear':
         setMessages(getInitialMessages());
         break;
@@ -157,7 +181,7 @@ export const useCommandHandler = ({
         const botMessage = addBotMessage();
         updateBotMessage(
           botMessage.id,
-          `Unknown command: ${command}. Type 'help' for available commands.`
+          `Unknown command: ${command}. Type 'ls' for available commands.`
         );
       }
     }
