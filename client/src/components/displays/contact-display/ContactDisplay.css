@@ -1,16 +1,8 @@
-.contact-display {
-  color: var(--terminal-green);
-  line-height: 1.4;
-  margin: 10px 0;
-}
-
-.contact-header h3 {
-  color: var(--terminal-green);
-  margin: 0 0 10px 0;
-  font-size: 1.1em;
-  font-weight: bold;
+.contact-header {
+  padding: 0 0 0 16px;
+  margin-bottom: 8px;
 }
 
 .contact-items {
-  margin-left: 10px;
+  margin-left: 16px;
 }

@@ -1,0 +1,10 @@
+.about-content {
+  padding: 0 32px 0 32px;
+}
+
+.about-bio {
+  text-align: justify;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}

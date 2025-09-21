@@ -1,0 +1,46 @@
+.ls-message {
+  margin: 8px 0;
+  padding: 0 0 0 16px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.ls-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.ls-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-section-title {
+  margin: 0 0 6px 0;
+}
+
+.ls-command-row {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 0 0 0 16px;
+  gap: 12px;
+}
+
+.ls-command-name {
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.ls-command-desc {
+  flex: 1;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .ls-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

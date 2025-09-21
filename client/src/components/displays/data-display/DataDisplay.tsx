@@ -7,6 +7,7 @@ import {
   ExperienceDisplay,
   CVDownloadDisplay,
 } from '../';
+import AboutDisplay from '../about-display/AboutDisplay';
 
 interface DataDisplayProps {
   type:
@@ -15,7 +16,8 @@ interface DataDisplayProps {
     | 'skills'
     | 'projects'
     | 'experience'
-    | 'cv-download';
+    | 'cv-download'
+    | 'about';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
   onDownload?: (filename: string) => void;
@@ -49,6 +51,8 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
           onInputStateChange={onInputStateChange}
         />
       );
+    case 'about':
+      return <AboutDisplay data={data} />;
     default:
       return <div>Unknown data type</div>;
   }

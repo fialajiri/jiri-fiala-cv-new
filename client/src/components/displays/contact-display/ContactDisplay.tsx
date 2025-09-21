@@ -27,9 +27,9 @@ const ContactDisplay: React.FC<ContactDisplayProps> = ({ data }) => {
   }, []);
 
   return (
-    <div className="contact-display">
+    <div>
       <div className="contact-header">
-        <h3>== Contact Information ==</h3>
+        <div>Contact Information:</div>
       </div>
 
       <div className="contact-items">

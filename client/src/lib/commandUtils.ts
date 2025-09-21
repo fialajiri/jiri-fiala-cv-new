@@ -1,9 +1,9 @@
 export const VALID_COMMANDS = [
   'ls',
   'skills',
-  'k', // shortcut for skills
-  'experience',
-  'x', // shortcut for experience
+  's', // shortcut for skills
+  'work',
+  'w', // shortcut for work-experience
   'projects',
   'p', // shortcut for projects
   'contact',
@@ -13,19 +13,20 @@ export const VALID_COMMANDS = [
   'download',
   'd', // shortcut for download
   'history',
-  'h', // shortcut for history
+  'about',
+  'a', // shortcut for about
   'date',
   'clear',
 ] as const;
 
 export const COMMAND_MAP: Record<string, string> = {
-  k: 'skills',
-  x: 'experience',
+  s: 'skills',
+  w: 'work',
   p: 'projects',
   c: 'contact',
   e: 'education',
   d: 'download',
-  h: 'history',
+  a: 'about',
 };
 
 export const isValidCommand = (input: string): boolean => {

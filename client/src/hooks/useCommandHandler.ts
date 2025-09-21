@@ -6,6 +6,7 @@ import {
   loadSkillsData,
   loadProjectsData,
   loadExperienceData,
+  loadProfileData,
 } from '../lib/dataLoader';
 import type { Message } from '../lib/utils';
 
@@ -31,13 +32,12 @@ export const useCommandHandler = ({
 
     switch (command.toLowerCase()) {
       case 'ls': {
-        const systemMessage: Message = {
+        const lsMessage: Message = {
           id: uuidv4(),
-          type: 'system',
-          content:
-            'Available commands: s[k]ills · [p]rojects · e[x]perience · [c]ontact · [e]ducation · [d]ownload · [h]istory · date · clear',
+          type: 'ls',
+          content: '',
         };
-        setMessages(prev => [...prev, systemMessage]);
+        setMessages(prev => [...prev, lsMessage]);
         break;
       }
       case 'skills': {
@@ -60,7 +60,7 @@ export const useCommandHandler = ({
         }
         break;
       }
-      case 'experience': {
+      case 'work': {
         try {
           const data = await loadExperienceData();
           const componentMessage: Message = {
@@ -146,6 +146,26 @@ export const useCommandHandler = ({
           updateBotMessage(
             errorMessage.id,
             'Error loading education data. Please try again.'
+          );
+        }
+        break;
+      }
+      case 'about': {
+        try {
+          const data = await loadProfileData();
+          const componentMessage: Message = {
+            id: uuidv4(),
+            type: 'component',
+            content: '',
+            componentType: 'about',
+            componentData: data,
+          };
+          setMessages(prev => [...prev, componentMessage]);
+        } catch {
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error loading profile data. Please try again.'
           );
         }
         break;

@@ -18,3 +18,4 @@ export const loadEducationData = () => loadData('education-en.json');
 export const loadSkillsData = () => loadData('tech-skills-en.json');
 export const loadProjectsData = () => loadData('projects-en.json');
 export const loadExperienceData = () => loadData('jobs-en.json');
+export const loadProfileData = () => loadData('profile-en.json');
