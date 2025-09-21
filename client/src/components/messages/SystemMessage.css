@@ -1,5 +1,4 @@
 .system-label {
-  color: var(--terminal-green);
   font-size: 0.9rem;
   user-select: text;
   -webkit-user-select: text;
@@ -8,7 +7,6 @@
 }
 
 .system-text {
-  color: var(--terminal-green);
   font-size: 0.9rem;
   white-space: pre-wrap;
   user-select: text;

@@ -10,7 +10,7 @@
 .terminal-input {
   flex: 1;
   background: transparent;
-  color: #f3f4f6;
+  color: var(--input-text, #f3f4f6);
   border: none;
   outline: none;
   font-family: inherit;
@@ -27,7 +27,7 @@
 }
 
 .terminal-input::placeholder {
-  color: #6b7280;
+  color: var(--scrollbar-thumb, #6b7280);
 }
 
 .terminal-input:focus {
@@ -44,25 +44,25 @@
 }
 
 .user-prompt {
-  color: #60a5fa;
+  color: var(--prompt-user, #60a5fa);
   line-height: 1.5;
   vertical-align: baseline;
 }
 
 .prompt-separator {
-  color: #ffffff;
+  color: var(--prompt-separator, #ffffff);
   line-height: 1.5;
   vertical-align: baseline;
 }
 
 .prompt-path {
-  color: #a855f7;
+  color: var(--prompt-path, #a855f7);
   line-height: 1.5;
   vertical-align: baseline;
 }
 
 .prompt-dollar {
-  color: #ffffff;
+  color: var(--prompt-dollar, #ffffff);
   line-height: 1.5;
   vertical-align: baseline;
   margin-right: 0.25em;

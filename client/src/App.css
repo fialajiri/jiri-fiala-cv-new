@@ -5,7 +5,7 @@ body {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  background-color: #000000;
+  background-color: var(--background, #000000);
 }
 
 #root {
@@ -37,13 +37,13 @@ body {
 
 /* Global selection styling */
 ::selection {
-  background-color: #4a5568;
-  color: #ffffff;
+  background-color: var(--selection-background, #4a5568);
+  color: var(--selection-text, #ffffff);
 }
 
 ::-moz-selection {
-  background-color: #4a5568;
-  color: #ffffff;
+  background-color: var(--selection-background, #4a5568);
+  color: var(--selection-text, #ffffff);
 }
 
 /* Global cursor animation */

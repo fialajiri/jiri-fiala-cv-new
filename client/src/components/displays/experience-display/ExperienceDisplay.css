@@ -1,11 +1,9 @@
-.experience-display {
-  color: var(--terminal-green);
+.experience-display {  
   line-height: 1.4;
   margin: 10px 0;
 }
 
-.experience-display h3 {
-  color: var(--terminal-green);
+.experience-display h3 {  
   margin: 0 0 15px 0;
   font-size: 1.1em;
   font-weight: bold;
@@ -14,7 +12,7 @@
 .job-item {
   margin-bottom: 15px;
   padding: 10px;
-  border-left: 2px solid var(--terminal-green);
+  border-left: 2px solid var(--terminal-border);
   padding-left: 15px;
 }
 
@@ -28,14 +26,12 @@
 }
 
 .job-title-company {
-  font-weight: bold;
-  color: var(--terminal-green);
+  font-weight: bold;  
   font-size: 1.1em;
   flex: 1;
 }
 
-.job-dates {
-  color: var(--terminal-green);
+.job-dates {  
   font-size: 0.9em;
   font-weight: bold;
   flex: 0 0 auto;
@@ -52,16 +48,14 @@
   align-items: flex-start;
 }
 
-.bullet {
-  color: var(--terminal-green);
+.bullet { 
   margin-right: 6px;
   font-weight: bold;
   margin-top: 1px;
   font-size: 0.9rem;
 }
 
-.responsibility-text {
-  color: var(--terminal-green);
+.responsibility-text {  
   font-size: 0.9rem;
   line-height: 1.4;
   flex: 1;

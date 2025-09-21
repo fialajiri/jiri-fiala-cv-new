@@ -17,6 +17,8 @@ export const VALID_COMMANDS = [
   'a', // shortcut for about
   'date',
   'clear',
+  'theme',
+  'set',
 ] as const;
 
 export const COMMAND_MAP: Record<string, string> = {
@@ -31,9 +33,20 @@ export const COMMAND_MAP: Record<string, string> = {
 
 export const isValidCommand = (input: string): boolean => {
   const trimmedInput = input.trim().toLowerCase();
-  return VALID_COMMANDS.includes(
-    trimmedInput as (typeof VALID_COMMANDS)[number]
-  );
+
+  // Check for exact matches first
+  if (
+    VALID_COMMANDS.includes(trimmedInput as (typeof VALID_COMMANDS)[number])
+  ) {
+    return true;
+  }
+
+  // Check for compound commands like "set theme <name>"
+  if (trimmedInput.startsWith('set theme ')) {
+    return true;
+  }
+
+  return false;
 };
 
 export const getActualCommand = (input: string): string => {

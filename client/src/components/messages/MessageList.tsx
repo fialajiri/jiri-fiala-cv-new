@@ -3,6 +3,7 @@ import type { Message } from '../../lib/utils';
 import { SystemMessage, UserMessage, BotMessage } from './';
 import HistoryMessage from './HistoryMessage';
 import LsMessage from './LsMessage';
+import ThemeMessage from './ThemeMessage';
 import { DataDisplay } from '../displays';
 import './MessageList.css';
 
@@ -53,6 +54,20 @@ const MessageList: React.FC<MessageListProps> = ({
         return <HistoryMessage key={message.id} message={message} />;
       case 'ls':
         return <LsMessage key={message.id} message={message} />;
+      case 'theme':
+        return (
+          <ThemeMessage
+            key={message.id}
+            themes={
+              message.componentData as Array<{
+                id: string;
+                name: string;
+                description: string;
+              }>
+            }
+            currentTheme={message.content}
+          />
+        );
       default:
         return null;
     }

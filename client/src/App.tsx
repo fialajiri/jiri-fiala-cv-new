@@ -11,10 +11,14 @@ import { useTypingAnimation } from './hooks/useTypingAnimation';
 import type { ChatMessage } from './lib/api-client';
 import { queryClient } from './lib/queryClient';
 import { downloadCV } from './lib/downloadUtils';
+import { initializeTheme } from './lib/themeUtils';
 
 const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState('matrix');
+
+  console.log('currentTheme', currentTheme);
 
   const {
     messages,
@@ -38,6 +42,7 @@ const AppContent: React.FC = () => {
       addBotMessage,
       updateBotMessage,
       getInitialMessages,
+      currentTheme,
     });
 
   const typingAnimation = useTypingAnimation({
@@ -51,6 +56,9 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     setMessages(getInitialMessages());
+    // Initialize theme on app startup
+    const theme = initializeTheme();
+    setCurrentTheme(theme.id);
   }, [setMessages]);
 
   const sendMessageToAPI = async (userMessage: string) => {

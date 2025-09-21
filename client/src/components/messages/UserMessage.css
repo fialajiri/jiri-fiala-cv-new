@@ -1,14 +1,12 @@
 /* User Message Component Styles */
-.user-prompt {
-  color: #60a5fa;
+.user-prompt {  
   user-select: text;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
 }
 
-.user-text {
-  color: #f3f4f6;
+.user-text { 
   word-wrap: break-word;
   overflow-wrap: break-word;
   flex: 1;

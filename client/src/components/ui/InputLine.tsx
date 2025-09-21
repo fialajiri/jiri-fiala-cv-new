@@ -64,8 +64,13 @@ const InputLine: React.FC<InputLineProps> = ({
             const trimmedInput = currentInput.trim();
 
             if (trimmedInput && isValidCommand(trimmedInput)) {
-              const actualCommand = getActualCommand(trimmedInput);
-              onCommand(actualCommand);
+              // For compound commands like "set theme <name>", pass the full command
+              if (trimmedInput.startsWith('set theme ')) {
+                onCommand(trimmedInput);
+              } else {
+                const actualCommand = getActualCommand(trimmedInput);
+                onCommand(actualCommand);
+              }
             } else {
               onKeyPress(e as React.KeyboardEvent<HTMLTextAreaElement>);
             }

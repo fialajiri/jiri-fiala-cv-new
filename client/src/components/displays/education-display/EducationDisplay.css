@@ -1,11 +1,9 @@
 .education-display {
-  color: var(--terminal-green);
   line-height: 1.4;
   margin: 10px 0;
 }
 
 .education-display h3 {
-  color: var(--terminal-green);
   margin: 0 0 15px 0;
   font-size: 1.1em;
   font-weight: bold;
@@ -14,7 +12,7 @@
 .education-item {
   margin-bottom: 20px;
   padding: 10px;
-  border-left: 2px solid var(--terminal-green);
+  border-left: 2px solid var(--terminal-border);
   padding-left: 15px;
 }
 
@@ -27,12 +25,10 @@
 
 .study-type {
   font-weight: bold;
-  color: var(--terminal-green);
   font-size: 1.1em;
 }
 
 .study-dates {
-  color: var(--terminal-green);
   font-size: 0.9em;
   font-weight: bold;
   line-height: 1.4;
@@ -45,7 +41,7 @@
 
 .university-name {
   font-weight: bold;
-  color: var(--terminal-green);
+
   margin-bottom: 3px;
   font-size: 1em;
 }
@@ -64,16 +60,13 @@
 }
 
 .faculty {
-  color: var(--terminal-green);
   font-weight: normal;
 }
 
 .primary-field {
-  color: var(--terminal-green);
 }
 
 .thesis {
-  color: var(--terminal-green);
   font-style: italic;
   font-weight: normal;
   margin-top: 5px;

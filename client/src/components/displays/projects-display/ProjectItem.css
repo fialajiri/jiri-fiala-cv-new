@@ -1,7 +1,7 @@
 .project-item {
   margin-bottom: 20px;
   padding: 15px;
-  border: 1px solid #003300;
+  border: 1px solid var(--terminal-border);
   border-radius: 3px;
 }
 
@@ -14,12 +14,10 @@
 
 .project-title {
   font-weight: bold;
-  color: var(--terminal-green);
   font-size: 1rem;
 }
 
 .project-description {
-  color: var(--terminal-green);
   margin-bottom: 10px;
   line-height: 1.4;
   font-size: 0.9rem;

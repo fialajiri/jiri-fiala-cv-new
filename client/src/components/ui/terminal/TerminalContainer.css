@@ -1,7 +1,7 @@
 /* Terminal Container Component Styles */
 .terminal-container {
   background-color: transparent;
-  color: var(--terminal-green);
+  color: var(--terminal-text, var(--terminal-green));
   font-family: var(--terminal-font);
   font-size: 14px;
   position: relative;
@@ -9,9 +9,9 @@
 }
 
 .terminal-rnd {
-  background-color: #000000;
+  background-color: var(--terminal-background, #000000);
   border-radius: 8px;
-  border: 1px solid #666666;
+  border: 1px solid var(--terminal-border, #666666);
   overflow: hidden;
 }
 
@@ -37,16 +37,16 @@
 }
 
 .terminal-content::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--scrollbar-track, #000000);
 }
 
 .terminal-content::-webkit-scrollbar-thumb {
-  background: #4a5568;
+  background: var(--scrollbar-thumb, #4a5568);
   border-radius: 4px;
 }
 
 .terminal-content::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: var(--scrollbar-thumb-hover, #6b7280);
 }
 
 /* Responsive design */

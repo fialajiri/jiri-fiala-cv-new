@@ -1,12 +1,10 @@
 .selection-list {
-  color: var(--terminal-green);
   line-height: 1.4;
   margin: 10px 0;
   outline: none;
 }
 
 .selection-title {
-  color: var(--terminal-green);
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 1.1em;
@@ -26,24 +24,21 @@
 }
 
 .selection-option.selected {
-  background-color: rgba(0, 255, 0, 0.1);
-  border: 1px solid var(--terminal-green);
+  background-color: var(--terminal-background);
+  border: 1px solid var(--terminal-border);
 }
 
 .checkbox {
-  color: var(--terminal-green);
   font-weight: bold;
   margin-right: 10px;
   min-width: 30px;
 }
 
 .option-label {
-  color: var(--terminal-green);
   flex: 1;
 }
 
 .selection-instructions {
-  color: var(--terminal-green);
   font-size: 0.9em;
   margin-top: 15px;
   font-style: italic;

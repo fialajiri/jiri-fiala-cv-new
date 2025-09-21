@@ -6,15 +6,15 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text, rgba(255, 255, 255, 0.87));
+  background-color: var(--background, #242424);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Custom color variables */
+  /* Theme color variables - will be overridden by theme switching */
   --terminal-green: #00e600;
   --accent-color: #646cff;
   --accent-color-hover: #535bf2;

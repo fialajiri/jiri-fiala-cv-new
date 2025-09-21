@@ -8,6 +8,11 @@ import {
   loadExperienceData,
   loadProfileData,
 } from '../lib/dataLoader';
+import {
+  getAvailableThemes,
+  getThemeByName,
+  switchTheme,
+} from '../lib/themeUtils';
 import type { Message } from '../lib/utils';
 
 interface UseCommandHandlerProps {
@@ -15,6 +20,7 @@ interface UseCommandHandlerProps {
   addBotMessage: () => Message;
   updateBotMessage: (id: string, content: string) => void;
   getInitialMessages: () => Message[];
+  currentTheme?: string | null;
 }
 
 export const useCommandHandler = ({
@@ -22,6 +28,7 @@ export const useCommandHandler = ({
   addBotMessage,
   updateBotMessage,
   getInitialMessages,
+  currentTheme,
 }: UseCommandHandlerProps) => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
 
@@ -197,7 +204,53 @@ export const useCommandHandler = ({
       case 'clear':
         setMessages(getInitialMessages());
         break;
+      case 'theme': {
+        const themes = getAvailableThemes();
+        const themeMessage: Message = {
+          id: uuidv4(),
+          type: 'theme',
+          content: currentTheme || 'dark', // Current theme name
+          componentData: themes.map(theme => ({
+            id: theme.id,
+            name: theme.name,
+            description: theme.description,
+          })),
+        };
+        setMessages(prev => [...prev, themeMessage]);
+        break;
+      }
       default: {
+        // Handle 'set theme <name>' command
+        if (command.toLowerCase().startsWith('set theme ')) {
+          const themeName = command.substring(10).trim();
+          const theme = getThemeByName(themeName);
+
+          if (theme) {
+            const switchedTheme = switchTheme(theme.id);
+            if (switchedTheme) {
+              const successMessage: Message = {
+                id: uuidv4(),
+                type: 'system',
+                content: `Theme switched to: ${switchedTheme.name}`,
+              };
+              setMessages(prev => [...prev, successMessage]);
+            } else {
+              const errorMessage = addBotMessage();
+              updateBotMessage(
+                errorMessage.id,
+                `Failed to switch to theme: ${themeName}`
+              );
+            }
+          } else {
+            const errorMessage = addBotMessage();
+            updateBotMessage(
+              errorMessage.id,
+              `Theme not found: ${themeName}. Type 'theme' to see available themes.`
+            );
+          }
+          break;
+        }
+
         const botMessage = addBotMessage();
         updateBotMessage(
           botMessage.id,

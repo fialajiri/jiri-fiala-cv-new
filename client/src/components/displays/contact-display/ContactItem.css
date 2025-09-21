@@ -19,8 +19,7 @@
   flex: 1;
 }
 
-.contact-item .clickable-url {
-  color: var(--terminal-green);
+.contact-item .clickable-url { 
 }
 
 .contact-icon {

@@ -1,6 +1,6 @@
 /* Terminal Header Component Styles */
 .terminal-header {
-  background-color: #2d2d2d;
+  background-color: var(--header-background, #2d2d2d);
   padding: 4px 8px;
   display: flex;
   justify-content: center;
@@ -12,18 +12,18 @@
   -ms-user-select: none;
   position: relative;
   border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid var(--terminal-border, #666666);
 }
 
 .terminal-prompt {
-  color: #b8b8b8;
+  color: var(--header-text, #b8b8b8);
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
 
 .maximize-btn {
-  background: #28ca42;
+  background: var(--maximize-button, #28ca42);
   border: none;
   width: 12px;
   height: 12px;
