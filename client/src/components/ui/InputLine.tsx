@@ -35,6 +35,7 @@ const InputLine: React.FC<InputLineProps> = ({
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [suggestions, setSuggestions] = useState<CommandSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const autocompleteRef = useRef(false);
 
   const { navigateHistory } = useCommandHistory({
     commandHistory,
@@ -48,15 +49,18 @@ const InputLine: React.FC<InputLineProps> = ({
     isTyping,
   });
 
-  // Update suggestions when input changes
   useEffect(() => {
+    if (autocompleteRef.current) {
+      autocompleteRef.current = false;
+      return;
+    }
+
     const newSuggestions = getCommandSuggestions(currentInput);
     const shouldShowSuggestions =
       newSuggestions.length > 0 && currentInput.trim() !== '';
     setSuggestions(newSuggestions);
     setShowSuggestions(shouldShowSuggestions);
 
-    // Notify parent component when suggestions visibility changes
     if (onSuggestionsChange) {
       onSuggestionsChange(shouldShowSuggestions);
     }
@@ -67,14 +71,23 @@ const InputLine: React.FC<InputLineProps> = ({
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    // Handle escape key to hide suggestions
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      if (suggestions.length === 1) {
+        autocompleteRef.current = true;
+        setCurrentInput(suggestions[0].command);
+        setShowSuggestions(false);
+        setSuggestions([]);
+      }
+      return;
+    }
+
     if (e.key === 'Escape' && showSuggestions) {
       e.preventDefault();
       setShowSuggestions(false);
       return;
     }
 
-    // Handle original key events
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       navigateHistory('up');
@@ -86,7 +99,6 @@ const InputLine: React.FC<InputLineProps> = ({
       const trimmedInput = currentInput.trim();
 
       if (trimmedInput && isValidCommand(trimmedInput)) {
-        // For compound commands, pass the full command
         if (trimmedInput.startsWith('set theme ')) {
           onCommand(trimmedInput);
         } else {
