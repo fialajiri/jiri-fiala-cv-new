@@ -55,11 +55,24 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
     setTerminalPosition
   );
 
-  useEffect(() => {
+  const scrollToBottom = () => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
   }, [messages, currentInput, isTyping, displayedContent, streamingMessageId]);
+
+  const handleSuggestionsChange = (showSuggestions: boolean) => {
+    if (showSuggestions) {
+      // Use setTimeout to ensure the suggestions are rendered before scrolling
+      setTimeout(() => {
+        scrollToBottom();
+      }, 10);
+    }
+  };
 
   const handleInputStateChange = (isActive: boolean) => {
     setIsInputDisabled(!isActive);
@@ -100,6 +113,7 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
               isTyping={isTyping}
               commandHistory={commandHistory}
               setCommandHistory={setCommandHistory}
+              onSuggestionsChange={handleSuggestionsChange}
             />
           )}
         </div>

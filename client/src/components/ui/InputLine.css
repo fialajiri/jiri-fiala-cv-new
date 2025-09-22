@@ -67,3 +67,8 @@
   vertical-align: baseline;
   margin-right: 0.25em;
 }
+
+/* Input Container */
+.input-container {
+  position: relative;
+}
