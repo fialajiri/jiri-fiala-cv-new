@@ -4,7 +4,6 @@ import { SystemMessage, UserMessage, BotMessage } from './';
 import HistoryMessage from './HistoryMessage';
 import LsMessage from './LsMessage';
 import ThemeMessage from './ThemeMessage';
-import SysInfoMessage from './SysInfoMessage';
 import { DataDisplay } from '../displays';
 import './MessageList.css';
 
@@ -69,8 +68,6 @@ const MessageList: React.FC<MessageListProps> = ({
             currentTheme={message.content}
           />
         );
-      case 'sysinfo':
-        return <SysInfoMessage key={message.id} message={message} />;
       default:
         return null;
     }

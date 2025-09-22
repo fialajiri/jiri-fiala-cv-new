@@ -13,8 +13,6 @@ import {
   getThemeByName,
   switchTheme,
 } from '../lib/themeUtils';
-import { api } from '../lib/api-client';
-import { extractPingUrl, isValidUrl } from '../lib/commandUtils';
 import type { Message } from '../lib/utils';
 
 interface UseCommandHandlerProps {
@@ -221,25 +219,6 @@ export const useCommandHandler = ({
         setMessages(prev => [...prev, themeMessage]);
         break;
       }
-      case 'sysinfo': {
-        try {
-          const ipData = await api.getSystemInfo();
-          const sysinfoMessage: Message = {
-            id: uuidv4(),
-            type: 'sysinfo',
-            content: '',
-            componentData: ipData,
-          };
-          setMessages(prev => [...prev, sysinfoMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error fetching system information. Please try again.'
-          );
-        }
-        break;
-      }
       default: {
         // Handle compound commands that don't match exact cases
         // Handle 'set theme <name>' command
@@ -272,47 +251,6 @@ export const useCommandHandler = ({
           }
           break;
         }
-
-        // Handle 'ping <url>' command
-        if (command.toLowerCase().startsWith('ping ')) {
-          const url = extractPingUrl(command);
-          if (!url) {
-            const errorMessage = addBotMessage();
-            updateBotMessage(
-              errorMessage.id,
-              'Usage: ping <url>\nExample: ping google.com or ping https://google.com'
-            );
-            break;
-          }
-
-          if (!isValidUrl(url)) {
-            const errorMessage = addBotMessage();
-            updateBotMessage(
-              errorMessage.id,
-              `Invalid URL: ${url}\nPlease provide a valid URL (e.g., google.com or https://google.com)`
-            );
-            break;
-          }
-
-          try {
-            const pingResult = await api.ping(url);
-
-            const pingMessage: Message = {
-              id: uuidv4(),
-              type: 'system',
-              content: `Ping to ${pingResult.url}: ${pingResult.time.toFixed(2)} ms`,
-            };
-            setMessages(prev => [...prev, pingMessage]);
-          } catch {
-            const errorMessage = addBotMessage();
-            updateBotMessage(
-              errorMessage.id,
-              'Error pinging the URL. Please try again.'
-            );
-          }
-          break;
-        }
-
         const botMessage = addBotMessage();
         updateBotMessage(
           botMessage.id,

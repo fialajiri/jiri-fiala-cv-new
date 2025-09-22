@@ -20,7 +20,6 @@ export const VALID_COMMANDS = [
   'theme',
   'set',
   'ping',
-  'sysinfo',
 ] as const;
 
 export const COMMAND_MAP: Record<string, string> = {
@@ -48,26 +47,12 @@ export const isValidCommand = (input: string): boolean => {
     return true;
   }
 
-  // Check for ping command with URL
-  if (trimmedInput.startsWith('ping ')) {
-    return true;
-  }
-
   return false;
 };
 
 export const getActualCommand = (input: string): string => {
   const trimmedInput = input.trim().toLowerCase();
   return COMMAND_MAP[trimmedInput] || trimmedInput;
-};
-
-export const extractPingUrl = (input: string): string | null => {
-  const trimmedInput = input.trim();
-  if (trimmedInput.toLowerCase().startsWith('ping ')) {
-    const url = trimmedInput.substring(5).trim();
-    return url || null;
-  }
-  return null;
 };
 
 export const isValidUrl = (url: string): boolean => {
