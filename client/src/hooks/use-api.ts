@@ -20,11 +20,14 @@ export const useStreamingChat = () => {
     onComplete: (history: ChatMessage[]) => void,
     onError: (error: string) => void
   ) => {
-    const response = await fetch('http://localhost:3000/chat/stream', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/chat/stream`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       onError(`HTTP error! status: ${response.status}`);

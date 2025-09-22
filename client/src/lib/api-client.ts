@@ -2,7 +2,7 @@ import axios, { type AxiosInstance } from 'axios';
 import type { paths } from '../types/api';
 
 const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -15,9 +15,7 @@ export type ChatResponse =
   paths['/chat']['post']['responses']['200']['content']['application/json'];
 export type ChatMessage = ChatRequest['history'][0];
 
-// API functions
 export const api = {
-  // Chat
   sendMessage: async (data: ChatRequest): Promise<ChatResponse> => {
     const response = await apiClient.post('/chat', data);
     return response.data;
