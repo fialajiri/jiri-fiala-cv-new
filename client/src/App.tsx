@@ -18,8 +18,6 @@ const AppContent: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [currentTheme, setCurrentTheme] = useState('matrix');
 
-  console.log('currentTheme', currentTheme);
-
   const {
     messages,
     setMessages,

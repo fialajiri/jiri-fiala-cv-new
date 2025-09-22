@@ -1,6 +1,6 @@
 /* Bot Message Component Styles */
 .bot-prompt {
-  color: #fbbf24;
+  color: var(--bot-prompt, #fbbf24);
   user-select: text;
   -webkit-user-select: text;
   -moz-user-select: text;
@@ -8,7 +8,7 @@
 }
 
 .bot-text {
-  color: #86efac;
+  color: var(--bot-text, #86efac);
   white-space: pre-wrap;
   line-height: 1.5;
   margin-bottom: 4px;

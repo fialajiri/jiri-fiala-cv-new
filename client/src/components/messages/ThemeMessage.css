@@ -26,8 +26,7 @@
   font-weight: bold;
 }
 
-.current-theme {
-  color: var(--terminal-green, #00e600);
+.current-theme {  
   font-size: 14px;
 }
 
@@ -70,9 +69,8 @@
   font-size: 14px;
 }
 
-.theme-item .theme-description {
-  color: var(--scrollbar-thumb, #6b7280);
-  font-size: 12px;
+.theme-item .theme-description {  
+  font-size: 0.6rem;
   line-height: 1.4;
 }
 
@@ -87,7 +85,7 @@
 .theme-usage p {
   margin: 0 0 8px 0;
   color: var(--terminal-text, #ffffff);
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
 .theme-usage p:last-child {
@@ -95,12 +93,11 @@
 }
 
 .theme-usage code {
-  background: var(--terminal-background, #000000);
-  color: var(--terminal-green, #00e600);
+  background: var(--terminal-background, #000000); 
   padding: 2px 6px;
   border-radius: 3px;
   font-family: var(--terminal-font, monospace);
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 /* Responsive design */

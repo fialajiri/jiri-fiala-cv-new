@@ -43,7 +43,7 @@
 }
 
 .maximize-btn.maximized {
-  background: #ffbd2e;
+  background: var(--maximize-button-maximized, #ffbd2e);
 }
 
 .maximize-btn:active {

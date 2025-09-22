@@ -22,29 +22,31 @@ export const useCommandHistory = ({
 
       if (direction === 'up') {
         if (historyIndexRef.current === -1) {
+          // Starting navigation - save current input and go to latest command
           tempInputRef.current = currentInput;
+          historyIndexRef.current = commandHistory.length - 1;
+          setCurrentInput(commandHistory[commandHistory.length - 1]);
+        } else if (historyIndexRef.current > 0) {
+          // Go to previous command in history
+          historyIndexRef.current = historyIndexRef.current - 1;
+          setCurrentInput(commandHistory[historyIndexRef.current]);
         }
-        historyIndexRef.current =
-          (historyIndexRef.current - 1 + commandHistory.length) %
-          commandHistory.length;
-        setCurrentInput(commandHistory[historyIndexRef.current]);
       } else {
         if (historyIndexRef.current === -1) {
-          tempInputRef.current = currentInput;
-          historyIndexRef.current = 0;
-          setCurrentInput(commandHistory[0]);
+          // Down arrow pressed without previous up navigation - do nothing
           return;
         }
-        historyIndexRef.current =
-          (historyIndexRef.current + 1) % commandHistory.length;
 
-        if (historyIndexRef.current === 0) {
+        if (historyIndexRef.current < commandHistory.length - 1) {
+          // Go to next command in history
+          historyIndexRef.current = historyIndexRef.current + 1;
+          setCurrentInput(commandHistory[historyIndexRef.current]);
+        } else {
+          // We're at the latest command, go back to original input
           setCurrentInput(tempInputRef.current);
           historyIndexRef.current = -1;
-          return;
+          tempInputRef.current = '';
         }
-
-        setCurrentInput(commandHistory[historyIndexRef.current]);
       }
     },
     [commandHistory, currentInput, setCurrentInput]

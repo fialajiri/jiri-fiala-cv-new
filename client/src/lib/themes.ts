@@ -43,6 +43,11 @@ export interface Theme {
     buttonHover: string;
     maximizeButton: string;
     maximizeButtonHover: string;
+    maximizeButtonMaximized: string;
+
+    // Bot message colors
+    botPrompt: string;
+    botText: string;
   };
 }
 
@@ -77,6 +82,9 @@ export const themes: Theme[] = [
       buttonHover: '#e5e5e5',
       maximizeButton: '#28ca42',
       maximizeButtonHover: '#22a03a',
+      maximizeButtonMaximized: '#ffbd2e',
+      botPrompt: '#fbbf24',
+      botText: '#86efac',
     },
   },
   {
@@ -109,6 +117,9 @@ export const themes: Theme[] = [
       buttonHover: '#e5e5e5',
       maximizeButton: '#10b981',
       maximizeButtonHover: '#059669',
+      maximizeButtonMaximized: '#f59e0b',
+      botPrompt: '#dc2626',
+      botText: '#166534',
     },
   },
   {
@@ -141,6 +152,9 @@ export const themes: Theme[] = [
       buttonHover: '#002200',
       maximizeButton: '#00e600',
       maximizeButtonHover: '#00cc00',
+      maximizeButtonMaximized: '#ffff00',
+      botPrompt: '#00e600',
+      botText: '#00e600',
     },
   },
   {
@@ -173,6 +187,9 @@ export const themes: Theme[] = [
       buttonHover: '#6272a4',
       maximizeButton: '#50fa7b',
       maximizeButtonHover: '#3ddb5f',
+      maximizeButtonMaximized: '#ffb86c',
+      botPrompt: '#ff79c6',
+      botText: '#50fa7b',
     },
   },
   {
@@ -205,6 +222,9 @@ export const themes: Theme[] = [
       buttonHover: '#5e81ac',
       maximizeButton: '#a3be8c',
       maximizeButtonHover: '#8fbc8f',
+      maximizeButtonMaximized: '#ebcb8b',
+      botPrompt: '#88c0d0',
+      botText: '#a3be8c',
     },
   },
   {
@@ -237,6 +257,9 @@ export const themes: Theme[] = [
       buttonHover: '#75715e',
       maximizeButton: '#a6e22e',
       maximizeButtonHover: '#9acd32',
+      maximizeButtonMaximized: '#e6db74',
+      botPrompt: '#f92672',
+      botText: '#a6e22e',
     },
   },
   {
@@ -269,6 +292,9 @@ export const themes: Theme[] = [
       buttonHover: '#665c54',
       maximizeButton: '#b8bb26',
       maximizeButtonHover: '#a4a61c',
+      maximizeButtonMaximized: '#fabd2f',
+      botPrompt: '#d3869b',
+      botText: '#b8bb26',
     },
   },
   {
@@ -301,6 +327,9 @@ export const themes: Theme[] = [
       buttonHover: '#586e75',
       maximizeButton: '#859900',
       maximizeButtonHover: '#7b8a00',
+      maximizeButtonMaximized: '#b58900',
+      botPrompt: '#d33682',
+      botText: '#859900',
     },
   },
   {
@@ -333,6 +362,9 @@ export const themes: Theme[] = [
       buttonHover: '#565f89',
       maximizeButton: '#9ece6a',
       maximizeButtonHover: '#8ac863',
+      maximizeButtonMaximized: '#e0af68',
+      botPrompt: '#f7768e',
+      botText: '#9ece6a',
     },
   },
   {
@@ -365,6 +397,9 @@ export const themes: Theme[] = [
       buttonHover: '#6b1a4a',
       maximizeButton: '#00ff00',
       maximizeButtonHover: '#00cc00',
+      maximizeButtonMaximized: '#ffaa00',
+      botPrompt: '#ff6600',
+      botText: '#00ff00',
     },
   },
   {
@@ -397,6 +432,9 @@ export const themes: Theme[] = [
       buttonHover: '#005a9e',
       maximizeButton: '#00ff9f',
       maximizeButtonHover: '#00e68a',
+      maximizeButtonMaximized: '#ffd700',
+      botPrompt: '#ff9d00',
+      botText: '#00ff9f',
     },
   },
 ];
