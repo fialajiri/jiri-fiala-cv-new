@@ -8,7 +8,7 @@ interface TerminalHeaderProps {
 
 const TerminalHeader: React.FC<TerminalHeaderProps> = memo(
   ({ isMaximized, onMaximize }) => (
-    <div className="terminal-header">
+    <div className="terminal-header" onDoubleClick={onMaximize}>
       <span className="terminal-prompt">jirifiala@personalpage:~$</span>
       <button
         className={`maximize-btn ${isMaximized ? 'maximized' : ''}`}
