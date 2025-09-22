@@ -3,7 +3,7 @@
 3. The terminal window should maximiliza/restore by double clicking on the header - DONE
 4. Responsivity and media queries
 5. Terminal suggestions, need to find a clever way how not to move the windown when suggestion expend/contract
-6. Implement more system commands: ping, sysinfo, date, time
+6. Implement more system commands: ping, sysinfo - DONE
 7. Implement theme and set theme, theme should be in global state probably - DONE
 8. better classes for some display components
 9. deploy somewhere

@@ -48,10 +48,35 @@ export const isValidCommand = (input: string): boolean => {
     return true;
   }
 
+  // Check for ping command with URL
+  if (trimmedInput.startsWith('ping ')) {
+    return true;
+  }
+
   return false;
 };
 
 export const getActualCommand = (input: string): string => {
   const trimmedInput = input.trim().toLowerCase();
   return COMMAND_MAP[trimmedInput] || trimmedInput;
+};
+
+export const extractPingUrl = (input: string): string | null => {
+  const trimmedInput = input.trim();
+  if (trimmedInput.toLowerCase().startsWith('ping ')) {
+    const url = trimmedInput.substring(5).trim();
+    return url || null;
+  }
+  return null;
+};
+
+export const isValidUrl = (url: string): boolean => {
+  try {
+    // Add protocol if missing
+    const urlWithProtocol = url.startsWith('http') ? url : `https://${url}`;
+    new URL(urlWithProtocol);
+    return true;
+  } catch {
+    return false;
+  }
 };

@@ -14,6 +14,7 @@ import {
   switchTheme,
 } from '../lib/themeUtils';
 import { api } from '../lib/api-client';
+import { extractPingUrl, isValidUrl } from '../lib/commandUtils';
 import type { Message } from '../lib/utils';
 
 interface UseCommandHandlerProps {
@@ -240,6 +241,7 @@ export const useCommandHandler = ({
         break;
       }
       default: {
+        // Handle compound commands that don't match exact cases
         // Handle 'set theme <name>' command
         if (command.toLowerCase().startsWith('set theme ')) {
           const themeName = command.substring(10).trim();
@@ -266,6 +268,46 @@ export const useCommandHandler = ({
             updateBotMessage(
               errorMessage.id,
               `Theme not found: ${themeName}. Type 'theme' to see available themes.`
+            );
+          }
+          break;
+        }
+
+        // Handle 'ping <url>' command
+        if (command.toLowerCase().startsWith('ping ')) {
+          const url = extractPingUrl(command);
+          if (!url) {
+            const errorMessage = addBotMessage();
+            updateBotMessage(
+              errorMessage.id,
+              'Usage: ping <url>\nExample: ping google.com or ping https://google.com'
+            );
+            break;
+          }
+
+          if (!isValidUrl(url)) {
+            const errorMessage = addBotMessage();
+            updateBotMessage(
+              errorMessage.id,
+              `Invalid URL: ${url}\nPlease provide a valid URL (e.g., google.com or https://google.com)`
+            );
+            break;
+          }
+
+          try {
+            const pingResult = await api.ping(url);
+
+            const pingMessage: Message = {
+              id: uuidv4(),
+              type: 'system',
+              content: `Ping to ${pingResult.url}: ${pingResult.time.toFixed(2)} ms`,
+            };
+            setMessages(prev => [...prev, pingMessage]);
+          } catch {
+            const errorMessage = addBotMessage();
+            updateBotMessage(
+              errorMessage.id,
+              'Error pinging the URL. Please try again.'
             );
           }
           break;

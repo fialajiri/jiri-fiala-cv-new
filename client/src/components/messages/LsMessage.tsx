@@ -53,7 +53,7 @@ const LsMessage: React.FC<LsMessageProps> = () => {
       { name: 'clear', description: 'Clear terminal screen' },
       { name: 'theme', description: 'List available themes' },
       { name: 'set theme <name>', description: 'Switch to a specific theme' },
-      { name: 'ping', description: 'Ping the server' },
+      { name: 'ping <url>', description: 'Ping a URL (e.g., ping google.com)' },
       { name: 'sysinfo', description: 'Display system information' },
     ],
   };

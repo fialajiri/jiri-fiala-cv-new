@@ -64,8 +64,11 @@ const InputLine: React.FC<InputLineProps> = ({
             const trimmedInput = currentInput.trim();
 
             if (trimmedInput && isValidCommand(trimmedInput)) {
-              // For compound commands like "set theme <name>", pass the full command
-              if (trimmedInput.startsWith('set theme ')) {
+              // For compound commands, pass the full command
+              if (
+                trimmedInput.startsWith('set theme ') ||
+                trimmedInput.startsWith('ping ')
+              ) {
                 onCommand(trimmedInput);
               } else {
                 const actualCommand = getActualCommand(trimmedInput);
