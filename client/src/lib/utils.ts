@@ -4,7 +4,15 @@ import { URL_PREFIXES } from './constants/contact';
 
 export interface Message {
   id: string;
-  type: 'user' | 'bot' | 'system' | 'component' | 'history' | 'ls' | 'theme';
+  type:
+    | 'user'
+    | 'bot'
+    | 'system'
+    | 'component'
+    | 'history'
+    | 'ls'
+    | 'theme'
+    | 'sysinfo';
   content: string;
   component?: ReactNode;
   componentType?:

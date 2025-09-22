@@ -25,8 +25,6 @@ const AppContent: React.FC = () => {
     streamingMessageId,
     displayedContent,
     setDisplayedContent,
-    accumulatedContent,
-    setAccumulatedContent,
     addUserMessage,
     addBotMessage,
     updateBotMessage,
@@ -45,9 +43,7 @@ const AppContent: React.FC = () => {
 
   const typingAnimation = useTypingAnimation({
     displayedContent,
-    accumulatedContent,
     setDisplayedContent,
-    setAccumulatedContent,
   });
 
   const { sendStreamingMessage } = useStreamingChat();

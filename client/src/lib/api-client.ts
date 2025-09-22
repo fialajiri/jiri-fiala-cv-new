@@ -20,6 +20,10 @@ export const api = {
     const response = await apiClient.post('/chat', data);
     return response.data;
   },
+  getSystemInfo: async () => {
+    const response = await axios.get('https://ipapi.co/json/');
+    return response.data;
+  },
 };
 
 export default apiClient;

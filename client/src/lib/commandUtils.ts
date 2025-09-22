@@ -19,6 +19,8 @@ export const VALID_COMMANDS = [
   'clear',
   'theme',
   'set',
+  'ping',
+  'sysinfo',
 ] as const;
 
 export const COMMAND_MAP: Record<string, string> = {

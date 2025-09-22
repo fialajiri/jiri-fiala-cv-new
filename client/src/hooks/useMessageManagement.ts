@@ -12,9 +12,6 @@ export const useMessageManagement = () => {
   const [displayedContent, setDisplayedContent] = useState<
     Record<string, string>
   >({});
-  const [accumulatedContent, setAccumulatedContent] = useState<
-    Record<string, string>
-  >({});
 
   const addUserMessage = useCallback((content: string) => {
     const userMessage: Message = {
@@ -66,8 +63,6 @@ export const useMessageManagement = () => {
     streamingMessageId,
     displayedContent,
     setDisplayedContent,
-    accumulatedContent,
-    setAccumulatedContent,
     addUserMessage,
     addBotMessage,
     updateBotMessage,

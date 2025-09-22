@@ -13,6 +13,7 @@ import {
   getThemeByName,
   switchTheme,
 } from '../lib/themeUtils';
+import { api } from '../lib/api-client';
 import type { Message } from '../lib/utils';
 
 interface UseCommandHandlerProps {
@@ -217,6 +218,25 @@ export const useCommandHandler = ({
           })),
         };
         setMessages(prev => [...prev, themeMessage]);
+        break;
+      }
+      case 'sysinfo': {
+        try {
+          const ipData = await api.getSystemInfo();
+          const sysinfoMessage: Message = {
+            id: uuidv4(),
+            type: 'sysinfo',
+            content: '',
+            componentData: ipData,
+          };
+          setMessages(prev => [...prev, sysinfoMessage]);
+        } catch {
+          const errorMessage = addBotMessage();
+          updateBotMessage(
+            errorMessage.id,
+            'Error fetching system information. Please try again.'
+          );
+        }
         break;
       }
       default: {
