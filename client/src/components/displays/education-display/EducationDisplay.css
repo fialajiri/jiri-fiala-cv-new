@@ -1,19 +1,16 @@
 .education-display {
-  line-height: 1.4;
-  margin: 10px 0;
+  line-height: 1.4; 
 }
 
-.education-display h3 {
-  margin: 0 0 15px 0;
+.education-display-title { 
   font-size: 1.1em;
   font-weight: bold;
 }
 
 .education-item {
-  margin-bottom: 20px;
-  padding: 10px;
-  border-left: 2px solid var(--terminal-border);
-  padding-left: 15px;
+  margin-bottom: 8px;
+  padding: 10px;  
+  padding-left: 16px;
 }
 
 .education-header {
@@ -26,12 +23,12 @@
 .study-type {
   font-weight: bold;
   font-size: 1.1em;
+  opacity: 0.9;
 }
 
 .study-dates {
   font-size: 0.9em;
-  font-weight: bold;
-  line-height: 1.4;
+  font-weight: bold;  
   opacity: 0.9;
 }
 
@@ -41,9 +38,9 @@
 
 .university-name {
   font-weight: bold;
-
   margin-bottom: 3px;
   font-size: 1em;
+  opacity: 0.8;
 }
 
 .faculty-info {

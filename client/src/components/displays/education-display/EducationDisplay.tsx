@@ -29,7 +29,7 @@ interface EducationData {
 const EducationDisplay: React.FC = () => {
   return (
     <div className="education-display">
-      <h3>== {data.title} ==</h3>
+      <div className="education-display-title">{data.title}:</div>
 
       {data.studies.map(study => (
         <div key={study.id} className="education-item">
