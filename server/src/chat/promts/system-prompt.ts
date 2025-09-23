@@ -2,7 +2,14 @@ import fs from 'fs/promises';
 
 export const createSystemPrompt = async (): Promise<string> => {
   const name = 'Jiri Fiala';
-  const summary = await fs.readFile('./assets/summary.txt', 'utf-8');
+  let summary = '';
+  
+  try {
+    summary = await fs.readFile('./server/assets/summary.txt', 'utf-8');
+  } catch (error) {
+    console.warn('Could not read summary.txt, using default summary:', error);
+    summary = 'Experienced software developer with expertise in modern web technologies and full-stack development.';
+  }
 
   const systemPrompt = `
       You are acting as ${name}. You are answering questions on ${name}'s website,

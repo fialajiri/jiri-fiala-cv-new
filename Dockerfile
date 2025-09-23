@@ -45,6 +45,7 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder /app/server/dist ./server/dist
 COPY --from=builder /app/server/node_modules ./server/node_modules
 COPY --from=builder /app/server/package*.json ./server/
+COPY --from=builder /app/server/assets ./server/assets
 COPY --from=builder /app/client/dist ./client/dist
 
 # Set correct permissions
