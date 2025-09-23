@@ -17,7 +17,7 @@ export type ChatMessage = ChatRequest['history'][0];
 
 export const api = {
   sendMessage: async (data: ChatRequest): Promise<ChatResponse> => {
-    const response = await apiClient.post('/chat', data);
+    const response = await apiClient.post('/api/chat', data);
     return response.data;
   },
 };

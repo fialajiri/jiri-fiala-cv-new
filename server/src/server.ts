@@ -10,12 +10,27 @@ const app = express();
 // CORS configuration
 const allowedOrigins =
   process.env.NODE_ENV === 'production'
-    ? [process.env.FRONTEND_URL || 'https://your-app.railway.app']
+    ? [
+        process.env.FRONTEND_URL || 'https://your-app.railway.app',
+        process.env.RAILWAY_PUBLIC_DOMAIN ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : null,
+        process.env.RAILWAY_STATIC_URL ? `https://${process.env.RAILWAY_STATIC_URL}` : null,
+      ].filter(Boolean)
     : ['http://localhost:5173', 'http://localhost:3000'];
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      console.log('CORS blocked origin:', origin);
+      console.log('Allowed origins:', allowedOrigins);
+      return callback(new Error('Not allowed by CORS'));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
