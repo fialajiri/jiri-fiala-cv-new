@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import {
-  loadContactData,
-  loadEducationData,
-  loadSkillsData,
-  loadProjectsData,
-  loadExperienceData,
-  loadProfileData,
-} from '../lib/dataLoader';
+
 import {
   getAvailableThemes,
   getThemeByName,
@@ -48,83 +41,47 @@ export const useCommandHandler = ({
         break;
       }
       case 'skills': {
-        try {
-          const data = await loadSkillsData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'skills',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading skills data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'skills',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'work': {
-        try {
-          const data = await loadExperienceData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'experience',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading experience data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'experience',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'projects': {
-        try {
-          const data = await loadProjectsData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'projects',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading projects data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'projects',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'contact': {
-        try {
-          const data = await loadContactData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'contact',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading contact data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'contact',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'download': {
@@ -138,43 +95,25 @@ export const useCommandHandler = ({
         break;
       }
       case 'education': {
-        try {
-          const data = await loadEducationData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'education',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading education data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'education',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'about': {
-        try {
-          const data = await loadProfileData();
-          const componentMessage: Message = {
-            id: uuidv4(),
-            type: 'component',
-            content: '',
-            componentType: 'about',
-            componentData: data,
-          };
-          setMessages(prev => [...prev, componentMessage]);
-        } catch {
-          const errorMessage = addBotMessage();
-          updateBotMessage(
-            errorMessage.id,
-            'Error loading profile data. Please try again.'
-          );
-        }
+        const componentMessage: Message = {
+          id: uuidv4(),
+          type: 'component',
+          content: '',
+          componentType: 'about',
+        };
+        setMessages(prev => [...prev, componentMessage]);
+
         break;
       }
       case 'date': {

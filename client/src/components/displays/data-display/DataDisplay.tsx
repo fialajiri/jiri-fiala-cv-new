@@ -18,8 +18,7 @@ interface DataDisplayProps {
     | 'experience'
     | 'cv-download'
     | 'about';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data?: any;
+
   onDownload?: (filename: string) => void;
   onSelectionComplete?: () => void;
   onInputStateChange?: (isActive: boolean) => void;
@@ -27,22 +26,21 @@ interface DataDisplayProps {
 
 const DataDisplay: React.FC<DataDisplayProps> = ({
   type,
-  data,
   onDownload,
   onSelectionComplete,
   onInputStateChange,
 }) => {
   switch (type) {
     case 'contact':
-      return <ContactDisplay data={data} />;
+      return <ContactDisplay />;
     case 'education':
-      return <EducationDisplay data={data} />;
+      return <EducationDisplay />;
     case 'skills':
-      return <SkillsDisplay data={data} />;
+      return <SkillsDisplay />;
     case 'projects':
-      return <ProjectsDisplay data={data} />;
+      return <ProjectsDisplay />;
     case 'experience':
-      return <ExperienceDisplay data={data} />;
+      return <ExperienceDisplay />;
     case 'cv-download':
       return (
         <CVDownloadDisplay
@@ -52,7 +50,7 @@ const DataDisplay: React.FC<DataDisplayProps> = ({
         />
       );
     case 'about':
-      return <AboutDisplay data={data} />;
+      return <AboutDisplay />;
     default:
       return <div>Unknown data type</div>;
   }

@@ -42,7 +42,6 @@ const MessageList: React.FC<MessageListProps> = ({
             {message.componentType && (
               <DataDisplay
                 type={message.componentType}
-                data={message.componentData}
                 onDownload={onDownload}
                 onSelectionComplete={onSelectionComplete}
                 onInputStateChange={onInputStateChange}

@@ -2,6 +2,9 @@ import React, { useCallback, memo } from 'react';
 import { useModifierKeys } from '../../../hooks/useModifierKeys';
 import ProjectItem from './ProjectItem';
 import './ProjectsDisplay.css';
+import projectsData from '../data/projects-en.json';
+
+const data = projectsData as ProjectsData;
 
 interface Project {
   title: string;
@@ -15,11 +18,7 @@ interface ProjectsData {
   projects: Project[];
 }
 
-interface ProjectsDisplayProps {
-  data: ProjectsData;
-}
-
-const ProjectsDisplay: React.FC<ProjectsDisplayProps> = ({ data }) => {
+const ProjectsDisplay: React.FC = () => {
   const isModifierPressed = useModifierKeys();
 
   const handleUrlClick = useCallback((url: string, event: React.MouseEvent) => {

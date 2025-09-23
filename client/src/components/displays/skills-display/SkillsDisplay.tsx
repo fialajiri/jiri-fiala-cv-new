@@ -1,5 +1,8 @@
 import React from 'react';
 import './SkillsDisplay.css';
+import skillsData from '../data/tech-skills-en.json';
+
+const data = skillsData as SkillsData;
 
 interface Skill {
   name: string;
@@ -10,11 +13,7 @@ interface SkillsData {
   skills: Skill[];
 }
 
-interface SkillsDisplayProps {
-  data: SkillsData;
-}
-
-const SkillsDisplay: React.FC<SkillsDisplayProps> = ({ data }) => {
+const SkillsDisplay: React.FC = () => {
   return (
     <div className="skills-display">
       <h3>== {data.title} ==</h3>

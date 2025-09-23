@@ -1,6 +1,9 @@
 import React from 'react';
 import './ExperienceDisplay.css';
 import { formatDate } from '../../../lib/utils';
+import experienceData from '../data/jobs-en.json';
+
+const data = experienceData as ExperienceData;
 
 interface ICompany {
   name: string;
@@ -22,11 +25,7 @@ interface ExperienceData {
   jobs: IJob[];
 }
 
-interface ExperienceDisplayProps {
-  data: ExperienceData;
-}
-
-const ExperienceDisplay: React.FC<ExperienceDisplayProps> = ({ data }) => {
+const ExperienceDisplay: React.FC = () => {
   return (
     <div className="experience-display">
       <h3>== {data.title} ==</h3>

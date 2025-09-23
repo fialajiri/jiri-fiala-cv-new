@@ -1,5 +1,8 @@
 import React, { memo } from 'react';
 import './AboutDisplay.css';
+import profileData from '../data/profile-en.json';
+
+const data = profileData as AboutData;
 
 interface AboutData {
   title: string;
@@ -7,11 +10,7 @@ interface AboutData {
   bio: string;
 }
 
-interface AboutDisplayProps {
-  data: AboutData;
-}
-
-const AboutDisplay: React.FC<AboutDisplayProps> = ({ data }) => {
+const AboutDisplay: React.FC = () => {
   return (
     <div className="about-display">
       <div className="about-content">

@@ -2,6 +2,9 @@ import React, { useCallback, memo } from 'react';
 import './ContactDisplay.css';
 import { useModifierKeys } from '../../../hooks/useModifierKeys';
 import ContactItem, { type ContactItemData } from './ContactItem';
+import contactData from '../data/contact-en.json';
+
+const data = contactData as ContactData;
 
 interface ContactData {
   name: string;
@@ -9,11 +12,7 @@ interface ContactData {
   contactItems: ContactItemData[];
 }
 
-interface ContactDisplayProps {
-  data: ContactData;
-}
-
-const ContactDisplay: React.FC<ContactDisplayProps> = ({ data }) => {
+const ContactDisplay: React.FC = () => {
   const isModifierPressed = useModifierKeys();
 
   const handleUrlClick = useCallback((url: string, event: React.MouseEvent) => {

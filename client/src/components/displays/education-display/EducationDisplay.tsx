@@ -1,6 +1,9 @@
 import React from 'react';
 import './EducationDisplay.css';
 import { formatDate } from '../../../lib/utils';
+import educationData from '../data/education-en.json';
+
+const data = educationData as EducationData;
 
 interface University {
   name: string;
@@ -23,11 +26,7 @@ interface EducationData {
   studies: Study[];
 }
 
-interface EducationDisplayProps {
-  data: EducationData;
-}
-
-const EducationDisplay: React.FC<EducationDisplayProps> = ({ data }) => {
+const EducationDisplay: React.FC = () => {
   return (
     <div className="education-display">
       <h3>== {data.title} ==</h3>
