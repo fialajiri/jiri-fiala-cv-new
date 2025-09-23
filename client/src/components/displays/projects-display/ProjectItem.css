@@ -1,26 +1,21 @@
 .project-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid var(--terminal-border);
-  border-radius: 3px;
+  padding: 16px;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .project-title {
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: bold; 
 }
 
 .project-description {
   margin-bottom: 10px;
-  line-height: 1.4;
-  font-size: 0.9rem;
+  line-height: 1.4;  
 }
 
 .project-urls {

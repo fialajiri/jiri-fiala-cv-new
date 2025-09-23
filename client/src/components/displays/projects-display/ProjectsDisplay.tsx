@@ -33,7 +33,7 @@ const ProjectsDisplay: React.FC = () => {
 
   return (
     <div className="projects-display">
-      <h3>== {data.title} ==</h3>
+      <div className="projects-display-title">{data.title}:</div>
 
       {data.projects.map((project, index) => (
         <ProjectItem

@@ -1,10 +1,9 @@
-.projects-display {  
-  line-height: 1.4;
-  margin: 10px 0;
+.projects-display {
+  line-height: 1.4;  
 }
 
-.projects-display h3 { 
-  margin: 0 0 15px 0;
+.projects-display-title {  
+  padding-left: 16px;
   font-size: 1.1em;
   font-weight: bold;
 }
