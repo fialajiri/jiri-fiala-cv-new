@@ -120,7 +120,7 @@ export const useCommandHandler = ({
         const now = new Date();
         const dateMessage: Message = {
           id: uuidv4(),
-          type: 'system',
+          type: 'plain',
           content: now.toString(),
         };
         setMessages(prev => [...prev, dateMessage]);

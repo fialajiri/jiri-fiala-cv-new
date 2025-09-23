@@ -1,0 +1,19 @@
+/* Plain Message Component Styles */
+.plain-message {
+  margin: 8px 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.plain-text {
+  display: block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}

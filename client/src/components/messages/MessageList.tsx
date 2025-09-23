@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Message } from '../../lib/utils';
-import { SystemMessage, UserMessage, BotMessage } from './';
+import { SystemMessage, UserMessage, BotMessage, PlainMessage } from './';
 import HistoryMessage from './HistoryMessage';
 import LsMessage from './LsMessage';
 import ThemeMessage from './ThemeMessage';
@@ -67,6 +67,8 @@ const MessageList: React.FC<MessageListProps> = ({
             currentTheme={message.content}
           />
         );
+      case 'plain':
+        return <PlainMessage key={message.id} message={message} />;
       default:
         return null;
     }
