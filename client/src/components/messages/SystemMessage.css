@@ -1,13 +1,11 @@
-.system-label {
-  font-size: 0.9rem;
+.system-label { 
   user-select: text;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
 }
 
-.system-text {
-  font-size: 0.9rem;
+.system-text { 
   white-space: pre-wrap;
   user-select: text;
   -webkit-user-select: text;

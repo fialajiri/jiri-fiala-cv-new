@@ -3,12 +3,13 @@ import fs from 'fs/promises';
 export const createSystemPrompt = async (): Promise<string> => {
   const name = 'Jiri Fiala';
   let summary = '';
-  
+
   try {
     summary = await fs.readFile('./server/assets/summary.txt', 'utf-8');
   } catch (error) {
     console.warn('Could not read summary.txt, using default summary:', error);
-    summary = 'Experienced software developer with expertise in modern web technologies and full-stack development.';
+    summary =
+      'Experienced software developer with expertise in modern web technologies and full-stack development.';
   }
 
   const systemPrompt = `
