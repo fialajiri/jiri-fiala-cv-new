@@ -2,10 +2,7 @@
   margin: 8px 0;
 }
 
-.history-content {
-  color: var(--terminal-green);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
+.history-content {   
   white-space: pre-wrap;
   line-height: 1.4;
   user-select: text;
