@@ -56,18 +56,43 @@ export const COMMAND_SUGGESTIONS: CommandSuggestion[] = [
   { command: 'date', description: 'Show current date and time' },
   { command: 'clear', description: 'Clear the terminal screen' },
   { command: 'theme', description: 'Show available themes' },
-  { command: 'set theme <theme>', description: 'Change the terminal theme' },
+  {
+    command: 'set theme',
+    description: 'Change the terminal theme (e.g. set theme dark)',
+  },
   { command: 'ping', description: 'Test connection to server' },
 ];
 
 export const COMPOUND_COMMAND_SUGGESTIONS: CommandSuggestion[] = [
-  { command: 'set theme <theme>', description: 'Change the terminal theme' },
+  {
+    command: 'set theme',
+    description: 'Change the terminal theme (e.g. set theme dark)',
+  },
 ];
+
+export const getThemeSuggestions = (): CommandSuggestion[] => {
+  return [
+    { command: 'theme', description: 'List available themes' },
+    { command: 'set theme dark', description: 'Switch to dark theme' },
+    { command: 'set theme light', description: 'Switch to light theme' },
+    { command: 'set theme matrix', description: 'Switch to matrix theme' },
+    { command: 'set theme dracula', description: 'Switch to dracula theme' },
+    { command: 'set theme nord', description: 'Switch to nord theme' },
+    { command: 'set theme monokai', description: 'Switch to monokai theme' },
+    { command: 'set theme gruvbox', description: 'Switch to gruvbox theme' },
+    {
+      command: 'set theme solarized',
+      description: 'Switch to solarized theme',
+    },
+    { command: 'set theme tokyo', description: 'Switch to tokyo theme' },
+    { command: 'set theme ubuntu', description: 'Switch to ubuntu theme' },
+    { command: 'set theme cobalt', description: 'Switch to cobalt theme' },
+  ];
+};
 
 export const isValidCommand = (input: string): boolean => {
   const trimmedInput = input.trim().toLowerCase();
 
-  // Check for exact matches first
   if (
     VALID_COMMANDS.includes(trimmedInput as (typeof VALID_COMMANDS)[number])
   ) {
@@ -76,7 +101,11 @@ export const isValidCommand = (input: string): boolean => {
 
   // Check for compound commands like "set theme <name>"
   if (trimmedInput.startsWith('set theme ')) {
-    return true;
+    // Check if the theme name exists in our theme suggestions
+    const themeSuggestions = getThemeSuggestions();
+    return themeSuggestions.some(
+      suggestion => suggestion.command.toLowerCase() === trimmedInput
+    );
   }
 
   return false;
@@ -91,11 +120,32 @@ export const getCommandSuggestions = (input: string): CommandSuggestion[] => {
   const trimmedInput = input.trim().toLowerCase();
 
   if (!trimmedInput) {
-    return COMMAND_SUGGESTIONS.slice(0, 8); // Show first 8 commands by default
+    return COMMAND_SUGGESTIONS;
+  }
+
+  // Check for theme-specific commands
+  if (trimmedInput === 'theme') {
+    return getThemeSuggestions();
   }
 
   // Check for compound commands first
   if (trimmedInput.startsWith('set')) {
+    // If it's a set theme command, show theme suggestions
+    if (trimmedInput.startsWith('set theme')) {
+      const themeQuery = trimmedInput.substring(9).trim(); // Remove 'set theme '
+      if (!themeQuery) {
+        return getThemeSuggestions().filter(suggestion =>
+          suggestion.command.startsWith('set theme')
+        );
+      }
+
+      // Filter theme suggestions based on the query
+      return getThemeSuggestions().filter(suggestion => {
+        const command = suggestion.command.toLowerCase();
+        return command.includes(trimmedInput);
+      });
+    }
+
     return COMPOUND_COMMAND_SUGGESTIONS.filter(suggestion =>
       suggestion.command.toLowerCase().includes(trimmedInput)
     );
@@ -109,15 +159,4 @@ export const getCommandSuggestions = (input: string): CommandSuggestion[] => {
 
   // If no matches found, return empty array
   return filteredCommands.slice(0, 5); // Limit to 5 suggestions
-};
-
-export const isValidUrl = (url: string): boolean => {
-  try {
-    // Add protocol if missing
-    const urlWithProtocol = url.startsWith('http') ? url : `https://${url}`;
-    new URL(urlWithProtocol);
-    return true;
-  } catch {
-    return false;
-  }
 };

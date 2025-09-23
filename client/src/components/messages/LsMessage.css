@@ -24,12 +24,13 @@
   flex-direction: row;
   align-items: baseline;
   padding: 0 0 0 16px;
-  gap: 12px;
+  gap: 36px;
 }
 
 .ls-command-name {
-  min-width: 120px;
+  width: 160px;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .ls-command-desc {
