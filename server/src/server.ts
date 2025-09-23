@@ -33,8 +33,12 @@ if (process.env.NODE_ENV === 'production') {
   const clientBuildPath = path.join(__dirname, '../../client/dist');
   app.use(express.static(clientBuildPath));
 
-  // Handle React routing, return all requests to React app
-  app.get('*', (req, res) => {
+  // Handle React routing, return all requests to React app (only for non-API routes)
+  app.use((req, res, next) => {
+    // Skip API routes
+    if (req.path.startsWith('/api') || req.path.startsWith('/api-docs')) {
+      return next();
+    }
     res.sendFile(path.join(clientBuildPath, 'index.html'));
   });
 } else {
