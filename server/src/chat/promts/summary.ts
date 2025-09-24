@@ -1,0 +1,189 @@
+export const summary = `
+THE JOURNEY OF JIŘÍ FIALA
+========================
+From Numbers to Code: A Story of Passion, Purpose, and Professional Growth
+
+CONTACT INFORMATION
+-------------------
+Name: Jiří Fiala
+Occupation: Full Stack Web Developer
+Email: jirik.fiala@post.cz
+Phone: +420 602 107 243
+Location: Teplice, Czech Republic
+GitHub: github.com/fialajiri
+LinkedIn: linkedin.com/in/fialajirka
+CV: jiri_fiala_en.pdf
+
+MY STORY
+--------
+Picture this: It's 2020, the world is in lockdown, and while many were learning to bake sourdough bread, I was discovering something far more fulfilling—the art of turning ideas into digital reality through code. What started as a weekend hobby during those uncertain times became the catalyst for a complete career transformation.
+
+Today, I stand as a passionate full-stack developer with over 4 years of hands-on experience, but my story doesn't begin there. My journey spans more than a decade of analytical excellence—8+ years of dissecting complex problems, crafting strategic solutions, and leading diverse teams across various industries. This unique combination of analytical rigor and technical prowess has shaped me into a developer who doesn't just write code, but understands the business logic behind every line.
+
+The COVID pandemic didn't just change the world—it changed me. It was during those quiet, introspective months that I realized programming wasn't just a hobby; it was my calling. The satisfaction of solving problems, the joy of creating something from nothing, the endless learning opportunities—I knew I couldn't imagine doing anything else.
+
+What sets me apart isn't just my technical skills in React.js, Next.js, Node.js, and TypeScript, but my ability to bridge the gap between complex business requirements and elegant technical solutions. I don't just build applications; I craft experiences that solve real-world problems for real people.
+
+TECHNICAL SKILLS
+----------------
+• Javascript/TypeScript 
+• React, Next.js 
+• Node.js, Express, Nest.js 
+• MongoDB, SQL, MSSQL, Oracle, PostgreSQL 
+• HTML, CSS, SCSS 
+• Vue, Nuxt.js 
+• Python
+• C++ 
+
+LANGUAGES
+---------
+• Czech - Native
+• English  - Fluent
+• French  - Basic
+
+MY PROFESSIONAL JOURNEY
+-----------------------
+
+🔒 PROTECTING THE DIGITAL FRONTIER
+Fullstack Developer | Be a Future s.r.o. | Aug 2024 - Present
+Location: Prague, Czech Republic
+
+Imagine being part of a team that's literally keeping a nation's digital infrastructure secure. That's exactly where I find myself today, developing the Czech Police Mobile Security Platform (MBP)—a mission-critical system that ensures secure communication and management for law enforcement across the Czech Republic. Every line of code I write contributes to the safety and security of millions of citizens.
+
+Working with cutting-edge technologies like PostgreSQL, Express, TypeScript, Node.js, Docker, and Kubernetes, I'm not just building applications; I'm crafting the digital backbone that enables secure cross-platform communication for police services. The responsibility is immense, but the impact is even greater.
+
+⚡ POWERING THE ENERGY REVOLUTION
+Back-end Developer | ApiTree s.r.o. | Feb 2024 - Aug 2024
+Location: Prague, Czech Republic
+
+From protecting national security to powering the energy sector—my journey took an exciting turn when I joined the team developing EON Distribuce's revolutionary distributor portal. Picture this: a single platform managing energy services for both massive corporations and individual households, handling everything from electricity and gas to solar energy trading.
+
+The challenge was immense: create a robust solution that could scale from B2B enterprise clients to B2C consumers, all while maintaining the reliability that energy distribution demands. Using Nest.js and a modern microservices architecture, I helped build a system that doesn't just manage energy—it empowers customers to take control of their energy future.
+
+🏢 TRANSFORMING ENTERPRISE EFFICIENCY
+Back-end Developer | Neit Consulting s.r.o. | Feb 2023 - Feb 2024
+Location: Prague, Czech Republic
+
+Sometimes the most impactful work happens behind the scenes. Enter TAS (Team Assistant)—the enterprise process management system that's revolutionizing how major companies like Dr.Max, Fortuna, and Prague Airport operate. I was part of the team that built this comprehensive solution, automating everything from document management to HR administration.
+
+The beauty of TAS lies in its simplicity: what once took hours of manual work now happens in minutes. Using JavaScript, TypeScript, Node.js, and Express, we created a system that doesn't just manage processes—it transforms them, making companies more efficient, more organized, and more successful.
+
+🏛️ BRIDGING CITIZENS AND GOVERNMENT
+Software Engineer | FoxCom s.r.o. | Feb 2022 - Feb 2023
+Location: Teplice, Czech Republic
+
+My first major project in the tech world was deeply personal—developing the Prague 6 Municipal District web portal. This wasn't just about building a website; it was about creating a digital bridge between citizens and their local government.
+
+Using Vue.js, Nuxt.js, and a modern tech stack, I helped create a platform that transformed how residents interact with their local government. From traffic announcements to event management, every feature was designed with one goal: making government more accessible, more transparent, and more responsive to the people it serves.
+
+📊 THE ANALYTICAL FOUNDATION
+My Journey Through Data and Strategy
+
+Before I discovered my passion for code, I spent over 8 years mastering the art of turning data into decisions. This analytical foundation didn't just prepare me for programming—it gave me a unique perspective that most developers never develop.
+
+🔍 DECODING BUSINESS INTELLIGENCE
+Chief Analyst | EDHANCE s.r.o. | Aug 2019 - Jan 2021
+Location: Ústí nad Labem, Czech Republic
+
+At EDHANCE, I learned that data tells a story—if you know how to listen. I spent my days diving deep into customer analytics, identifying patterns that others missed, and crafting recommendations that transformed business strategies. Risk assessment wasn't just about numbers; it was about understanding human behavior, market dynamics, and the delicate balance between opportunity and caution.
+
+This role taught me that every business problem is a puzzle waiting to be solved, and the solution often lies in the data that others overlook.
+
+🏗️ BUILDING MORE THAN STRUCTURES
+Managing Director | STOSTAV s.r.o. | Aug 2015 - Apr 2019
+Location: Teplice, Czech Republic
+
+Leading STOSTAV wasn't just about managing construction projects—it was about orchestrating complex operations where every decision had real-world consequences. I learned to optimize cost structures not just for profit, but for sustainability. Negotiating with suppliers taught me the art of finding win-win solutions. Preparing tenders and managing budgets showed me how to balance ambition with reality.
+
+Every project was a lesson in leadership, every challenge an opportunity to grow. These years shaped my understanding of how businesses truly operate, from the ground up.
+
+📡 CONNECTING THE FUTURE
+Business Analyst | O2 Czech Republic | Mar 2013 - Jul 2015
+Location: Prague, Czech Republic
+
+At O2, I wasn't just analyzing markets—I was helping shape the future of telecommunications in the Czech Republic. Working on the LTE frequency auction strategy wasn't just about numbers; it was about understanding how technology would transform how people communicate, work, and live.
+
+From designing business cases for optical infrastructure to implementing pilot projects, I learned that innovation isn't just about having great ideas—it's about understanding the market, the technology, and the people who would use it. This experience taught me to think beyond the immediate problem to the long-term impact of every decision.
+
+🎓 THE FOUNDATION OF KNOWLEDGE
+My Educational Journey
+
+My academic path reflects my insatiable curiosity and my belief that the best solutions come from understanding multiple disciplines. I didn't just study—I learned to think differently.
+
+🔬 BRIDGING SCIENCE AND TECHNOLOGY
+Master's Degree | University of Jan Evangelista Purkyne in Ústí nad Labem | 2016-2017
+Faculty of Science | Computer Modelling in Science and Technology
+
+This wasn't just another degree—it was my first real introduction to the power of computational thinking. Learning computer modeling in science and technology opened my eyes to how algorithms could solve problems that seemed impossible. It was here that I first experienced the thrill of making the complex simple through code.
+
+⚛️ THE MATHEMATICAL MIND
+Bachelor's Degree | Czech Technical University in Prague | 2009-2013
+Faculty of Nuclear Sciences and Physical Engineering | Mathematical Modelling
+Thesis: Aperiodic Random Number Generators
+
+At one of the Czech Republic's most prestigious technical universities, I dove deep into mathematical modeling and nuclear sciences. My thesis on aperiodic random number generators wasn't just academic work—it was my first taste of creating something that had real-world applications. The precision and rigor required in nuclear engineering taught me that attention to detail isn't just important—it's everything.
+
+📈 UNDERSTANDING THE ECONOMIC LANDSCAPE
+Master's Degree | Prague University of Economics | 2007-2009
+Faculty of Economics | Economic Analysis & Quantitative Management
+Thesis: Asymmetric Information and Contract Theory
+
+Economics taught me that every decision has consequences, every choice involves trade-offs, and every system can be understood through data. My thesis on asymmetric information and contract theory wasn't just about economics—it was about understanding how information flows through systems, a skill that would prove invaluable in my later work with data and technology.
+
+💰 THE BUSINESS PERSPECTIVE
+Bachelor's Degree | West-Bohemian University in Pilsen | 2004-2007
+Faculty of Economics | Finance
+Thesis: The Dynamics of Keynesian Theory
+
+My journey began with finance, learning how money moves through systems and how economic theories translate into real-world impact. Understanding Keynesian theory wasn't just about academic knowledge—it was about grasping how economic systems respond to change, adapt to challenges, and evolve over time.
+
+🚀 WHERE PASSION MEETS PURPOSE
+My Personal Projects
+
+These aren't just side projects—they're the places where I experiment, learn, and give back to my community. Each one tells a story of how technology can bring people together and make a real difference.
+
+🏁 HONORING A LEGACY
+Sayfyho Memorial
+URL: https://sayfy-frontend-ts.vercel.app/
+GitHub: https://github.com/fialajiri/sayfy-frontend-ts
+
+Some projects are born from the heart. The Sayfyho Memorial cycling race needed a digital home—a place where organizers could share news, upload photos, and keep the memory of a beloved cyclist alive. Using Next.js and Express, I created more than just a website; I built a digital memorial that brings the cycling community together year after year.
+
+🏛️ DEMOCRACY IN THE DIGITAL AGE
+Volba Pro! Teplice
+URL: https://www.volbaproteplice.cz/
+GitHub: https://github.com/fialajiri/vpt-frontend-ts
+
+When local politics meets modern technology, amazing things happen. I helped bring the Volba Pro! Teplice political party into the digital age, creating a platform that makes local politics more accessible and transparent. This project taught me that technology isn't just about code—it's about empowering communities and strengthening democracy.
+
+🎭 CULTURE CONNECTS US ALL
+Živé Teplice
+URL: https://www.ziveteplice.cz/
+GitHub: https://github.com/fialajiri/zive-teplice-frontend
+
+Culture is the soul of a community, and technology can be its voice. The Živé Teplice cultural event needed a platform where artists could showcase their work, participants could register for events, and organizers could manage everything seamlessly. This project showed me how technology can preserve and promote local culture in ways that were never possible before.
+
+💼 THE META PROJECT
+Moje CV
+URL: https://www.ziveteplice.cz/
+GitHub: https://github.com/fialajiri/my-cv
+
+What better way to showcase my skills than by building the very platform that tells my story? This personal presentation page isn't just a resume—it's a living, breathing example of what I can create. Built with Next.js 13.0.2, it represents the perfect marriage of form and function, design and development.
+
+🌟 THE STORY CONTINUES
+Where We Go From Here
+
+Every great story has a beginning, a middle, and an exciting future. My journey from numbers to code, from analysis to application, from theory to practice—it's all been leading to this moment.
+
+I'm not just a developer who writes code; I'm a problem-solver who understands that every technical challenge is really a human challenge. My 8+ years of analytical experience didn't just teach me to read data—it taught me to read people, to understand what they really need, even when they can't articulate it themselves.
+
+My 3+ years in full-stack development have given me the technical skills to turn those insights into reality. React.js, Next.js, Node.js, TypeScript—these aren't just tools in my toolkit; they're the brushes I use to paint digital solutions that make a real difference.
+
+From protecting national security with the Czech Police to empowering energy customers with EON, from streamlining enterprise operations with TAS to connecting citizens with their local government—every project has been a chapter in a larger story about using technology to solve real problems for real people.
+
+But here's the thing about good stories: they don't end. They evolve. They grow. They lead to new adventures, new challenges, new opportunities to make a difference.
+
+The question isn't what I've accomplished—it's what we can accomplish together. Because the best stories are the ones we write together.
+
+Ready to write the next chapter?
+`;

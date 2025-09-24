@@ -160,7 +160,7 @@ export const themes: Theme[] = [
   {
     id: 'dracula',
     name: 'Dracula',
-    description: 'Dark purple theme inspired by Dracula',
+    description: 'Official Dracula theme color palette',
     colors: {
       background: '#282a36',
       terminalBackground: '#282a36',
@@ -174,7 +174,7 @@ export const themes: Theme[] = [
       headerBackground: '#44475a',
       headerText: '#f8f8f2',
       inputText: '#f8f8f2',
-      promptUser: '#8be9fd',
+      promptUser: '#bd93f9',
       promptPath: '#ff79c6',
       promptSeparator: '#f8f8f2',
       promptDollar: '#f8f8f2',

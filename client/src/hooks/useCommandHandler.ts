@@ -170,8 +170,8 @@ export const useCommandHandler = ({
             if (switchedTheme) {
               const successMessage: Message = {
                 id: uuidv4(),
-                type: 'system',
-                content: `Theme switched to: ${switchedTheme.name}`,
+                type: 'plain',
+                content: `Theme changed to: ${switchedTheme.name}`,
               };
               setMessages(prev => [...prev, successMessage]);
             } else {
