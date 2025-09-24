@@ -12,6 +12,7 @@ import type { ChatMessage } from './lib/api-client';
 import { queryClient } from './lib/queryClient';
 import { downloadCV } from './lib/downloadUtils';
 import { initializeTheme } from './lib/themeUtils';
+import { isValidCommand } from './lib/commandUtils';
 
 const AppContent: React.FC = () => {
   const [currentInput, setCurrentInput] = useState('');
@@ -77,16 +78,30 @@ const AppContent: React.FC = () => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !isTyping) {
+    if (e.key === 'Enter') {
       if (!currentInput.trim()) return;
 
-      addUserMessage(currentInput.trim());
-      sendMessageToAPI(currentInput.trim());
-      setCurrentInput('');
+      const input = currentInput.trim();
+
+      // Check if it's a terminal command
+      if (isValidCommand(input)) {
+        // Handle terminal command - these work even when server is offline
+        addUserMessage(input);
+        handleCommand(input);
+        setCurrentInput('');
+      } else {
+        // Handle chat message - only if not currently typing
+        if (!isTyping) {
+          addUserMessage(input);
+          sendMessageToAPI(input);
+          setCurrentInput('');
+        }
+      }
     }
   };
 
   const onCommand = async (command: string) => {
+    // Terminal commands always work, regardless of server status
     addUserMessage(command);
     await handleCommand(command);
     setCurrentInput('');

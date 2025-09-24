@@ -66,7 +66,8 @@ const InputLine: React.FC<InputLineProps> = ({
     }
   }, [currentInput, onSuggestionsChange]);
 
-  if (isTyping) {
+  const isCommandInput = isValidCommand(currentInput.trim());
+  if (isTyping && !isCommandInput) {
     return null;
   }
 
