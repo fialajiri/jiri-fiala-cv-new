@@ -1,29 +1,37 @@
 {
   "title": "My Tech Stack",
-  "skills": [
+  "categories": [
     {
-      "name": "Javascript/Typescript, Python"
+      "name": "Languages",
+      "items": ["Javascript", "Typescript", "Python"]
     },
     {
-      "name": "React, Next.js, Vue, Nuxt.js"
+      "name": "Frontend Frameworks",
+      "items": ["React", "Next.js", "Vue", "Nuxt.js"]
     },
     {
-      "name": "Prisma, TypeORM"
+      "name": "Backend Frameworks",
+      "items": ["Node.js", "Express", "Nest.js"]
     },
     {
-      "name": "MongoDB, SQL, MSSQL, Oracle, PostgreSQL"
+      "name": "Databases",
+      "items": ["MongoDB", "SQL", "MSSQL", "Oracle", "PostgreSQL"]
     },
     {
-      "name": "HTML, CSS, SCSS"
+      "name": "ORM/Tools",
+      "items": ["Prisma", "TypeORM"]
     },
     {
-      "name": "Node.js, Express, Nest.js"
+      "name": "Web Technologies",
+      "items": ["HTML", "CSS", "SCSS"]
     },
     {
-      "name": "GraphQL, REST API"
+      "name": "APIs",
+      "items": ["GraphQL", "REST API"]
     },
     {
-      "name": "Docker, Kubernetes"
+      "name": "DevOps",
+      "items": ["Docker", "Kubernetes"]
     }
   ]
 }

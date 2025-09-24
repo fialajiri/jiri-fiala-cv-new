@@ -4,24 +4,33 @@ import skillsData from '../data/tech-skills-en.json';
 
 const data = skillsData as SkillsData;
 
-interface Skill {
+interface SkillCategory {
   name: string;
+  items: string[];
 }
 
 interface SkillsData {
   title: string;
-  skills: Skill[];
+  categories: SkillCategory[];
 }
 
 const SkillsDisplay: React.FC = () => {
   return (
     <div className="skills-display">
-      <h3>== {data.title} ==</h3>
+      <div className="skills-display-title">{data.title}:</div>
 
       <div className="skills-grid">
-        {data.skills.map((skill, index) => (
-          <div key={index} className="skill-item">
-            <div className="skill-name">{skill.name}</div>
+        {data.categories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="skill-category">
+            <div className="category-name">{category.name}:</div>
+            <div className="category-items">
+              {category.items.map((item, itemIndex) => (
+                <span key={itemIndex} className="skill-item">
+                  {item}
+                  {itemIndex < category.items.length - 1 && ', '}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
