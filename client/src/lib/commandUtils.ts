@@ -19,7 +19,6 @@ export const VALID_COMMANDS = [
   'clear',
   'theme',
   'set',
-  'ping',
 ] as const;
 
 export const COMMAND_MAP: Record<string, string> = {
@@ -60,7 +59,6 @@ export const COMMAND_SUGGESTIONS: CommandSuggestion[] = [
     command: 'set theme',
     description: 'Change the terminal theme (e.g. set theme dark)',
   },
-  { command: 'ping', description: 'Test connection to server' },
 ];
 
 export const COMPOUND_COMMAND_SUGGESTIONS: CommandSuggestion[] = [

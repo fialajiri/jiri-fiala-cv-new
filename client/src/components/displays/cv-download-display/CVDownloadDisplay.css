@@ -3,8 +3,8 @@
   margin: 10px 0;
 }
 
-.cv-download-display h3 {  
-  margin: 0 0 15px 0;
-  font-size: 1.1em;
+.cv-download-display-title {  
+  padding-left: 16px;
+  font-size: 1em;
   font-weight: bold;
 }

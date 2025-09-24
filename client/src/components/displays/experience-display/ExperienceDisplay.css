@@ -1,24 +1,23 @@
-.experience-display {  
+.experience-display {
   line-height: 1.4;
   margin: 10px 0;
 }
 
-.experience-display h3 {  
-  margin: 0 0 15px 0;
-  font-size: 1.1em;
+.experience-display-title {
+  padding-left: 16px;
+  font-size: 1rem;
   font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .job-item {
   margin-bottom: 15px;
-  padding: 10px;
-  border-left: 2px solid var(--terminal-border);
-  padding-left: 15px;
+  padding: 0 16px;
 }
 
 .job-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 12px;
   flex-wrap: wrap;
@@ -26,37 +25,38 @@
 }
 
 .job-title-company {
-  font-weight: bold;  
-  font-size: 1.1em;
+  font-weight: bold;
+  font-size: 1rem;
   flex: 1;
 }
 
-.job-dates {  
+.job-dates {
   font-size: 0.9em;
   font-weight: bold;
   flex: 0 0 auto;
 }
 
 .job-responsibilities {
-  margin-left: 8px;
   margin-top: 4px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
 }
 
 .responsibility-item {
   display: flex;
-  margin-bottom: 2px;
   align-items: flex-start;
+  margin-left: 16px;
 }
 
-.bullet { 
+.bullet {
   margin-right: 6px;
   font-weight: bold;
   margin-top: 1px;
   font-size: 0.9rem;
 }
 
-.responsibility-text {  
-  font-size: 0.9rem;
+.responsibility-text {
   line-height: 1.4;
   flex: 1;
 }

@@ -28,7 +28,7 @@ interface ExperienceData {
 const ExperienceDisplay: React.FC = () => {
   return (
     <div className="experience-display">
-      <h3>== {data.title} ==</h3>
+      <div className="experience-display-title">{data.title}:</div>
 
       {data.jobs.map(job => (
         <div key={job.id} className="job-item">
@@ -44,8 +44,7 @@ const ExperienceDisplay: React.FC = () => {
           <div className="job-responsibilities">
             {job.responsibilities.map((responsibility, index) => (
               <div key={index} className="responsibility-item">
-                <span className="bullet">•</span>
-                <span className="responsibility-text">{responsibility}</span>
+                <div className="responsibility-text">{responsibility}</div>
               </div>
             ))}
           </div>

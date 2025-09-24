@@ -42,7 +42,7 @@ const CVDownloadDisplay: React.FC<CVDownloadDisplayProps> = ({
 
   return (
     <div className="cv-download-display">
-      <h3>== Download CV ==</h3>
+      <div className="cv-download-display-title">Download CV:</div>
       <SelectionList
         options={cvOptions}
         onSelectionChange={() => {}}
