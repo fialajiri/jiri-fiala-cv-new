@@ -77,7 +77,7 @@
 
   .terminal-content {
     padding: 12px;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 70px);
   }
 
   /* Hide resize handles on mobile */
