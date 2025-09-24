@@ -17,3 +17,17 @@ export const TERMINAL_MAXIMIZED_POSITION = {
   x: 0,
   y: 0,
 };
+
+// Mobile-specific constants
+export const TERMINAL_MOBILE_SIZE = {
+  width: '100vw',
+  height: '100vh',
+};
+
+export const TERMINAL_MOBILE_POSITION = {
+  x: 0,
+  y: 0,
+};
+
+// Breakpoint for mobile
+export const MOBILE_BREAKPOINT = 768;

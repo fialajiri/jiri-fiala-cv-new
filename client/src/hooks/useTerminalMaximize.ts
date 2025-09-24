@@ -11,7 +11,8 @@ export const useTerminalMaximize = (
   terminalSize: ITerminalSize,
   terminalPosition: ITerminalPosition,
   setTerminalSize: (size: ITerminalSize) => void,
-  setTerminalPosition: (position: ITerminalPosition) => void
+  setTerminalPosition: (position: ITerminalPosition) => void,
+  isMobile: boolean = false
 ) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [originalSize, setOriginalSize] = useState(TERMINAL_DEFAULT_SIZE);
@@ -20,6 +21,10 @@ export const useTerminalMaximize = (
   );
 
   const handleMaximize = useCallback(() => {
+    if (isMobile) {
+      return;
+    }
+
     if (!isMaximized) {
       setOriginalSize(terminalSize);
       setOriginalPosition(terminalPosition);
@@ -38,6 +43,7 @@ export const useTerminalMaximize = (
     originalPosition,
     setTerminalSize,
     setTerminalPosition,
+    isMobile,
   ]);
 
   return { isMaximized, handleMaximize };

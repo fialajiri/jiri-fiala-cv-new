@@ -46,13 +46,15 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
     terminalPosition,
     setTerminalSize,
     setTerminalPosition,
+    isMobile,
   } = useTerminalResize();
 
   const { isMaximized, handleMaximize } = useTerminalMaximize(
     terminalSize,
     terminalPosition,
     setTerminalSize,
-    setTerminalPosition
+    setTerminalPosition,
+    isMobile
   );
 
   const scrollToBottom = () => {
@@ -87,15 +89,21 @@ const TerminalContainer: React.FC<TerminalContainerProps> = ({
         position={terminalPosition}
         onDragStop={handleDragStop}
         onResizeStop={handleResizeStop}
-        minWidth={300}
-        minHeight={200}
-        maxWidth={isMaximized ? '100vw' : '90vw'}
-        maxHeight={isMaximized ? '100vh' : '90vh'}
-        dragHandleClassName="terminal-header"
-        bounds="window"
+        minWidth={isMobile ? '100vw' : 300}
+        minHeight={isMobile ? '100vh' : 200}
+        maxWidth={isMobile ? '100vw' : isMaximized ? '100vw' : '90vw'}
+        maxHeight={isMobile ? '100vh' : isMaximized ? '100vh' : '90vh'}
+        dragHandleClassName={isMobile ? undefined : 'terminal-header'}
+        bounds={isMobile ? 'parent' : 'window'}
         className="terminal-rnd"
+        disableDragging={isMobile}
+        enableResizing={!isMobile}
       >
-        <TerminalHeader isMaximized={isMaximized} onMaximize={handleMaximize} />
+        <TerminalHeader
+          isMaximized={isMaximized}
+          onMaximize={handleMaximize}
+          isMobile={isMobile}
+        />
         <div ref={terminalRef} className="terminal-content">
           <MessageList
             messages={messages}
