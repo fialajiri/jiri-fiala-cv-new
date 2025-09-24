@@ -75,9 +75,8 @@
     min-height: 100vh !important;
   }
 
-  .terminal-content {
-    padding: 12px;
-    max-height: calc(100vh - 70px);
+  .terminal-content {   
+    max-height: calc(100vh - 100px);
   }
 
   /* Hide resize handles on mobile */
