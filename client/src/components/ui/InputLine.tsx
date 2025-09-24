@@ -136,6 +136,7 @@ const InputLine: React.FC<InputLineProps> = ({
             maxHeight: '200px',
           }}
           onInput={handleTextareaInput}
+          aria-label="Terminal command input"
         />
       </div>
       <CommandSuggestions

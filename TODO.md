@@ -4,5 +4,5 @@
 7. Implement theme and set theme, theme should be in global state probably - DONE
 5. Terminal suggestions, need to find a clever way how not to move the windown when suggestion expend/contract - DONE
 4. Responsivity and media queries
-8. better classes for some display components
-9. deploy somewhere
+8. better classes for some display components - DONE
+9. deploy somewhere - DONE
