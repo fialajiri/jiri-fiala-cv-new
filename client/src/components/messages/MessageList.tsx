@@ -64,7 +64,6 @@ const MessageList: React.FC<MessageListProps> = ({
                 description: string;
               }>
             }
-            currentTheme={message.content}
           />
         );
       case 'plain':

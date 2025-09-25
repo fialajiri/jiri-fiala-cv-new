@@ -22,10 +22,14 @@ const CommandSuggestions: React.FC<CommandSuggestionsProps> = ({
         {suggestions.map(suggestion => (
           <div key={suggestion.command} className="suggestion-item">
             <span className="suggestion-command">{suggestion.command}</span>
-            <span className="suggestion-separator"> - </span>
-            <span className="suggestion-description">
-              {suggestion.description}
-            </span>
+            {suggestion.description && (
+              <div>
+                <span className="suggestion-separator"> - </span>
+                <span className="suggestion-description">
+                  {suggestion.description}
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>

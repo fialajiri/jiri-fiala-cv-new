@@ -22,7 +22,7 @@
 .suggestion-item {
   display: flex;
   align-items: center;
-  gap: 0.25em;
+  gap: 4em;
   padding: 0.25em 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -40,6 +40,7 @@
   color: var(--text-muted, #888888);
   opacity: 0.5;
   flex-shrink: 0;
+  margin-right: 0;
 }
 
 .suggestion-description {

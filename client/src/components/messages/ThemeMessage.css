@@ -1,119 +1,15 @@
-/* Theme Message Component Styles */
-.theme-message {
-  margin: 16px 0;
-  padding: 0;
-}
-
-.theme-content {
-  background: transparent;
-  border-radius: 4px;
-  padding: 0;
-}
-
-.theme-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--terminal-border, #666666);
-}
-
-.theme-header h3 {
-  margin: 0;
-  color: var(--terminal-text, #ffffff);
-  font-size: 16px;
+.theme-header-text {
+  margin-bottom: 8px;
+  padding-left: 16px;
   font-weight: bold;
-}
-
-.current-theme {  
-  font-size: 14px;
 }
 
 .theme-name {
-  font-weight: bold;
-  color: var(--accent-color, #646cff);
+  padding-left: 32px;
 }
 
-.theme-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.theme-item {
-  background: var(--terminal-background, #000000);
-  border: 1px solid var(--terminal-border, #666666);
-  border-radius: 6px;
-  padding: 12px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.theme-item:hover {
-  border-color: var(--accent-color, #646cff);
-  background: var(--header-background, #2d2d2d);
-}
-
-.theme-item.active {
-  border-color: var(--terminal-green, #00e600);
-  background: var(--header-background, #2d2d2d);
-  box-shadow: 0 0 0 1px var(--terminal-green, #00e600);
-}
-
-.theme-item .theme-name {
-  font-weight: bold;
-  color: var(--terminal-text, #ffffff);
-  margin-bottom: 4px;
-  font-size: 14px;
-}
-
-.theme-item .theme-description {  
-  font-size: 0.6rem;
-  line-height: 1.4;
-}
-
-.theme-usage {
-  background: var(--header-background, #2d2d2d);
-  border: 1px solid var(--terminal-border, #666666);
-  border-radius: 4px;
-  padding: 12px;
-  margin-top: 16px;
-}
-
-.theme-usage p {
-  margin: 0 0 8px 0;
-  color: var(--terminal-text, #ffffff);
-  font-size: 0.8rem;
-}
-
-.theme-usage p:last-child {
-  margin-bottom: 0;
-}
-
-.theme-usage code {
-  background: var(--terminal-background, #000000); 
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: var(--terminal-font, monospace);
-  font-size: 0.8rem;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .theme-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .theme-item {
-    padding: 10px;
-  }
-
-  .theme-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
+.theme-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }

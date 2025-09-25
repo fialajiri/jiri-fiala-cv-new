@@ -33,7 +33,7 @@ export const COMMAND_MAP: Record<string, string> = {
 
 export interface CommandSuggestion {
   command: string;
-  description: string;
+  description?: string;
 }
 
 export const COMMAND_SUGGESTIONS: CommandSuggestion[] = [
@@ -71,20 +71,17 @@ export const COMPOUND_COMMAND_SUGGESTIONS: CommandSuggestion[] = [
 export const getThemeSuggestions = (): CommandSuggestion[] => {
   return [
     { command: 'theme', description: 'List available themes' },
-    { command: 'set theme dark', description: 'Switch to dark theme' },
-    { command: 'set theme light', description: 'Switch to light theme' },
-    { command: 'set theme matrix', description: 'Switch to matrix theme' },
-    { command: 'set theme dracula', description: 'Switch to dracula theme' },
-    { command: 'set theme nord', description: 'Switch to nord theme' },
-    { command: 'set theme monokai', description: 'Switch to monokai theme' },
-    { command: 'set theme gruvbox', description: 'Switch to gruvbox theme' },
-    {
-      command: 'set theme solarized',
-      description: 'Switch to solarized theme',
-    },
-    { command: 'set theme tokyo', description: 'Switch to tokyo theme' },
-    { command: 'set theme ubuntu', description: 'Switch to ubuntu theme' },
-    { command: 'set theme cobalt', description: 'Switch to cobalt theme' },
+    { command: 'set theme dark' },
+    { command: 'set theme light' },
+    { command: 'set theme matrix' },
+    { command: 'set theme dracula' },
+    { command: 'set theme nord' },
+    { command: 'set theme monokai' },
+    { command: 'set theme gruvbox' },
+    { command: 'set theme solarized' },
+    { command: 'set theme tokyo' },
+    { command: 'set theme ubuntu' },
+    { command: 'set theme cobalt' },
   ];
 };
 

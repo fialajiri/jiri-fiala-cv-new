@@ -21,7 +21,6 @@ export const useCommandHandler = ({
   addBotMessage,
   updateBotMessage,
   getInitialMessages,
-  currentTheme,
 }: UseCommandHandlerProps) => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
 
@@ -148,11 +147,10 @@ export const useCommandHandler = ({
         const themeMessage: Message = {
           id: uuidv4(),
           type: 'theme',
-          content: currentTheme || 'dark', // Current theme name
+          content: '',
           componentData: themes.map(theme => ({
             id: theme.id,
             name: theme.name,
-            description: theme.description,
           })),
         };
         setMessages(prev => [...prev, themeMessage]);
