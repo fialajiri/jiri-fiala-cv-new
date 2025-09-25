@@ -14,28 +14,31 @@ export const useTerminalResize = () => {
   const [terminalPosition, setTerminalPosition] = useState(
     TERMINAL_DEFAULT_POSITION
   );
-  const [originalSize, setOriginalSize] = useState(TERMINAL_DEFAULT_SIZE);
-  const [originalPosition, setOriginalPosition] = useState(
-    TERMINAL_DEFAULT_POSITION
-  );
+  const [originalSize, setOriginalSize] = useState<
+    typeof TERMINAL_DEFAULT_SIZE | null
+  >(null);
+  const [originalPosition, setOriginalPosition] = useState<
+    typeof TERMINAL_DEFAULT_POSITION | null
+  >(null);
 
   useEffect(() => {
     if (isMobile) {
-      setOriginalSize(terminalSize);
-      setOriginalPosition(terminalPosition);
+      // Save current size/position as original if not already saved
+      if (originalSize === null && originalPosition === null) {
+        setOriginalSize(terminalSize);
+        setOriginalPosition(terminalPosition);
+      }
       setTerminalSize(TERMINAL_MOBILE_SIZE);
       setTerminalPosition(TERMINAL_MOBILE_POSITION);
     } else {
-      setTerminalSize(originalSize);
-      setTerminalPosition(originalPosition);
+      // Restore original size/position if available, otherwise use defaults
+      if (originalSize && originalPosition) {
+        setTerminalSize(originalSize);
+        setTerminalPosition(originalPosition);
+      }
     }
-  }, [
-    isMobile,
-    terminalSize,
-    terminalPosition,
-    originalSize,
-    originalPosition,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMobile]);
 
   const handleDragStop: RndDragCallback = useCallback(
     (_, d) => {
